@@ -26,7 +26,7 @@ export default function FormPreselection() {
       const { id, name, recommendedConsumption, recommendedExample } =
         selectedFoodCategory;
       const result = `Der empfohlene Tagesbedarf für ${name} liegt bei 
-    ${recommendedConsumption} gramm. Das entspricht etwa ${recommendedExample}.`;
+    ${recommendedConsumption} gramm. Das entspricht etwa: ${recommendedExample}.`;
       setResultText(result);
       setShowResult(true);
       //form is reset
