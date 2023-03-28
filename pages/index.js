@@ -1,9 +1,12 @@
-import Heading from "../components/Heading";
+import Header from "../components/Heading";
+import FormPreselection from "../components/FormPreselectionFood";
+import styled from "styled-components";
 
 export default function Home() {
   return (
     <main>
-      <Heading>🐠 Tropical Fish Capstone Template 🐠</Heading>
+      <Header text="FuturePlate"></Header>
+      <FormPreselection />
     </main>
   );
 }
