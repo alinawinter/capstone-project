@@ -2,21 +2,26 @@ import styled from "styled-components";
 import SubmitButton from "../SubmitButton/index";
 import ResetButton from "../ResetButton/index";
 import { foodCategories } from "../../lib/db";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+
+//This is the form for the first part of the daily quiz, where the user preselects the food that he or she ate
 
 export default function FormPreselection() {
-  const [selectedFood, setSelectedFood] = useState("");
   const [showResult, setShowResult] = useState(false);
   const [resultText, setResultText] = useState("");
 
+  //This function handels what happens, when the Submit-Button is clicked:
   function handleFoodSelection(event) {
     event.preventDefault();
+    //The form-input is stored in the "data"-Object
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
-    setSelectedFood(data.foodAte);
+    /* The content of "data" is matched with the right Object from the foodCategories-Array 
+ and stored in new variable selectedFoodCategory*/
     const selectedFoodCategory = foodCategories.find(
-      (foodCategory) => foodCategory.name === selectedFood
+      (foodCategory) => foodCategory.name === data.foodAte
     );
+    //If selectedFoodCategory is defined, its destructured, saved in a result variable and displayed*/
     if (selectedFoodCategory) {
       const { id, name, recommendedConsumption, recommendedExample } =
         selectedFoodCategory;
@@ -24,6 +29,7 @@ export default function FormPreselection() {
     ${recommendedConsumption} gramm. Das entspricht etwa ${recommendedExample}.`;
       setResultText(result);
       setShowResult(true);
+      //form is reset
       event.target.reset();
     }
   }
