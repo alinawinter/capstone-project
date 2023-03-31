@@ -1,12 +1,20 @@
-import Header from "../components/Heading";
-import FormPreselection from "../components/FormPreselectionFood";
+import Header from "../components/Heading/Header";
+import FormPreselection from "../components/Form/FormPreselectionFood";
 import styled from "styled-components";
+import Link from "next/link";
 
-export default function Home() {
+export default function Home({ foodCategory, handleSetFoodCategory }) {
   return (
-    <main>
+    <Main>
       <Header text="FuturePlate"></Header>
-      <FormPreselection />
-    </main>
+      <FormPreselection
+        foodCategory={foodCategory}
+        handleSetFoodCategory={handleSetFoodCategory}
+      />
+    </Main>
   );
 }
+
+const Main = styled.main`
+  min-height: 200vh;
+`;

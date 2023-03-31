@@ -1,17 +1,7 @@
 import styled from "styled-components";
 
-export default function ResetButton({ setShowResult }) {
-  function handleReset(event, setShowResults, setResultText) {
-    event.preventDefault();
-    event.target.form.reset();
-    setShowResult(false);
-  }
-
-  return (
-    <StyledButton type="reset" onClick={handleReset} text="Reset">
-      Reset
-    </StyledButton>
-  );
+export default function BasicButton({ text }) {
+  return <StyledButton>{text}</StyledButton>;
 }
 
 const StyledButton = styled.button`
