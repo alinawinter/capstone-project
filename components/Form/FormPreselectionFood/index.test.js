@@ -7,7 +7,7 @@ jest.mock("next/router", () => ({
 }));
 
 describe("FormPreselection", () => {
-  test("The food categories from the array in the database are rendered as labels to input fields in the form", () => {
+  test("renders the food categories from the array in the database as labels to input fields in the form", () => {
     useRouter.mockImplementation(() => ({
       push: jest.fn(),
     }));

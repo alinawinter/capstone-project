@@ -2,7 +2,7 @@ import FormQuantitySpecification from ".";
 import { render, screen, act } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-test("When the user presses the submit-Button, the result text is rendered", async () => {
+test("renders the results text, when the user presses the submit-Button", async () => {
   const user = userEvent.setup();
   render(
     <FormQuantitySpecification

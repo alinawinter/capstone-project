@@ -16,7 +16,7 @@ export default function FormPreselection({
     const data = Object.fromEntries(formData);
     handleSetFoodCategory(data.foodAte);
 
-    router.push("/formdetailspage");
+    router.push("/FormDetailspage");
   }
 
   return (
