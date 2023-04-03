@@ -21,10 +21,7 @@ test("When the user presses the submit-Button, the result text is rendered", asy
   const submitButton = screen.getByRole("button", {
     name: "Auswertung",
   });
-
-  await act(async () => {
-    await user.click(submitButton);
-  });
-  const resultText = screen.getByText(/232/);
+  await user.click(submitButton);
+  const resultText = await screen.getByText(/232/);
   expect(resultText).toBeInTheDocument();
 });
