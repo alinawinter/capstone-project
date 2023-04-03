@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import SubmitButton from "../../Buttons/SubmitButton/SubmitButton";
-import ResetButton from "../../Buttons/ResetButton/ResetButton";
+import ResetFormButton from "../../Buttons/ResetButton/ResetFormButton";
 import { foodCategories } from "../../../lib/db";
 import { useState } from "react";
 import { useRouter } from "next/router";
@@ -16,22 +16,22 @@ export default function FormPreselection({
     const data = Object.fromEntries(formData);
     handleSetFoodCategory(data.foodAte);
 
-    router.push("../../FormDetailspage");
+    router.push("/formdetailspage");
   }
 
   return (
     <>
       <Form
-        aria-labelledby="title"
-        aria-describedby="description"
+        aria-labelledby="form-title"
+        aria-describedby="form-description"
         onSubmit={handleSubmitAndNextPage}
         handleSetFoodCategory={handleSetFoodCategory}
       >
-        <h3 id="title">Tägliches Essensquiz</h3>
-        <legend id="description">
+        <h3 id="form-title">Tägliches Essensquiz</h3>
+        <legend id="form-description">
           Bitte wähle aus, was du heute gegessen hast:
         </legend>
-        <Answers>
+        <Answerslist>
           {foodCategories.map(
             ({ id, name, recommendedConsumption, recommendedExample }) => (
               <li key={id}>
@@ -46,9 +46,9 @@ export default function FormPreselection({
               </li>
             )
           )}
-        </Answers>
+        </Answerslist>
         <ButtonBox>
-          <ResetButton />
+          <ResetFormButton text="Reset" />
           <SubmitButton text="Weiter" />
         </ButtonBox>
       </Form>
@@ -65,14 +65,14 @@ const Form = styled.form`
   padding: 3em;
   justify-content: start;
   flex-wrap: wrap;
-  height: 29em;
+  height: 30em;
   margin: 1em;
   border-radius: 1.5em;
   color: var(--color-blue);
   text-align: center;
 `;
 
-const Answers = styled.ul`
+const Answerslist = styled.ul`
   list-style: none;
   display: flex;
   flex-direction: row;

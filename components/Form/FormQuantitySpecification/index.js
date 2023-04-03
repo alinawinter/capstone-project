@@ -1,15 +1,15 @@
 import styled from "styled-components";
 import SubmitButton from "../../Buttons/SubmitButton/SubmitButton";
-import ResetButton from "../../Buttons/ResetButton/ResetButton";
-import BasicButton from "../../Buttons/BasicButton/BasicButton";
+import ResetFormAndResultButton from "../../Buttons/ResetButton/ResetFormAndResultButton";
+import { BasicButton } from "../../Buttons/buttonStyles";
 import Link from "next/link";
 import { useState } from "react";
 import {
-  DetailsScoreCalculationDeviation,
-  DetailsScoreCalculationAccordance,
-} from "../../../utils/DetailsScoreCalculation";
+  calculateDetailsScoreDeviation,
+  calculateDetailsScoreAccordance,
+} from "../../../utils/detailsScoreUtils";
 
-export default function FormQuantitiySpecification({ foodCategory }) {
+export default function FormQuantitySpecification({ foodCategory }) {
   const [showResult, setShowResult] = useState(false);
   const [resultText, setResultText] = useState("");
   const [quantity, setQuantity] = useState(0);
@@ -28,8 +28,8 @@ export default function FormQuantitiySpecification({ foodCategory }) {
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
     setQuantity(parseFloat(data.consumedQuantity));
-    const consumedQuantityAccordance = DetailsScoreCalculationAccordance(
-      DetailsScoreCalculationDeviation,
+    const consumedQuantityAccordance = calculateDetailsScoreAccordance(
+      calculateDetailsScoreDeviation,
       quantity,
       recommendedConsumption,
       maxRange
@@ -46,11 +46,11 @@ export default function FormQuantitiySpecification({ foodCategory }) {
     <>
       <Form
         aria-labelledby="title"
-        aria-describedby="description"
+        aria-describedby="form-description"
         onSubmit={handleQuantitySpecification}
       >
-        <h3 id="title">Tägliches Essensquiz</h3>
-        <legend id="description">
+        <h3 id="form-title">Tägliches Essensquiz</h3>
+        <legend id="form-description">
           Bitte wähle aus, wieviel <b>{name}</b> du heute gegessen hast:
         </legend>
         <StyledSection>
@@ -73,9 +73,11 @@ export default function FormQuantitiySpecification({ foodCategory }) {
         <output>{`${quantity} gramm`}</output>
         <ButtonBox>
           <Link href="../..">
-            <BasicButton text="Zurück" />
+            <BasicButton>Zurück</BasicButton>
           </Link>
-          <ResetButton
+          <ResetFormAndResultButton
+            text="Reset"
+            showResult={showResult}
             setShowResult={setShowResult}
             setResultText={setResultText}
             setQuantity={setQuantity}
@@ -107,7 +109,7 @@ const Form = styled.form`
   padding: 3em;
   justify-content: start;
   flex-wrap: wrap;
-  height: 29em;
+  height: 30em;
   margin: 1em;
   border-radius: 1.5em;
   color: var(--color-blue);

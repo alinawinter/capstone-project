@@ -3,7 +3,7 @@ of consumption of INDIVIDUAL FOOD CATEGORIES */
 
 // The following function calculates the (percentage) deviation from the recommended consumption (by Planetary Health Diet)
 
-export function DetailsScoreCalculationDeviation(
+export function calculateDetailsScoreDeviation(
   consumedQuantity,
   recommendedConsumption,
   maxRange
@@ -23,21 +23,13 @@ export function DetailsScoreCalculationDeviation(
 
 // The following function calculates the accordance (percent match) recommended consumption (by Planetary Health Diet)
 
-export function DetailsScoreCalculationAccordance(
-  DetailsScoreCalculationDeviation,
+export function calculateDetailsScoreAccordance(
+  calculateDetailsScoreDeviation,
   consumedQuantity,
   recommendedConsumption,
   maxRange
 ) {
-  console.log(
-    "consumedQuantity:",
-    consumedQuantity,
-    "recommendedConsumption:",
-    recommendedConsumption,
-    "maxRange:",
-    maxRange
-  );
-  const deviation = DetailsScoreCalculationDeviation(
+  const deviation = calculateDetailsScoreDeviation(
     consumedQuantity,
     recommendedConsumption,
     maxRange

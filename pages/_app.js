@@ -6,7 +6,6 @@ import { foodCategories } from "../lib/db";
 export default function App({ Component, pageProps }) {
   const [foodCategory, setFoodCategory] = useState({});
 
-  //Setter Function which sets selected food as foodCategory (passed to forms, to be further used there)
   function handleSetFoodCategory(selection) {
     setFoodCategory(
       foodCategories.find((foodCategory) => foodCategory.name === selection)
