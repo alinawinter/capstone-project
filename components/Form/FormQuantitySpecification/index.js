@@ -45,7 +45,7 @@ export default function FormQuantitySpecification({ foodCategory }) {
   return (
     <>
       <Form
-        aria-labelledby="title"
+        aria-labelledby="form-title"
         aria-describedby="form-description"
         onSubmit={handleQuantitySpecification}
       >
