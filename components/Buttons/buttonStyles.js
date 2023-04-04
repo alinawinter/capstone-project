@@ -1,10 +1,6 @@
 import styled from "styled-components";
 
-export default function SubmitButton({ text }) {
-  return <StyledButton type="submit">{text}</StyledButton>;
-}
-
-const StyledButton = styled.button`
+export const BasicButton = styled.button`
   color: var(--color-beige);
   font-family: var(--font-family-text);
   background-color: var(--color-green);

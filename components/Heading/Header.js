@@ -10,7 +10,10 @@ export default function Header() {
 
 const HeadingContainer = styled.div`
   background-color: var(--color-orange);
+  top: 0;
   display: flex;
+  position: sticky;
+  z-index: 10;
   height: 7em;
   padding: 1rem;
   justify-content: center;
@@ -20,6 +23,7 @@ const HeadingContainer = styled.div`
 
 const Heading = styled.h1`
   font-family: var(--font-family-heading);
+  z-index: 11;
   color: var(--color-beige);
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 `;
