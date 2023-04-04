@@ -5,12 +5,18 @@ import { foodCategories } from "../lib/db";
 
 export default function App({ Component, pageProps }) {
   const [foodCategory, setFoodCategory] = useState({});
+  const [quantity, setQuantity] = useState(0);
 
   function handleSetFoodCategory(selection) {
     setFoodCategory(
       foodCategories.find((foodCategory) => foodCategory.name === selection)
     );
   }
+
+  function handleSetQuantityPerCategory(data) {
+    setQuantity(parseFloat(data.consumedQuantity));
+  }
+
   return (
     <>
       <GlobalStyle />
@@ -21,6 +27,8 @@ export default function App({ Component, pageProps }) {
         {...pageProps}
         foodCategory={foodCategory}
         handleSetFoodCategory={handleSetFoodCategory}
+        handleSetQuantityPerCategory={handleSetQuantityPerCategory}
+        quantity={quantity}
       />
     </>
   );

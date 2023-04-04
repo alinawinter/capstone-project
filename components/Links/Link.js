@@ -1,21 +1,11 @@
 import Link from "next/link";
 import styled from "styled-components";
 
-export const BackLink = () => (
-  <StyledLinkWrapper>
-    <StyledBackLink href="/">{"<"} Zurück</StyledBackLink>
-  </StyledLinkWrapper>
-);
+export default function BasicLink({ to, text }) {
+  return <StyledBasicLink href={to}>{text}</StyledBasicLink>;
+}
 
-const StyledLinkWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: start;
-  margin: 1em;
-`;
-
-const StyledBackLink = styled(Link)`
+const StyledBasicLink = styled(Link)`
   display: inline-block;
   font-size: 14px;
   text-decoration: none;

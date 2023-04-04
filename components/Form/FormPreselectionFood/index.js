@@ -2,13 +2,9 @@ import styled from "styled-components";
 import SubmitButton from "../../Buttons/SubmitButton/SubmitButton";
 import ResetFormButton from "../../Buttons/ResetButton/ResetFormButton";
 import { foodCategories } from "../../../lib/db";
-import { useState } from "react";
 import { useRouter } from "next/router";
 
-export default function FormPreselection({
-  foodCategory,
-  handleSetFoodCategory,
-}) {
+export default function FormPreselection({ handleSetFoodCategory }) {
   const router = useRouter();
   function handleSubmitAndNextPage(event) {
     event.preventDefault();
@@ -32,20 +28,18 @@ export default function FormPreselection({
           Bitte wähle aus, was du heute gegessen hast:
         </legend>
         <Answerslist>
-          {foodCategories.map(
-            ({ id, name, recommendedConsumption, recommendedExample }) => (
-              <li key={id}>
-                <input
-                  type="radio"
-                  id={id}
-                  name="foodAte"
-                  value={name}
-                  required
-                />
-                <label htmlFor={id}>{name}</label>
-              </li>
-            )
-          )}
+          {foodCategories.map(({ id, name }) => (
+            <li key={id}>
+              <input
+                type="radio"
+                id={id}
+                name="foodAte"
+                value={name}
+                required
+              />
+              <label htmlFor={id}>{name}</label>
+            </li>
+          ))}
         </Answerslist>
         <ButtonBox>
           <ResetFormButton text="Reset" />
@@ -63,9 +57,9 @@ const Form = styled.form`
   align-items: center;
   gap: 1.5em;
   padding: 3em;
-  justify-content: start;
+  justify-content: center;
   flex-wrap: wrap;
-  height: 30em;
+  height: 50%;
   margin: 1em;
   border-radius: 1.5em;
   color: var(--color-blue);
