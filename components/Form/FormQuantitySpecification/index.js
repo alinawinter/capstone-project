@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import SubmitButton from "../../Buttons/SubmitButton/SubmitButton";
 import ResetFormAndResultButton from "../../Buttons/ResetButton/ResetFormAndResultButton";
-import { BasicButton } from "../../Buttons/buttonStyles";
-import Link from "next/link";
 import { useState } from "react";
 import {
   calculateDetailsScoreDeviation,
@@ -72,9 +70,6 @@ export default function FormQuantitySpecification({ foodCategory }) {
         </StyledSection>
         <output>{`${quantity} gramm`}</output>
         <ButtonBox>
-          <Link href="../..">
-            <BasicButton>Zurück</BasicButton>
-          </Link>
           <ResetFormAndResultButton
             text="Reset"
             showResult={showResult}
