@@ -1,7 +1,7 @@
 import Layout from "../../components/layout";
+import GoBackButton from "../../components/Buttons/GoBackButton/GoBackButton";
+import ContentCard from "../../components/ContentCard/ContentCard";
 import FormQuantitySpecification from "../../components/Form/FormQuantitySpecification";
-import RestartQuizLink from "../../components/Links/RestartQuizLink";
-import BasicLink from "../../components/Links/Link";
 
 export default function FormDetailspage({
   foodCategory,
@@ -9,11 +9,13 @@ export default function FormDetailspage({
 }) {
   return (
     <Layout>
-      <RestartQuizLink />
-      <FormQuantitySpecification
-        foodCategory={foodCategory}
-        handleSetQuantityPerCategory={handleSetQuantityPerCategory}
-      />
+      <GoBackButton />
+      <ContentCard>
+        <FormQuantitySpecification
+          foodCategory={foodCategory}
+          handleSetQuantityPerCategory={handleSetQuantityPerCategory}
+        />
+      </ContentCard>
     </Layout>
   );
 }

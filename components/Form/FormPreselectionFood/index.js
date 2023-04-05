@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { BasicForm } from "../formStyles";
 import SubmitButton from "../../Buttons/SubmitButton/SubmitButton";
 import ResetFormButton from "../../Buttons/ResetButton/ResetFormButton";
 import { foodCategories } from "../../../lib/db";
@@ -17,7 +18,7 @@ export default function FormPreselection({ handleSetFoodCategory }) {
 
   return (
     <>
-      <Form
+      <BasicForm
         aria-labelledby="form-title"
         aria-describedby="form-description"
         onSubmit={handleSubmitAndNextPage}
@@ -45,26 +46,10 @@ export default function FormPreselection({ handleSetFoodCategory }) {
           <ResetFormButton text="Reset" />
           <SubmitButton text="Weiter" />
         </ButtonBox>
-      </Form>
+      </BasicForm>
     </>
   );
 }
-
-const Form = styled.form`
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1em;
-  padding: 3em;
-  justify-content: center;
-  flex-wrap: wrap;
-  height: auto;
-  border-radius: 1.5em;
-  color: var(--color-blue);
-  text-align: center;
-  margin: 8%;
-`;
 
 const Answerslist = styled.ul`
   list-style: none;

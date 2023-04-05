@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useState } from "react";
+//import ContentCard from "../ContentCard/ContentCard";
 import {
   calculateDetailsScoreDeviation,
   calculateDetailsScoreAccordance,
@@ -17,12 +17,12 @@ export default function Score({ foodCategory, quantity }) {
   );
 
   return (
-    <ResultContainer>
+    <>
       <StyledScore>{Math.floor(consumedQuantityAccordance)} %</StyledScore>
       <section>
         <p>
-          Dein Konsum der Lebensmittelgruppe {name} stimmt zu{" "}
-          {Math.floor(consumedQuantityAccordance)} % mit den Empfehlungen der
+          Dein Konsum der Lebensmittelgruppe {name} über {quantity} gramm stimmt
+          zu {Math.floor(consumedQuantityAccordance)} % mit den Empfehlungen der
           Planetary Health Diet überein.
         </p>
         <p>
@@ -34,29 +34,9 @@ export default function Score({ foodCategory, quantity }) {
           nach Sorte und Zubereitung variieren kann.
         </Hint>
       </section>
-    </ResultContainer>
+    </>
   );
 }
-
-const ResultContainer = styled.div`
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5em;
-  padding: 3em;
-  justify-content: center;
-  flex-wrap: wrap;
-  height: auto;
-  margin: 8%;
-  border-radius: 1.5em;
-  color: var(--color-blue);
-  text-align: center;
-`;
-
-const Hint = styled.p`
-  font-style: italic;
-`;
 
 const StyledScore = styled.h1`
   color: var(--color-blue);
@@ -72,4 +52,8 @@ const StyledScore = styled.h1`
     background-color: var(--color-orange);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   }
+`;
+
+const Hint = styled.p`
+  font-style: italic;
 `;

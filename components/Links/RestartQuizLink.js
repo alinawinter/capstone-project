@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import BasicLink from "./Link";
 
-export default function RestartQuizLink({ to, text }) {
+export default function RestartQuizLink() {
   return (
     <StyledRestartQuizLinkWrapper>
-      <BasicLink to="./" text={`< Restart`} />
+      <BasicLink to="./" text={`< Restart Quiz`} />
     </StyledRestartQuizLinkWrapper>
   );
 }

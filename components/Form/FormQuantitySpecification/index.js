@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { BasicForm } from "../formStyles";
 import SubmitButton from "../../Buttons/SubmitButton/SubmitButton";
 import ResetFormButton from "../../Buttons/ResetButton/ResetFormButton";
 import { BasicButton } from "../../Buttons/buttonStyles";
@@ -36,7 +37,7 @@ export default function FormQuantitySpecification({
 
   return (
     <>
-      <Form
+      <BasicForm
         aria-labelledby="form-title"
         aria-describedby="form-description"
         onSubmit={handleQuantitySpecification}
@@ -74,26 +75,10 @@ export default function FormQuantitySpecification({
           </BasicButton>
           <SubmitButton text="Auswertung" />
         </ButtonBox>
-      </Form>
+      </BasicForm>
     </>
   );
 }
-
-const Form = styled.form`
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5em;
-  padding: 3em;
-  justify-content: center;
-  flex-wrap: wrap;
-  height: auto;
-  margin: 8%;
-  border-radius: 1.5em;
-  color: var(--color-blue);
-  text-align: center;
-`;
 
 const Input = styled.input.attrs({ type: "range" })`
   background-color: var(--color-yellow);
