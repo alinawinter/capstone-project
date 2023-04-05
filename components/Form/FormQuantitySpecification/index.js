@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import SubmitButton from "../../Buttons/SubmitButton/SubmitButton";
+import ResetFormButton from "../../Buttons/ResetButton/ResetFormButton";
 import { BasicButton } from "../../Buttons/buttonStyles";
 import { useState } from "react";
 import { useRouter } from "next/router";
@@ -28,7 +29,7 @@ export default function FormQuantitySpecification({
     router.push("/scorepage");
   }
 
-  function handleReset(event) {
+  function handleResetRangeInput(event) {
     event.preventDefault();
     setCurrentValue(0);
   }
@@ -41,13 +42,14 @@ export default function FormQuantitySpecification({
         onSubmit={handleQuantitySpecification}
       >
         <h3 id="form-title">Tägliches Essensquiz</h3>
-        <legend id="form-description">
+        <legend id="form-description" htmlFor="range-input">
           Bitte wähle aus, wieviel <b>{name}</b> du heute gegessen hast:
         </legend>
-        <output>{`${currentValue} gramm`}</output>
+        <output role="output">{`${currentValue} gramm`}</output>
         <StyledSection>
-          <div>0 g</div>
+          <div role="minRangeInputField">0 g</div>
           <Input
+            role="slider"
             step={1}
             min={0}
             type="range"
@@ -59,11 +61,15 @@ export default function FormQuantitySpecification({
               setCurrentValue(event.target.value);
             }}
           />
-          <div>{`${maxRangeInputField} g`}</div>
+          <div role="maxRangeInputField">{`${maxRangeInputField} g`}</div>
         </StyledSection>
 
         <ButtonBox>
-          <BasicButton type="reset" onClick={handleReset}>
+          <BasicButton
+            type="reset"
+            text="Reset"
+            onClick={handleResetRangeInput}
+          >
             Reset
           </BasicButton>
           <SubmitButton text="Auswertung" />
@@ -82,8 +88,8 @@ const Form = styled.form`
   padding: 3em;
   justify-content: center;
   flex-wrap: wrap;
-  height: 50%;
-  margin: 1em;
+  height: auto;
+  margin: 8%;
   border-radius: 1.5em;
   color: var(--color-blue);
   text-align: center;

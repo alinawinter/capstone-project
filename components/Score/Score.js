@@ -3,7 +3,7 @@ import { useState } from "react";
 import {
   calculateDetailsScoreDeviation,
   calculateDetailsScoreAccordance,
-} from "../utils/detailsScoreUtils";
+} from "../../utils/detailsScoreUtils";
 
 export default function Score({ foodCategory, quantity }) {
   const { name, recommendedConsumption, recommendedExample, maxRange } =
@@ -47,8 +47,8 @@ const ResultContainer = styled.div`
   padding: 3em;
   justify-content: center;
   flex-wrap: wrap;
-  height: 50%;
-  margin: 1em;
+  height: auto;
+  margin: 8%;
   border-radius: 1.5em;
   color: var(--color-blue);
   text-align: center;
@@ -73,29 +73,3 @@ const StyledScore = styled.h1`
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   }
 `;
-
-/*const [quantity, setQuantity] = useState(0);
-const [showResult, setShowResult] = useState(false);
-  const [resultText, setResultText] = useState("");
-  
-  const consumedQuantityAccordance = calculateDetailsScoreAccordance(
-      calculateDetailsScoreDeviation,
-      quantity,
-      recommendedConsumption,
-      maxRange
-    );
-    const result = `Dein Konsum der Lebensmittelgruppe ${name} stimmt zu ${Math.floor(
-      consumedQuantityAccordance
-    )} % mit den Empfehlungen der Planetary Health Diet überein. Empfohlen werden ${recommendedConsumption} gramm. Das entspricht etwa: ${recommendedExample}.`;
-    setResultText(result);
-    setShowResult(true);
-    event.target.reset();
-
-  const [resultText, setResultText] = useState("");
-
-     const result = `Dein Konsum der Lebensmittelgruppe ${name} stimmt zu ${Math.floor(
-    consumedQuantityAccordance
-  )} % mit den Empfehlungen der Planetary Health Diet überein. Empfohlen werden ${recommendedConsumption} gramm. Das entspricht etwa: ${recommendedExample}.`;
-  setResultText(result);
-  
-  */

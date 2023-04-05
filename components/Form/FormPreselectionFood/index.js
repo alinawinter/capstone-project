@@ -55,15 +55,15 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5em;
+  gap: 1em;
   padding: 3em;
   justify-content: center;
   flex-wrap: wrap;
-  height: 50%;
-  margin: 1em;
+  height: auto;
   border-radius: 1.5em;
   color: var(--color-blue);
   text-align: center;
+  margin: 8%;
 `;
 
 const Answerslist = styled.ul`

@@ -1,6 +1,6 @@
 import Layout from "../../components/layout";
 import FormQuantitySpecification from "../../components/Form/FormQuantitySpecification";
-import StyledBackLink from "../../components/Links/BackLink";
+import RestartQuizLink from "../../components/Links/RestartQuizLink";
 import BasicLink from "../../components/Links/Link";
 
 export default function FormDetailspage({
@@ -9,7 +9,7 @@ export default function FormDetailspage({
 }) {
   return (
     <Layout>
-      <StyledBackLink />
+      <RestartQuizLink />
       <FormQuantitySpecification
         foodCategory={foodCategory}
         handleSetQuantityPerCategory={handleSetQuantityPerCategory}

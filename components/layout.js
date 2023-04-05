@@ -14,7 +14,8 @@ const StyledMain = styled.main`
   display: flex;
   flex-direction: column;
   gap: 0.1em;
-  justify-content: start;
+  justify-content: center;
   flex-wrap: wrap;
-  min-height: 200vh;
+  min-height: 80vh;
+  width: 100%;
 `;
