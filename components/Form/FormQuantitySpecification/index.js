@@ -1,33 +1,34 @@
 import styled from "styled-components";
 import { BasicForm } from "../formStyles";
 import SubmitButton from "../../Buttons/SubmitButton/SubmitButton";
-import ResetFormButton from "../../Buttons/ResetButton/ResetFormButton";
 import { BasicButton } from "../../Buttons/buttonStyles";
 import { useState } from "react";
-import { useRouter } from "next/router";
 
 export default function FormQuantitySpecification({
-  foodCategory,
+  selectedFoodCategory,
   handleSetQuantityPerCategory,
+  handleNextPage,
+  currentIndex,
+  selectedFoodCategories,
 }) {
-  const router = useRouter();
   const [currentValue, setCurrentValue] = useState(0);
-
-  const {
-    id,
-    name,
-    recommendedConsumption,
-    recommendedExample,
-    maxRange,
-    maxRangeInputField,
-  } = foodCategory;
+  const { id, name, maxRangeInputField } = selectedFoodCategory;
+  let buttonText =
+    (currentIndex === selectedFoodCategories.length - 1 && "Auswertung") ||
+    "Weiter";
 
   function handleQuantitySpecification(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
-    handleSetQuantityPerCategory(data);
-    router.push("/scorepage");
+    const consumedQuantityValue = parseFloat(data.consumedQuantity);
+    handleSetQuantityPerCategory(
+      selectedFoodCategories,
+      id,
+      consumedQuantityValue
+    );
+    handleNextPage();
+    setCurrentValue(0);
   }
 
   function handleResetRangeInput(event) {
@@ -73,7 +74,7 @@ export default function FormQuantitySpecification({
           >
             Reset
           </BasicButton>
-          <SubmitButton text="Auswertung" />
+          <SubmitButton text={buttonText} />
         </ButtonBox>
       </BasicForm>
     </>

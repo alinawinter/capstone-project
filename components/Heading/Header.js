@@ -14,7 +14,7 @@ const HeadingContainer = styled.div`
   display: flex;
   position: sticky;
   z-index: 10;
-  height: 7em;
+  height: 4em;
   padding: 1rem;
   justify-content: center;
   align-items: center;

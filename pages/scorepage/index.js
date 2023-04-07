@@ -4,12 +4,11 @@ import Score from "../../components/Score/Score";
 import RestartQuizLink from "../../components/Links/RestartQuizLink";
 import GoBackButton from "../../components/Buttons/GoBackButton/GoBackButton";
 
-export default function ScorePage({ foodCategory, quantity }) {
+export default function ScorePage({ selectedFoodCategories }) {
   return (
     <Layout>
-      <GoBackButton />
       <ContentCard>
-        <Score quantity={quantity} foodCategory={foodCategory} />
+        <Score selectedFoodCategories={selectedFoodCategories} />
         <RestartQuizLink />
       </ContentCard>
     </Layout>

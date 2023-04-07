@@ -10,7 +10,7 @@ export default function GoBackButton() {
   }
   return (
     <StyledGoBackButtonWrapper>
-      <BasicButton onClick={handleGoBack}>{`< Zurück`}</BasicButton>
+      <BasicButton onClick={handleGoBack}>{`<`}</BasicButton>
     </StyledGoBackButtonWrapper>
   );
 }

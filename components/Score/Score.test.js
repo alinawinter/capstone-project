@@ -1,11 +1,10 @@
 import Score from "./Score";
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 
 test("renders a score thats is based on a selected foodCategory from the array and on the users range input on consumed amount of food", () => {
   render(
     <Score
-      foodCategory={{
+      selectedFoodCategories={{
         id: "1",
         name: "Vollkorngetreide",
         recommendedConsumption: 232,

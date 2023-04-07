@@ -14,7 +14,7 @@ describe("FormQuantitySpecification", () => {
     }));
     render(
       <FormQuantitySpecification
-        foodCategory={{
+        selectedFoodCategories={{
           id: "1",
           name: "Vollkorngetreide",
           recommendedConsumption: 232,
@@ -25,8 +25,8 @@ describe("FormQuantitySpecification", () => {
         }}
       />
     );
-    const selctedFoodCategory = screen.getByText(/Bitte wähle aus, wieviel/);
-    expect(selctedFoodCategory).toHaveTextContent("Vollkorngetreide");
+    const selectedFoodCategory = screen.getByText(/Bitte wähle aus, wieviel/);
+    expect(selectedFoodCategory).toHaveTextContent("Vollkorngetreide");
 
     const maxRangeInputField = screen.getByRole("maxRangeInputField");
     expect(maxRangeInputField).toHaveTextContent("600");
@@ -41,7 +41,7 @@ describe("FormQuantitySpecification", () => {
     const user = userEvent.setup();
     render(
       <FormQuantitySpecification
-        foodCategory={{
+        selectedFoodCategories={{
           id: "1",
           name: "Vollkorngetreide",
           recommendedConsumption: 232,

@@ -4,17 +4,33 @@ import { useState } from "react";
 import { foodCategories } from "../lib/db";
 
 export default function App({ Component, pageProps }) {
-  const [foodCategory, setFoodCategory] = useState({});
-  const [quantity, setQuantity] = useState(0);
+  const [selectedFoodCategories, setSelectedFoodCategories] = useState([]);
 
-  function handleSetFoodCategory(selection) {
-    setFoodCategory(
-      foodCategories.find((foodCategory) => foodCategory.name === selection)
+  function handleSetSelectedFoodCategories(selection) {
+    const assignedFoodCategoryFromDB = foodCategories.find(
+      (foodCategory) => foodCategory.name === selection
     );
+    if (!selectedFoodCategories.includes(assignedFoodCategoryFromDB)) {
+      setSelectedFoodCategories((prevSelected) => [
+        ...prevSelected,
+        assignedFoodCategoryFromDB,
+      ]);
+    }
   }
 
-  function handleSetQuantityPerCategory(data) {
-    setQuantity(parseFloat(data.consumedQuantity));
+  function handleSetQuantityPerCategory(
+    selectedFoodCategories,
+    categoryId,
+    consumedQuantityValue
+  ) {
+    const assignedFoodCategoryFromSelection = selectedFoodCategories.find(
+      (foodCategory) => foodCategory.id === categoryId
+    );
+    if (assignedFoodCategoryFromSelection) {
+      assignedFoodCategoryFromSelection.consumedQuantity =
+        consumedQuantityValue;
+    }
+    setSelectedFoodCategories(selectedFoodCategories);
   }
 
   return (
@@ -25,10 +41,10 @@ export default function App({ Component, pageProps }) {
       </Head>
       <Component
         {...pageProps}
-        foodCategory={foodCategory}
-        handleSetFoodCategory={handleSetFoodCategory}
+        selectedFoodCategories={selectedFoodCategories}
+        setSelectedFoodCategories={setSelectedFoodCategories}
+        handleSetSelectedFoodCategories={handleSetSelectedFoodCategories}
         handleSetQuantityPerCategory={handleSetQuantityPerCategory}
-        quantity={quantity}
       />
     </>
   );
