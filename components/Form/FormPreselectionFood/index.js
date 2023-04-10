@@ -4,30 +4,24 @@ import SubmitButton from "../../Buttons/SubmitButton/SubmitButton";
 import ResetFormButton from "../../Buttons/ResetButton/ResetFormButton";
 import { foodCategories } from "../../../lib/db";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useState } from "react";
 
 export default function FormPreselection({
-  handleSetSelectedFoodCategories,
+  handleAddSelectedFoodCategories,
+  handleDeleteSelectedFoodCategories,
   selectedFoodCategories,
   setSelectedFoodCategories,
 }) {
   const router = useRouter();
-
   function handleCheckBoxChange(event) {
     const checkBoxValue = event.target.value;
     const isChecked = event.target.checked;
-    const isUnchecked = event.target.unchecked;
     if (isChecked) {
-      handleSetSelectedFoodCategories(checkBoxValue);
+      handleAddSelectedFoodCategories(checkBoxValue);
+    } else {
+      handleDeleteSelectedFoodCategories(checkBoxValue);
     }
-    if (isUnchecked) {
-      const index = selectedFoodCategories.findIndex(
-        (uncheckedCategory) => uncheckedCategory.name === checkBoxValue
-      );
-      const newArray = selectedFoodCategories.splice(index, 1);
-      setSelectedFoodCategories(newArray);
-      console.log(selectedFoodCategories);
-    }
+    console.log("selectedFoodCategories nach Submit", selectedFoodCategories);
   }
 
   function handleNextPage(event) {
@@ -37,7 +31,10 @@ export default function FormPreselection({
     if (Object.keys(data).length === 0) {
       alert("Bitte wählen Sie mindestens eine Kategorie aus");
     } else {
+      const orderedArray = selectedFoodCategories.sort((a, b) => a.id - b.id);
+      setSelectedFoodCategories(orderedArray);
       router.push(`/detailsformpage/${selectedFoodCategories[0].slug}`);
+      console.log("selectedFoodCategories nach Submit", selectedFoodCategories);
     }
   }
 
@@ -47,7 +44,6 @@ export default function FormPreselection({
         aria-labelledby="form-title"
         aria-describedby="form-description"
         onSubmit={handleNextPage}
-        handleSetSelectedFoodCategories={handleSetSelectedFoodCategories}
       >
         <h3 id="form-title">Tägliches Essensquiz</h3>
         <legend id="form-description">
@@ -93,3 +89,5 @@ const ButtonBox = styled.div`
   gap: 1em;
   flex-wrap: wrap;
 `;
+
+//const newArray = selectedFoodCategories.splice(index, 1);

@@ -19,7 +19,6 @@ export default function FormDetailspage({
       router.push("/scorepage");
     } else {
       setCurrentIndex(currentIndex + 1);
-      console.log(selectedFoodCategories);
       router.push(
         `/detailsformpage/${selectedFoodCategories[currentIndex + 1].slug}`
       );

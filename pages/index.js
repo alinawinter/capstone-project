@@ -4,13 +4,14 @@ import FormPreselection from "../components/Form/FormPreselectionFood";
 import { useEffect } from "react";
 
 export default function Home({
-  handleSetSelectedFoodCategories,
+  handleAddSelectedFoodCategories,
+  handleDeleteSelectedFoodCategories,
   setSelectedFoodCategories,
   selectedFoodCategories,
 }) {
   useEffect(() => {
     setSelectedFoodCategories([]);
-  }, []);
+  }, [setSelectedFoodCategories]);
 
   return (
     <Layout>
@@ -18,7 +19,10 @@ export default function Home({
         <FormPreselection
           setSelectedFoodCategories={setSelectedFoodCategories}
           selectedFoodCategories={selectedFoodCategories}
-          handleSetSelectedFoodCategories={handleSetSelectedFoodCategories}
+          handleAddSelectedFoodCategories={handleAddSelectedFoodCategories}
+          handleDeleteSelectedFoodCategories={
+            handleDeleteSelectedFoodCategories
+          }
         />
       </ContentCard>
     </Layout>

@@ -1,15 +1,20 @@
 import Layout from "../../components/layout";
 import ContentCard from "../../components/ContentCard/ContentCard";
 import Score from "../../components/Score/Score";
-import RestartQuizLink from "../../components/Links/RestartQuizLink";
-import GoBackButton from "../../components/Buttons/GoBackButton/GoBackButton";
+import RestartQuizButton from "../../components/Buttons/RestartQuizButton/RestartQuizButton";
 
-export default function ScorePage({ selectedFoodCategories }) {
+export default function ScorePage({
+  selectedFoodCategories,
+  setSelectedFoodCategories,
+}) {
   return (
     <Layout>
       <ContentCard>
         <Score selectedFoodCategories={selectedFoodCategories} />
-        <RestartQuizLink />
+        <RestartQuizButton
+          setSelectedFoodCategories={setSelectedFoodCategories}
+          selectedFoodCategories={selectedFoodCategories}
+        />
       </ContentCard>
     </Layout>
   );

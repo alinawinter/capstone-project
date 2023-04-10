@@ -25,6 +25,7 @@ export default createGlobalStyle`
     font-family: ${montserrat.style.fontFamily}, sans-serif;
     background-color: var(--color-beige);
     color: var(--color-blue);
+    overflow: hidden
     ;
   }
 `;

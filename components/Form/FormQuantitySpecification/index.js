@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { BasicForm } from "../formStyles";
 import SubmitButton from "../../Buttons/SubmitButton/SubmitButton";
 import { BasicButton } from "../../Buttons/buttonStyles";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function FormQuantitySpecification({
   selectedFoodCategory,
@@ -12,6 +12,16 @@ export default function FormQuantitySpecification({
   selectedFoodCategories,
 }) {
   const [currentValue, setCurrentValue] = useState(0);
+
+  useEffect(() => {
+    if (
+      selectedFoodCategory.hasOwnProperty("consumedQuantity") &&
+      selectedFoodCategory.consumedQuantity != undefined
+    ) {
+      setCurrentValue(selectedFoodCategory.consumedQuantity);
+    }
+  }, [selectedFoodCategory]);
+
   const { id, name, maxRangeInputField } = selectedFoodCategory;
   let buttonText =
     (currentIndex === selectedFoodCategories.length - 1 && "Auswertung") ||

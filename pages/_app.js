@@ -6,16 +6,27 @@ import { foodCategories } from "../lib/db";
 export default function App({ Component, pageProps }) {
   const [selectedFoodCategories, setSelectedFoodCategories] = useState([]);
 
-  function handleSetSelectedFoodCategories(selection) {
+  function handleAddSelectedFoodCategories(selection) {
     const assignedFoodCategoryFromDB = foodCategories.find(
       (foodCategory) => foodCategory.name === selection
     );
     if (!selectedFoodCategories.includes(assignedFoodCategoryFromDB)) {
+      const newAssignedFoodCategory = {
+        ...assignedFoodCategoryFromDB,
+        consumedQuantity: 0,
+      };
       setSelectedFoodCategories((prevSelected) => [
         ...prevSelected,
-        assignedFoodCategoryFromDB,
+        newAssignedFoodCategory,
       ]);
     }
+  }
+
+  function handleDeleteSelectedFoodCategories(selection) {
+    const filteredArray = selectedFoodCategories.filter(
+      (foodCategory) => foodCategory.name !== selection
+    );
+    setSelectedFoodCategories([...filteredArray]);
   }
 
   function handleSetQuantityPerCategory(
@@ -43,7 +54,8 @@ export default function App({ Component, pageProps }) {
         {...pageProps}
         selectedFoodCategories={selectedFoodCategories}
         setSelectedFoodCategories={setSelectedFoodCategories}
-        handleSetSelectedFoodCategories={handleSetSelectedFoodCategories}
+        handleAddSelectedFoodCategories={handleAddSelectedFoodCategories}
+        handleDeleteSelectedFoodCategories={handleDeleteSelectedFoodCategories}
         handleSetQuantityPerCategory={handleSetQuantityPerCategory}
       />
     </>
