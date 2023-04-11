@@ -3,7 +3,6 @@ import { BasicForm } from "../formStyles";
 import SubmitButton from "../../Buttons/SubmitButton/SubmitButton";
 import { BasicButton } from "../../Buttons/buttonStyles";
 import { useState, useEffect } from "react";
-import { useRouter } from "next/router";
 
 export default function FormQuantitySpecification({
   selectedFoodCategory,

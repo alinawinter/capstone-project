@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import { BasicButton } from "../buttonStyles";
 
 export default function ResetFormAndResultButton({
@@ -19,7 +18,11 @@ export default function ResetFormAndResultButton({
   }
 
   return (
-    <BasicButton type="reset" onClick={handleReset}>
+    <BasicButton
+      aria-label="Formular und Ergebnisse zurücksetzen"
+      type="reset"
+      onClick={handleReset}
+    >
       {text}
     </BasicButton>
   );

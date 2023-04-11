@@ -5,10 +5,10 @@ import FormQuantitySpecification from "../../components/Form/FormQuantitySpecifi
 import styled from "styled-components";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
-import BasicLink from "../../components/Links/Link";
 
 export default function FormDetailspage({
   selectedFoodCategories,
+  setSelectedFoodCategories,
   handleSetQuantityPerCategory,
 }) {
   const router = useRouter();
@@ -41,6 +41,7 @@ export default function FormDetailspage({
 
   function handlePreviousPage() {
     if (currentIndex === 0) {
+      setSelectedFoodCategories([]);
       router.push("/");
     } else {
       setCurrentIndex(currentIndex - 1);
@@ -54,7 +55,9 @@ export default function FormDetailspage({
     selectedFoodCategories.length > 0 && (
       <Layout>
         <StyledButtonWrapper>
-          <BasicButton onClick={handlePreviousPage}>{"<"}</BasicButton>
+          <BasicButton onClick={handlePreviousPage}>
+            {currentIndex === 0 ? "< Restart Quiz" : "<"}
+          </BasicButton>
         </StyledButtonWrapper>
         <ContentCard>
           <FormQuantitySpecification

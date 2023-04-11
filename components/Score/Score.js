@@ -1,5 +1,4 @@
 import styled from "styled-components";
-//import ContentCard from "../ContentCard/ContentCard";
 import { calculateAverageScoreAccordance } from "../../utils/averageScoreUtils";
 import {
   calculateDetailsScoreDeviation,
@@ -44,46 +43,3 @@ const StyledScore = styled.h1`
 const Hint = styled.p`
   font-style: italic;
 `;
-
-/* elder version of page, optional to use for detailspage:
-
-import styled from "styled-components";
-//import ContentCard from "../ContentCard/ContentCard";
-import {
-  calculateDetailsScoreDeviation,
-  calculateDetailsScoreAccordance,
-} from "../../utils/detailsScoreUtils";
-
-export default function Score({ selectedFoodCategories}) {
-  const { consumedQuantity, name, recommendedConsumption, recommendedExample, maxRange } =
-    selectedFoodCategories;
-
-  const consumedQuantityAccordance = calculateDetailsScoreAccordance(
-    calculateDetailsScoreDeviation,
-    consumedQuantity,
-    recommendedConsumption,
-    maxRange
-  );
-
-  return (
-    <>
-      <StyledScore>{Math.floor(consumedQuantityAccordance)} %</StyledScore>
-      <section>
-        <p>
-          Dein Konsum der Lebensmittelgruppe {name} über {quantity} gramm stimmt
-          zu {Math.floor(consumedQuantityAccordance)} % mit den Empfehlungen der
-          Planetary Health Diet überein.
-        </p>
-        <p>
-          Empfohlen werden <strong> {recommendedConsumption} gramm </strong>.
-          Das entspricht etwa: {recommendedExample}.
-        </p>
-        <Hint>
-          Bitte beachte, dass dies ungefähre Schätzungen sind, da die Menge je
-          nach Sorte und Zubereitung variieren kann.
-        </Hint>
-      </section>
-    </>
-  );
-}
-*/

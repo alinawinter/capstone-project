@@ -8,7 +8,11 @@ export default function ResetFormButton({ text }) {
   }
 
   return (
-    <BasicButton type="reset" onClick={handleReset}>
+    <BasicButton
+      aria-label="Formular zurücksetzen"
+      type="reset"
+      onClick={handleReset}
+    >
       {text}
     </BasicButton>
   );

@@ -4,7 +4,6 @@ import SubmitButton from "../../Buttons/SubmitButton/SubmitButton";
 import ResetFormButton from "../../Buttons/ResetButton/ResetFormButton";
 import { foodCategories } from "../../../lib/db";
 import { useRouter } from "next/router";
-import { useState } from "react";
 
 export default function FormPreselection({
   handleAddSelectedFoodCategories,
@@ -13,6 +12,7 @@ export default function FormPreselection({
   setSelectedFoodCategories,
 }) {
   const router = useRouter();
+
   function handleCheckBoxChange(event) {
     const checkBoxValue = event.target.value;
     const isChecked = event.target.checked;
@@ -21,7 +21,6 @@ export default function FormPreselection({
     } else {
       handleDeleteSelectedFoodCategories(checkBoxValue);
     }
-    console.log("selectedFoodCategories nach Submit", selectedFoodCategories);
   }
 
   function handleNextPage(event) {
@@ -34,41 +33,38 @@ export default function FormPreselection({
       const orderedArray = selectedFoodCategories.sort((a, b) => a.id - b.id);
       setSelectedFoodCategories(orderedArray);
       router.push(`/detailsformpage/${selectedFoodCategories[0].slug}`);
-      console.log("selectedFoodCategories nach Submit", selectedFoodCategories);
     }
   }
 
   return (
-    <>
-      <BasicForm
-        aria-labelledby="form-title"
-        aria-describedby="form-description"
-        onSubmit={handleNextPage}
-      >
-        <h3 id="form-title">Tägliches Essensquiz</h3>
-        <legend id="form-description">
-          Bitte wähle aus, was du heute gegessen hast:
-        </legend>
-        <Answerslist>
-          {foodCategories.map(({ id, name }) => (
-            <li key={id}>
-              <Input
-                type="checkbox"
-                id={id}
-                name="foodAte"
-                value={name}
-                onChange={handleCheckBoxChange}
-              />
-              <label htmlFor={id}>{name}</label>
-            </li>
-          ))}
-        </Answerslist>
-        <ButtonBox>
-          <ResetFormButton text="Reset" />
-          <SubmitButton text="Weiter" />
-        </ButtonBox>
-      </BasicForm>
-    </>
+    <BasicForm
+      aria-labelledby="form-title"
+      aria-describedby="form-description"
+      onSubmit={handleNextPage}
+    >
+      <h3 id="form-title">Tägliches Essensquiz</h3>
+      <legend id="form-description">
+        Bitte wähle aus, was du heute gegessen hast:
+      </legend>
+      <Answerslist>
+        {foodCategories.map(({ id, name }) => (
+          <li key={id}>
+            <Input
+              type="checkbox"
+              id={id}
+              name="foodAte"
+              value={name}
+              onChange={handleCheckBoxChange}
+            />
+            <label htmlFor={id}>{name}</label>
+          </li>
+        ))}
+      </Answerslist>
+      <ButtonBox>
+        <ResetFormButton text="Reset" />
+        <SubmitButton text="Weiter" />
+      </ButtonBox>
+    </BasicForm>
   );
 }
 
@@ -89,5 +85,3 @@ const ButtonBox = styled.div`
   gap: 1em;
   flex-wrap: wrap;
 `;
-
-//const newArray = selectedFoodCategories.splice(index, 1);
