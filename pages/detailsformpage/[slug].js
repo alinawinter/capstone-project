@@ -4,15 +4,29 @@ import { BasicButton } from "../../components/Buttons/buttonStyles";
 import FormQuantitySpecification from "../../components/Form/FormQuantitySpecification";
 import styled from "styled-components";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import BasicLink from "../../components/Links/Link";
 
 export default function FormDetailspage({
   selectedFoodCategories,
   handleSetQuantityPerCategory,
 }) {
   const router = useRouter();
-
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [calledPush, setCalledPush] = useState(false);
+
+  useEffect(() => {
+    if (
+      selectedFoodCategories === undefined ||
+      selectedFoodCategories.length === 0
+    ) {
+      if (calledPush) {
+        return;
+      }
+      router.push("/");
+      setCalledPush(true);
+    }
+  }, [selectedFoodCategories, router, calledPush]);
 
   function handleNextPage() {
     if (currentIndex === selectedFoodCategories.length - 1) {
@@ -37,20 +51,22 @@ export default function FormDetailspage({
   }
 
   return (
-    <Layout>
-      <StyledButtonWrapper>
-        <BasicButton onClick={handlePreviousPage}>{"<"}</BasicButton>
-      </StyledButtonWrapper>
-      <ContentCard>
-        <FormQuantitySpecification
-          handleNextPage={handleNextPage}
-          currentIndex={currentIndex}
-          selectedFoodCategories={selectedFoodCategories}
-          selectedFoodCategory={selectedFoodCategories[currentIndex]}
-          handleSetQuantityPerCategory={handleSetQuantityPerCategory}
-        />
-      </ContentCard>
-    </Layout>
+    selectedFoodCategories.length > 0 && (
+      <Layout>
+        <StyledButtonWrapper>
+          <BasicButton onClick={handlePreviousPage}>{"<"}</BasicButton>
+        </StyledButtonWrapper>
+        <ContentCard>
+          <FormQuantitySpecification
+            handleNextPage={handleNextPage}
+            currentIndex={currentIndex}
+            selectedFoodCategories={selectedFoodCategories}
+            selectedFoodCategory={selectedFoodCategories[currentIndex]}
+            handleSetQuantityPerCategory={handleSetQuantityPerCategory}
+          />
+        </ContentCard>
+      </Layout>
+    )
   );
 }
 

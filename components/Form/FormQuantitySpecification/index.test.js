@@ -23,6 +23,15 @@ describe("FormQuantitySpecification", () => {
           maxRange: 464,
           maxRangeInputField: 600,
         }}
+        selectedFoodCategory={{
+          id: "1",
+          name: "Vollkorngetreide",
+          recommendedConsumption: 232,
+          recommendedExample:
+            "2 Tassen Vollkornreis und 1,5 Scheiben Vollkornroggenbrot",
+          maxRange: 464,
+          maxRangeInputField: 600,
+        }}
       />
     );
     const selectedFoodCategory = screen.getByText(/Bitte wähle aus, wieviel/);
@@ -42,6 +51,15 @@ describe("FormQuantitySpecification", () => {
     render(
       <FormQuantitySpecification
         selectedFoodCategories={{
+          id: "1",
+          name: "Vollkorngetreide",
+          recommendedConsumption: 232,
+          recommendedExample:
+            "2 Tassen Vollkornreis und 1,5 Scheiben Vollkornroggenbrot",
+          maxRange: 464,
+          maxRangeInputField: 600,
+        }}
+        selectedFoodCategory={{
           id: "1",
           name: "Vollkorngetreide",
           recommendedConsumption: 232,
