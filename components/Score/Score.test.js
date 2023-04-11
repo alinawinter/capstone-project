@@ -1,7 +1,7 @@
 import Score from "./Score";
 import { render, screen } from "@testing-library/react";
 
-test("renders a score thats is based on selectedFoodCategories from the array and on the users range input on consumed amount of food", () => {
+test("renders a score that is based on selectedFoodCategories from the array and on the users range input on consumed amount of food", () => {
   render(
     <Score
       selectedFoodCategories={[

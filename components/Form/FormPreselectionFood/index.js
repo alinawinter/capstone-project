@@ -49,7 +49,7 @@ export default function FormPreselection({
       <Answerslist>
         {foodCategories.map(({ id, name }) => (
           <li key={id}>
-            <Input
+            <input
               type="checkbox"
               id={id}
               name="foodAte"
@@ -67,8 +67,6 @@ export default function FormPreselection({
     </BasicForm>
   );
 }
-
-const Input = styled.input.attrs({ type: "checkbox" })``;
 
 const Answerslist = styled.ul`
   list-style: none;
