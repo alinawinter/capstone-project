@@ -1,8 +1,17 @@
 import Link from "next/link";
 import styled from "styled-components";
+import { useRouter } from "next/router";
 
 export default function BasicLink({ to, text }) {
-  return <StyledBasicLink href={to}>{text}</StyledBasicLink>;
+  const router = useRouter();
+  function handleClick() {
+    router.push(to);
+  }
+  return (
+    <StyledBasicLink href={to} onClick={handleClick}>
+      {text}
+    </StyledBasicLink>
+  );
 }
 
 const StyledBasicLink = styled(Link)`

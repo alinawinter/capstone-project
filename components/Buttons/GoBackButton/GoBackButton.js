@@ -10,7 +10,10 @@ export default function GoBackButton() {
   }
   return (
     <StyledGoBackButtonWrapper>
-      <BasicButton onClick={handleGoBack}>{`< Zurück`}</BasicButton>
+      <BasicButton
+        aria-label="Seite zurückgehen"
+        onClick={handleGoBack}
+      >{`<`}</BasicButton>
     </StyledGoBackButtonWrapper>
   );
 }

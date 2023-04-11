@@ -1,4 +1,5 @@
-/* The following functions help calculate the accordance and deviation 
+/* The following functions help calculate the deviation and accordance
+from/with the recommended consumption (by Planetary Health Diet)
 of consumption of INDIVIDUAL FOOD CATEGORIES */
 
 // The following function calculates the (percentage) deviation from the recommended consumption (by Planetary Health Diet)
@@ -21,7 +22,7 @@ export function calculateDetailsScoreDeviation(
   return deviation;
 }
 
-// The following function calculates the accordance (percent match) recommended consumption (by Planetary Health Diet)
+// The following function calculates the accordance (percent match) with the recommended consumption (by Planetary Health Diet)
 
 export function calculateDetailsScoreAccordance(
   calculateDetailsScoreDeviation,

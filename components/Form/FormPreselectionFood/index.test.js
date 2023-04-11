@@ -13,7 +13,7 @@ describe("FormPreselection", () => {
     }));
     render(
       <FormPreselection
-        foodCategory={{
+        selectedFoodCategories={{
           id: "3",
           name: "Milchprodukte",
           recommendedConsumption: 250,

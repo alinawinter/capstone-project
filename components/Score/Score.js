@@ -1,38 +1,28 @@
 import styled from "styled-components";
-//import ContentCard from "../ContentCard/ContentCard";
+import { calculateAverageScoreAccordance } from "../../utils/averageScoreUtils";
 import {
   calculateDetailsScoreDeviation,
   calculateDetailsScoreAccordance,
 } from "../../utils/detailsScoreUtils";
 
-export default function Score({ foodCategory, quantity }) {
-  const { name, recommendedConsumption, recommendedExample, maxRange } =
-    foodCategory;
-
-  const consumedQuantityAccordance = calculateDetailsScoreAccordance(
+export default function Score({ selectedFoodCategories }) {
+  const consumedQuantityAccordanceAverage = calculateAverageScoreAccordance(
+    selectedFoodCategories,
     calculateDetailsScoreDeviation,
-    quantity,
-    recommendedConsumption,
-    maxRange
+    calculateDetailsScoreAccordance
   );
 
   return (
     <>
-      <StyledScore>{Math.floor(consumedQuantityAccordance)} %</StyledScore>
+      <StyledScore>
+        {Math.floor(consumedQuantityAccordanceAverage)} %
+      </StyledScore>
       <section>
         <p>
-          Dein Konsum der Lebensmittelgruppe {name} über {quantity} gramm stimmt
-          zu {Math.floor(consumedQuantityAccordance)} % mit den Empfehlungen der
-          Planetary Health Diet überein.
+          Insgesamt stimmt deine heutige Ernährungsweise zu{" "}
+          {Math.floor(consumedQuantityAccordanceAverage)} % mit den Empfehlungen
+          der Planetary Health Diet überein.
         </p>
-        <p>
-          Empfohlen werden <strong> {recommendedConsumption} gramm </strong>.
-          Das entspricht etwa: {recommendedExample}.
-        </p>
-        <Hint>
-          Bitte beachte, dass dies ungefähre Schätzungen sind, da die Menge je
-          nach Sorte und Zubereitung variieren kann.
-        </Hint>
       </section>
     </>
   );
@@ -48,10 +38,6 @@ const StyledScore = styled.h1`
   cursor: pointer;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-  &:hover {
-    background-color: var(--color-orange);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  }
 `;
 
 const Hint = styled.p`
