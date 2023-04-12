@@ -1,9 +1,11 @@
 import Score from "./Score";
 import { render, screen } from "@testing-library/react";
+import { foodCategories } from "../../lib/db";
 
-test("renders a score that is based on selectedFoodCategories from the array and on the users range input on consumed amount of food", () => {
+test("renders a score that is based on selectedFoodCategories from the array and the users range input on consumed amount of food", () => {
   render(
     <Score
+      foodCategories={foodCategories}
       selectedFoodCategories={[
         {
           id: "1",
@@ -13,7 +15,7 @@ test("renders a score that is based on selectedFoodCategories from the array and
             "2 Tassen Vollkornreis und 1,5 Scheiben Vollkornroggenbrot",
           maxRange: 464,
           maxRangeInputField: 600,
-          consumedQuantity: 132,
+          consumedQuantity: 0,
         },
         {
           id: "2",
@@ -24,14 +26,14 @@ test("renders a score that is based on selectedFoodCategories from the array and
             "1 mittelgroße Karotte, 1 kleine Tomate, 1 kleine Zucchini",
           maxRange: 600,
           maxRangeInputField: 600,
-          consumedQuantity: 300,
+          consumedQuantity: 0,
         },
       ]}
     />
   );
   const recommendationText = screen.getByText(/Empfehlungen/);
   expect(recommendationText).toBeInTheDocument();
-  const score = screen.queryAllByText(/78/);
+  const score = screen.queryAllByText(/0/);
   expect(score.length).toBeGreaterThan(0);
   expect(score[0]).toBeInTheDocument();
 });

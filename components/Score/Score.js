@@ -1,13 +1,20 @@
 import styled from "styled-components";
+import { foodCategories } from "../../lib/db";
 import { calculateAverageScoreAccordance } from "../../utils/averageScoreUtils";
+import { mergeArrayAllFoodAndSelectedFood } from "../../utils/mergeSelectedAndOtherFoodUtils";
 import {
   calculateDetailsScoreDeviation,
   calculateDetailsScoreAccordance,
 } from "../../utils/detailsScoreUtils";
 
 export default function Score({ selectedFoodCategories }) {
+  const mergedArrayAllFoodAndSelectedFood = mergeArrayAllFoodAndSelectedFood(
+    foodCategories,
+    selectedFoodCategories
+  );
+
   const consumedQuantityAccordanceAverage = calculateAverageScoreAccordance(
-    selectedFoodCategories,
+    mergedArrayAllFoodAndSelectedFood,
     calculateDetailsScoreDeviation,
     calculateDetailsScoreAccordance
   );
