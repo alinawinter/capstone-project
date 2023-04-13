@@ -51,7 +51,7 @@ export default function FormPreselection({
       <CheckBoxList>
         {foodCategories.map(({ id, name }) => (
           <CheckBoxContainer key={id}>
-            <CheckBoxListElement>
+            <li>
               <CheckBoxLabel htmlFor={id}>
                 <CheckBoxInput
                   type="checkbox"
@@ -62,7 +62,7 @@ export default function FormPreselection({
                 />
                 <span>{name}</span>
               </CheckBoxLabel>
-            </CheckBoxListElement>
+            </li>
           </CheckBoxContainer>
         ))}
       </CheckBoxList>
@@ -85,12 +85,14 @@ const CheckBoxList = styled.ul`
   padding: 0;
   gap: 0.4em;
   flex-wrap: wrap;
-  overflow-wrap: break-word;
 `;
 const CheckBoxContainer = styled.div`
+display: flex;
+  align-items: center;
+  justify-content: center;
 color:  var(--color-blue);
 font-family: var(--font-family-text);
-background-color:var(--color-beige)};
+background-color:var(--color-beige);
 border: none;
 border-radius: 999px;
 padding: 0.3em 1em;
@@ -102,12 +104,6 @@ height: 3em;
 &:hover {
   background-color: var(--color-yellow);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-`;
-
-const CheckBoxListElement = styled.li`
-  display: flex;
-  align-items: center;
-  justify-content: center;
 `;
 
 const CheckBoxInput = styled.input.attrs({ type: "checkbox" })`
