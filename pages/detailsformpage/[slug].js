@@ -54,11 +54,6 @@ export default function FormDetailspage({
   return (
     selectedFoodCategories.length > 0 && (
       <Layout>
-        <StyledButtonWrapper>
-          <BasicButton onClick={handlePreviousPage}>
-            {currentIndex === 0 ? "< Restart Quiz" : "<"}
-          </BasicButton>
-        </StyledButtonWrapper>
         <ContentCard>
           <FormQuantitySpecification
             handleNextPage={handleNextPage}
@@ -68,6 +63,11 @@ export default function FormDetailspage({
             handleSetQuantityPerCategory={handleSetQuantityPerCategory}
           />
         </ContentCard>
+        <StyledButtonWrapper>
+          <BasicButton onClick={handlePreviousPage}>
+            {currentIndex === 0 ? "< Restart Quiz" : "<"}
+          </BasicButton>
+        </StyledButtonWrapper>
       </Layout>
     )
   );

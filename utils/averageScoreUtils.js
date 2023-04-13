@@ -3,15 +3,15 @@ from/with the recommended consumption (by Planetary Health Diet)
 ACROSS ALL CATEGORIES */
 
 export function calculateAverageScoreDeviation(
-  selectedFoodCategories,
+  mergedArrayAllFoodAndSelectedFood,
   calculateDetailsScoreDeviation
 ) {
-  const collectionOfDeviations = selectedFoodCategories.map(
-    (selectedFoodCategory) =>
+  const collectionOfDeviations = mergedArrayAllFoodAndSelectedFood.map(
+    (category) =>
       calculateDetailsScoreDeviation(
-        selectedFoodCategory.consumedQuantity,
-        selectedFoodCategory.recommendedConsumption,
-        selectedFoodCategory.maxRange
+        category.consumedQuantity,
+        category.recommendedConsumption,
+        category.maxRange
       )
   );
   return (
@@ -21,17 +21,17 @@ export function calculateAverageScoreDeviation(
 }
 
 export function calculateAverageScoreAccordance(
-  selectedFoodCategories,
+  mergedArrayAllFoodAndSelectedFood,
   calculateDetailsScoreDeviation,
   calculateDetailsScoreAccordance
 ) {
-  const collectionOfAccordances = selectedFoodCategories.map(
-    (selectedFoodCategory) =>
+  const collectionOfAccordances = mergedArrayAllFoodAndSelectedFood.map(
+    (category) =>
       calculateDetailsScoreAccordance(
         calculateDetailsScoreDeviation,
-        selectedFoodCategory.consumedQuantity,
-        selectedFoodCategory.recommendedConsumption,
-        selectedFoodCategory.maxRange
+        category.consumedQuantity,
+        category.recommendedConsumption,
+        category.maxRange
       )
   );
   return (

@@ -46,9 +46,9 @@ export default function FormPreselection({
       <legend id="form-description">
         Bitte wähle aus, was du heute gegessen hast:
       </legend>
-      <Answerslist>
+      <CheckBoxList>
         {foodCategories.map(({ id, name }) => (
-          <li key={id}>
+          <CheckBoxListElement key={id}>
             <input
               type="checkbox"
               id={id}
@@ -56,10 +56,10 @@ export default function FormPreselection({
               value={name}
               onChange={handleCheckBoxChange}
             />
-            <label htmlFor={id}>{name}</label>
-          </li>
+            <CheckBoxLabel htmlFor={id}>{name}</CheckBoxLabel>
+          </CheckBoxListElement>
         ))}
-      </Answerslist>
+      </CheckBoxList>
       <ButtonBox>
         <ResetFormButton text="Reset" />
         <SubmitButton text="Weiter" />
@@ -68,13 +68,28 @@ export default function FormPreselection({
   );
 }
 
-const Answerslist = styled.ul`
+const CheckBoxList = styled.ul`
   list-style: none;
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 0.5em;
+  justify-content: flex-start;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  gap: 0.3em;
   flex-wrap: wrap;
+`;
+
+const CheckBoxLabel = styled.label`
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+`;
+
+const CheckBoxListElement = styled.li`
+  display: flex;
+  align-items: center;
 `;
 
 const ButtonBox = styled.div`
