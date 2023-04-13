@@ -4,6 +4,7 @@ import SubmitButton from "../../Buttons/SubmitButton/SubmitButton";
 import ResetFormButton from "../../Buttons/ResetButton/ResetFormButton";
 import { foodCategories } from "../../../lib/db";
 import { useRouter } from "next/router";
+import { useState } from "react";
 
 export default function FormPreselection({
   handleAddSelectedFoodCategories,
@@ -16,6 +17,7 @@ export default function FormPreselection({
   function handleCheckBoxChange(event) {
     const checkBoxValue = event.target.value;
     const isChecked = event.target.checked;
+
     if (isChecked) {
       handleAddSelectedFoodCategories(checkBoxValue);
     } else {
@@ -48,16 +50,20 @@ export default function FormPreselection({
       </legend>
       <CheckBoxList>
         {foodCategories.map(({ id, name }) => (
-          <CheckBoxListElement key={id}>
-            <input
-              type="checkbox"
-              id={id}
-              name="foodAte"
-              value={name}
-              onChange={handleCheckBoxChange}
-            />
-            <CheckBoxLabel htmlFor={id}>{name}</CheckBoxLabel>
-          </CheckBoxListElement>
+          <CheckBoxContainer key={id}>
+            <CheckBoxListElement>
+              <CheckBoxLabel htmlFor={id}>
+                <CheckBoxInput
+                  type="checkbox"
+                  id={id}
+                  name="foodAte"
+                  value={name}
+                  onChange={handleCheckBoxChange}
+                />
+                <span>{name}</span>
+              </CheckBoxLabel>
+            </CheckBoxListElement>
+          </CheckBoxContainer>
         ))}
       </CheckBoxList>
       <ButtonBox>
@@ -73,23 +79,44 @@ const CheckBoxList = styled.ul`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
-  font-size: 14px;
+  justify-content: center;
+  font-size: 10px;
   margin: 0;
   padding: 0;
-  gap: 0.3em;
+  gap: 0.4em;
   flex-wrap: wrap;
+  overflow-wrap: break-word;
 `;
-
-const CheckBoxLabel = styled.label`
-  display: flex;
-  align-items: center;
-  cursor: pointer;
+const CheckBoxContainer = styled.div`
+color:  var(--color-blue);
+font-family: var(--font-family-text);
+background-color:var(--color-beige)};
+border: none;
+border-radius: 999px;
+padding: 0.3em 1em;
+cursor: pointer;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+width: 10em;
+height: 3em;
+&:hover {
+  background-color: var(--color-yellow);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 `;
 
 const CheckBoxListElement = styled.li`
   display: flex;
   align-items: center;
+  justify-content: center;
+`;
+
+const CheckBoxInput = styled.input.attrs({ type: "checkbox" })`
+  position: absolute;
+  display: none;
+`;
+
+const CheckBoxLabel = styled.label`
+  cursor: pointer;
 `;
 
 const ButtonBox = styled.div`
