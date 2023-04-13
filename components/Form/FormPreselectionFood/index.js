@@ -92,8 +92,6 @@ const CheckBoxListElement = styled.li`
   align-items: center;
 `;
 
-// styled.input.attrs({ type: "checkbox" })`;
-
 const ButtonBox = styled.div`
   display: flex;
   flex-direction: row;
