@@ -77,6 +77,5 @@ const StyledButtonWrapper = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: start;
-  margin: 1em;
+  justify-content: center;
 `;

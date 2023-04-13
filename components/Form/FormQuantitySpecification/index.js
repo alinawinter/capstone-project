@@ -12,7 +12,14 @@ export default function FormQuantitySpecification({
   selectedFoodCategories,
 }) {
   const [currentValue, setCurrentValue] = useState(0);
-  const { id, name, maxRangeInputField } = selectedFoodCategory;
+  const [showRecommendedExample, setShowRecommendedExample] = useState(false);
+  const {
+    id,
+    name,
+    maxRangeInputField,
+    recommendedConsumption,
+    recommendedExample,
+  } = selectedFoodCategory;
 
   useEffect(() => {
     if (selectedFoodCategory.hasOwnProperty("consumedQuantity")) {
@@ -23,6 +30,21 @@ export default function FormQuantitySpecification({
   let buttonText =
     (currentIndex === selectedFoodCategories.length - 1 && "Auswertung") ||
     "Weiter";
+
+  function handleChangeRangeSlider(event) {
+    setCurrentValue(event.target.value);
+    if (
+      //currentValue < recommendedConsumption + (10 * maxRangeInputField) / 100 && currentValue > recommendedConsumption - (10 * maxRangeInputField) / 100
+      currentValue === recommendedConsumption ||
+      (currentValue >= recommendedConsumption &&
+        currentValue <=
+          recommendedConsumption + (10 * maxRangeInputField) / 100)
+    ) {
+      setShowRecommendedExample(true);
+    } else {
+      setShowRecommendedExample(false);
+    }
+  }
 
   function handleQuantitySpecification(event) {
     event.preventDefault();
@@ -36,13 +58,13 @@ export default function FormQuantitySpecification({
     );
     handleNextPage();
     setCurrentValue(0);
+    setShowRecommendedExample(false);
   }
 
   function handleResetRangeInput(event) {
     event.preventDefault();
     setCurrentValue(0);
   }
-
   return (
     <>
       <BasicForm
@@ -51,10 +73,10 @@ export default function FormQuantitySpecification({
         onSubmit={handleQuantitySpecification}
       >
         <h3 id="form-title">Tägliches Essensquiz</h3>
-        <legend id="form-description" htmlFor="range-input">
+        <Legend id="form-description" htmlFor="range-input">
           Bitte wähle aus, wieviel <b>{name}</b> du heute gegessen hast:
-        </legend>
-        <output role="output">{`${currentValue} gramm`}</output>
+        </Legend>
+        <Output role="output">{`${currentValue} g`}</Output>
         <StyledSection>
           <div role="minRangeInputField">0 g</div>
           <Input
@@ -66,13 +88,23 @@ export default function FormQuantitySpecification({
             id={id}
             name="consumedQuantity"
             value={currentValue}
-            onChange={(event) => {
-              setCurrentValue(event.target.value);
-            }}
+            onChange={handleChangeRangeSlider}
           />
           <div role="maxRangeInputField">{`${maxRangeInputField} g`}</div>
         </StyledSection>
-
+        <TickContainer>
+          <Tick
+            left={`${(recommendedConsumption / maxRangeInputField) * 100}%`}
+          />
+        </TickContainer>
+        {showRecommendedExample ? (
+          <TooltipBox>
+            <p>{recommendedConsumption}g entspricht ca.:</p>{" "}
+            <p>{recommendedExample}</p>
+          </TooltipBox>
+        ) : (
+          <TooltipBox></TooltipBox>
+        )}
         <ButtonBox>
           <BasicButton
             type="reset"
@@ -87,6 +119,27 @@ export default function FormQuantitySpecification({
     </>
   );
 }
+const Legend = styled.legend`
+  height: 4em;
+  widht: 4em;
+`;
+
+const Output = styled.output.attrs({ type: "range" })`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-blue);
+  font-family: var(--font-family-text);
+  background-color: var(--color-yellow);
+  border: none;
+  border-radius: 50%;
+  width: 4em;
+  height: 4em;
+  padding: 0.5em 0.5em;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+`;
 
 const Input = styled.input.attrs({ type: "range" })`
   background-color: var(--color-yellow);
@@ -94,13 +147,40 @@ const Input = styled.input.attrs({ type: "range" })`
   height: 10px;
   outline: none;
   border-radius: 999px;
+  z-index: 4;
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
     width: 20px;
     height: 20px;
     background-color: var(--color-orange);
     border-radius: 50%;
+    z-index: 5;
   }
+`;
+
+const StyledSection = styled.section`
+  display: flex;
+  flex-direction: row;
+`;
+const Tick = styled.div`
+  position: absolute;
+  top: -44px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: var(--color-yellow);
+  left: ${(props) => props.left}%;
+`;
+
+const TickContainer = styled.div`
+  position: relative;
+`;
+
+const TooltipBox = styled.div`
+  width: 13em;
+  height: 6em;
+  font-size: 13px;
+  font-style: italic;
 `;
 
 const ButtonBox = styled.div`
@@ -108,9 +188,4 @@ const ButtonBox = styled.div`
   flex-direction: row;
   gap: 1em;
   flex-wrap: wrap;
-`;
-
-const StyledSection = styled.section`
-  display: flex;
-  flex-direction: row;
 `;

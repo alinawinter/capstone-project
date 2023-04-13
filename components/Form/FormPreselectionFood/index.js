@@ -80,7 +80,7 @@ const CheckBoxList = styled.ul`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  font-size: 10px;
+  font-size: 12px;
   margin: 0;
   padding: 0;
   gap: 0.4em;
@@ -90,9 +90,10 @@ const CheckBoxContainer = styled.div`
 display: flex;
   align-items: center;
   justify-content: center;
-color:  var(--color-blue);
+color: rgba(61, 64, 91, 0.7);
+
 font-family: var(--font-family-text);
-background-color:var(--color-beige);
+background-color:rgba(242, 204, 143, 0.4);
 border: none;
 border-radius: 999px;
 padding: 0.3em 1em;
@@ -103,6 +104,8 @@ width: 10em;
 height: 3em;
 &:hover {
   background-color: var(--color-yellow);
+  color: var(--color-blue)
+  opacity: 100%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 `;
 
