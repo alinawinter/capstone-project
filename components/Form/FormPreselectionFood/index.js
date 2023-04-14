@@ -93,12 +93,12 @@ display: flex;
 color: rgba(61, 64, 91, 0.7);
 
 font-family: var(--font-family-text);
-background-color:rgba(242, 204, 143, 0.4);
+background-color:rgba(244, 241, 222, 0.7);
 border: none;
 border-radius: 999px;
 padding: 0.3em 1em;
 cursor: pointer;
-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 width: 10em;
 height: 3em;
@@ -106,7 +106,7 @@ height: 3em;
   background-color: var(--color-yellow);
   color: var(--color-blue)
   opacity: 100%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 `;
 
 const CheckBoxInput = styled.input.attrs({ type: "checkbox" })`

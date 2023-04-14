@@ -92,11 +92,7 @@ export default function FormQuantitySpecification({
           />
           <div role="maxRangeInputField">{`${maxRangeInputField} g`}</div>
         </StyledSection>
-        <TickContainer>
-          <Tick
-            left={`${(recommendedConsumption / maxRangeInputField) * 100}%`}
-          />
-        </TickContainer>
+
         {showRecommendedExample ? (
           <TooltipBox>
             <p>{recommendedConsumption}g entspricht ca.:</p>{" "}
@@ -133,9 +129,9 @@ const Output = styled.output.attrs({ type: "range" })`
   background-color: var(--color-yellow);
   border: none;
   border-radius: 50%;
-  width: 4em;
-  height: 4em;
-  padding: 0.5em 0.5em;
+  width: 3.5em;
+  height: 3.5em;
+  padding: 0.2em 0.2em;
   cursor: pointer;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
@@ -162,19 +158,6 @@ const StyledSection = styled.section`
   display: flex;
   flex-direction: row;
 `;
-const Tick = styled.div`
-  position: absolute;
-  top: -44px;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background-color: var(--color-yellow);
-  left: ${(props) => props.left}%;
-`;
-
-const TickContainer = styled.div`
-  position: relative;
-`;
 
 const TooltipBox = styled.div`
   width: 13em;
@@ -189,3 +172,27 @@ const ButtonBox = styled.div`
   gap: 1em;
   flex-wrap: wrap;
 `;
+
+/*
+const TickContainer = styled.div`
+  position: relative;
+`;
+
+const Tick = styled.div`
+  position: absolute;
+  top: -44px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: var(--color-yellow);
+  left: ${(props) => props.left}%;
+`;
+*/
+
+/*<TickContainer>
+          <Tick
+            left={`${Number(
+              (recommendedConsumption / maxRangeInputField) * 100
+            )}`}
+          />
+        </TickContainer>*/
