@@ -4,11 +4,9 @@ import SubmitButton from "../../Buttons/SubmitButton/SubmitButton";
 import ResetFormButton from "../../Buttons/ResetButton/ResetFormButton";
 import { foodCategories } from "../../../lib/db";
 import { useRouter } from "next/router";
-import { useState } from "react";
 
 export default function FormPreselection({
-  handleAddSelectedFoodCategories,
-  handleDeleteSelectedFoodCategories,
+  handleSelectedFoodCategories,
   selectedFoodCategories,
   setSelectedFoodCategories,
 }) {
@@ -16,13 +14,7 @@ export default function FormPreselection({
 
   function handleCheckBoxChange(event) {
     const checkBoxValue = event.target.value;
-    const isChecked = event.target.checked;
-
-    if (isChecked) {
-      handleAddSelectedFoodCategories(checkBoxValue);
-    } else {
-      handleDeleteSelectedFoodCategories(checkBoxValue);
-    }
+    handleSelectedFoodCategories(checkBoxValue);
   }
 
   function handleNextPage(event) {
@@ -50,7 +42,12 @@ export default function FormPreselection({
       </legend>
       <CheckBoxList>
         {foodCategories.map(({ id, name }) => (
-          <CheckBoxContainer key={id}>
+          <CheckBoxContainer
+            key={id}
+            isChecked={selectedFoodCategories.find(
+              (foodCategory) => foodCategory.name === name
+            )}
+          >
             <li>
               <CheckBoxLabel htmlFor={id}>
                 <CheckBoxInput
@@ -93,7 +90,8 @@ display: flex;
 color: rgba(61, 64, 91, 0.7);
 
 font-family: var(--font-family-text);
-background-color:rgba(244, 241, 222, 0.7);
+background-color: ${({ isChecked }) =>
+  isChecked ? "var(--color-yellow)" : "rgba(244, 241, 222, 0.7)"};
 border: none;
 border-radius: 999px;
 padding: 0.3em 1em;

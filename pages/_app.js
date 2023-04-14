@@ -6,27 +6,35 @@ import { foodCategories } from "../lib/db";
 export default function App({ Component, pageProps }) {
   const [selectedFoodCategories, setSelectedFoodCategories] = useState([]);
 
-  function handleAddSelectedFoodCategories(selection) {
+  function handleSelectedFoodCategories(selection) {
     const assignedFoodCategoryFromDB = foodCategories.find(
       (foodCategory) => foodCategory.name === selection
     );
-    if (!selectedFoodCategories.includes(assignedFoodCategoryFromDB)) {
+
+    if (
+      !selectedFoodCategories.find(
+        (foodCategory) => foodCategory.name === assignedFoodCategoryFromDB.name
+      )
+    ) {
       const newAssignedFoodCategory = {
         ...assignedFoodCategoryFromDB,
         consumedQuantity: 0,
+        isChecked: true,
       };
       setSelectedFoodCategories((prevSelected) => [
         ...prevSelected,
         newAssignedFoodCategory,
       ]);
+    } else {
+      /*const foodCategoryInSelectedFoodCategories = selectedFoodCategories.find(
+        (foodCategory) => foodCategory.name === assignedFoodCategoryFromDB.name
+      );
+      foodCategoryInSelectedFoodCategories.isChecked = false;*/
+      const filteredArray = selectedFoodCategories.filter(
+        (foodCategory) => foodCategory.name !== selection
+      );
+      setSelectedFoodCategories([...filteredArray]);
     }
-  }
-
-  function handleDeleteSelectedFoodCategories(selection) {
-    const filteredArray = selectedFoodCategories.filter(
-      (foodCategory) => foodCategory.name !== selection
-    );
-    setSelectedFoodCategories([...filteredArray]);
   }
 
   function handleSetQuantityPerCategory(
@@ -54,8 +62,7 @@ export default function App({ Component, pageProps }) {
         {...pageProps}
         selectedFoodCategories={selectedFoodCategories}
         setSelectedFoodCategories={setSelectedFoodCategories}
-        handleAddSelectedFoodCategories={handleAddSelectedFoodCategories}
-        handleDeleteSelectedFoodCategories={handleDeleteSelectedFoodCategories}
+        handleSelectedFoodCategories={handleSelectedFoodCategories}
         handleSetQuantityPerCategory={handleSetQuantityPerCategory}
       />
     </>
