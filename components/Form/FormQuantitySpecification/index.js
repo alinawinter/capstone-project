@@ -12,13 +12,16 @@ export default function FormQuantitySpecification({
   selectedFoodCategories,
 }) {
   const [currentValue, setCurrentValue] = useState(0);
-  const [showRecommendedExample, setShowRecommendedExample] = useState(false);
+  const [toolTipQuantity, setToolTipQuantity] = useState(0);
+  const [toolTipExample, setToolTipExample] = useState("");
+  const [showExample, setShowExample] = useState(false);
   const {
     id,
     name,
     maxRangeInputField,
     recommendedConsumption,
     recommendedExample,
+    furtherExamplaryPortions,
   } = selectedFoodCategory;
 
   useEffect(() => {
@@ -34,15 +37,26 @@ export default function FormQuantitySpecification({
   function handleChangeRangeSlider(event) {
     setCurrentValue(event.target.value);
     if (
-      //currentValue < recommendedConsumption + (10 * maxRangeInputField) / 100 && currentValue > recommendedConsumption - (10 * maxRangeInputField) / 100
       currentValue === recommendedConsumption ||
       (currentValue >= recommendedConsumption &&
         currentValue <=
           recommendedConsumption + (10 * maxRangeInputField) / 100)
     ) {
-      setShowRecommendedExample(true);
+      setToolTipQuantity(recommendedConsumption);
+      setToolTipExample(recommendedExample);
+      setShowExample(true);
     } else {
-      setShowRecommendedExample(false);
+      furtherExamplaryPortions.forEach((portion) => {
+        if (
+          currentValue === portion.quantity ||
+          (currentValue >= portion.quantity &&
+            currentValue <= portion.quantity + (10 * maxRangeInputField) / 100)
+        ) {
+          setToolTipQuantity(portion.quantity);
+          setToolTipExample(portion.example);
+          setShowExample(true);
+        }
+      });
     }
   }
 
@@ -58,7 +72,7 @@ export default function FormQuantitySpecification({
     );
     handleNextPage();
     setCurrentValue(0);
-    setShowRecommendedExample(false);
+    setShowExample(false);
   }
 
   function handleResetRangeInput(event) {
@@ -92,11 +106,9 @@ export default function FormQuantitySpecification({
           />
           <div role="maxRangeInputField">{`${maxRangeInputField} g`}</div>
         </StyledSection>
-
-        {showRecommendedExample ? (
+        {showExample ? (
           <TooltipBox>
-            <p>{recommendedConsumption}g entspricht ca.:</p>{" "}
-            <p>{recommendedExample}</p>
+            <p>{toolTipQuantity}g entspricht ca.:</p> <p>{toolTipExample}</p>
           </TooltipBox>
         ) : (
           <TooltipBox></TooltipBox>
@@ -172,27 +184,3 @@ const ButtonBox = styled.div`
   gap: 1em;
   flex-wrap: wrap;
 `;
-
-/*
-const TickContainer = styled.div`
-  position: relative;
-`;
-
-const Tick = styled.div`
-  position: absolute;
-  top: -44px;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background-color: var(--color-yellow);
-  left: ${(props) => props.left}%;
-`;
-*/
-
-/*<TickContainer>
-          <Tick
-            left={`${Number(
-              (recommendedConsumption / maxRangeInputField) * 100
-            )}`}
-          />
-        </TickContainer>*/
