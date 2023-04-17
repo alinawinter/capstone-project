@@ -24,7 +24,8 @@ const StyledRestartQuizButtonWrapper = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: start;
-  margin-top: 3em;
+  margin-top: 9em;
+  margin-bottom: 2em;
   width: 10em;
   height: 5em;
 `;

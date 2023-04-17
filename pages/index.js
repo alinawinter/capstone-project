@@ -10,7 +10,7 @@ export default function Home({
 }) {
   return (
     <Layout>
-      <ContentCard>
+      <StartContentWrapper>
         <RestartQuizButton
           setSelectedFoodCategories={setSelectedFoodCategories}
           text="Starte dein tägliches Essensquiz"
@@ -24,10 +24,23 @@ export default function Home({
             />
           </ScoreWrapper>
         </ScoreTextAndScoreBox>
-      </ContentCard>
+      </StartContentWrapper>
     </Layout>
   );
 }
+
+const StartContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  color: var(--color-blue);
+  align-items: center;
+  gap: 1em;
+  padding: 1em;
+  flex-wrap: wrap;
+  height: auto;
+  width: 90vw;
+  margin: 1em;
+`;
 
 const ScoreTextAndScoreBox = styled.div`
   font-size: 1em;
