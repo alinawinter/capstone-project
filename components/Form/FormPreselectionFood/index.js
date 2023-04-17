@@ -56,7 +56,7 @@ export default function FormPreselection({
       aria-describedby="form-description"
       onSubmit={handleNextPage}
     >
-      <h3 id="form-title">Tägliches Essensquiz</h3>
+      <h2 id="form-title">Tägliches Essensquiz</h2>
       <legend id="form-description">
         Bitte wähle aus, was du heute gegessen hast:
       </legend>

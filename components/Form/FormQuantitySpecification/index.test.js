@@ -21,7 +21,7 @@ describe("FormQuantitySpecification", () => {
           recommendedConsumption: 232,
           recommendedExample:
             "1 Tasse Vollkornreis und 1 Scheibe Vollkornroggenbrot",
-          maxRa600nge: 464,
+          maxRange: 464,
           maxRangeInputField: 400,
           furtherExamplaryPortions: [
             {
@@ -51,7 +51,7 @@ describe("FormQuantitySpecification", () => {
           recommendedConsumption: 232,
           recommendedExample:
             "1 Tasse Vollkornreis und 1 Scheibe Vollkornroggenbrot",
-          maxRa600nge: 464,
+          maxRange: 464,
           maxRangeInputField: 400,
           furtherExamplaryPortions: [
             {
@@ -99,7 +99,7 @@ describe("FormQuantitySpecification", () => {
           recommendedConsumption: 232,
           recommendedExample:
             "1 Tasse Vollkornreis und 1 Scheibe Vollkornroggenbrot",
-          maxRa600nge: 464,
+          maxRange: 464,
           maxRangeInputField: 400,
           furtherExamplaryPortions: [
             {
@@ -129,7 +129,7 @@ describe("FormQuantitySpecification", () => {
           recommendedConsumption: 232,
           recommendedExample:
             "1 Tasse Vollkornreis und 1 Scheibe Vollkornroggenbrot",
-          maxRa600nge: 464,
+          maxRange: 464,
           maxRangeInputField: 400,
           furtherExamplaryPortions: [
             {

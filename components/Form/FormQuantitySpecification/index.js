@@ -78,6 +78,7 @@ export default function FormQuantitySpecification({
   function handleResetRangeInput(event) {
     event.preventDefault();
     setCurrentValue(0);
+    setShowExample(false);
   }
   return (
     <>

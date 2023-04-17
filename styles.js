@@ -29,12 +29,11 @@ export default createGlobalStyle`
   main {
     display: flex;
     flex-direction: column;
-    gap: 0.1em;
-    margin: 0.5rem auto;
-    justify-content: center;
+    margin: 1rem auto;
+    justify-content: start;
     align-items: center;
     flex-wrap: wrap;
     width: 100%;
-    min-height: 80vh;
+    min-height: 90vh;
   }
 `;

@@ -94,7 +94,7 @@ test("returns the correct merged array if called", () => {
       recommendedConsumption: 232,
       recommendedExample:
         "1 Tasse Vollkornreis und 1 Scheibe Vollkornroggenbrot",
-      maxRa600nge: 464,
+      maxRange: 464,
       maxRangeInputField: 400,
       furtherExamplaryPortions: [
         {
