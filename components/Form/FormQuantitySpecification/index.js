@@ -38,9 +38,8 @@ export default function FormQuantitySpecification({
     setCurrentValue(event.target.value);
     if (
       currentValue === recommendedConsumption ||
-      (currentValue >= recommendedConsumption &&
-        currentValue <=
-          recommendedConsumption + (10 * maxRangeInputField) / 100)
+      (currentValue > recommendedConsumption - (5 * maxRangeInputField) / 100 &&
+        currentValue < recommendedConsumption + (5 * maxRangeInputField) / 100)
     ) {
       setToolTipQuantity(recommendedConsumption);
       setToolTipExample(recommendedExample);
@@ -49,8 +48,8 @@ export default function FormQuantitySpecification({
       furtherExamplaryPortions.forEach((portion) => {
         if (
           currentValue === portion.quantity ||
-          (currentValue >= portion.quantity &&
-            currentValue <= portion.quantity + (10 * maxRangeInputField) / 100)
+          (currentValue > portion.quantity - (5 * maxRangeInputField) / 100 &&
+            currentValue < portion.quantity + (5 * maxRangeInputField) / 100)
         ) {
           setToolTipQuantity(portion.quantity);
           setToolTipExample(portion.example);
