@@ -65,7 +65,7 @@ export default function FormDetailspage({
         </ContentCard>
         <StyledButtonWrapper>
           <BasicButton onClick={handlePreviousPage}>
-            {currentIndex === 0 ? "< Restart Quiz" : "<"}
+            {currentIndex === 0 ? "< Quiz neustarten" : "<"}
           </BasicButton>
         </StyledButtonWrapper>
       </Layout>
@@ -77,6 +77,5 @@ const StyledButtonWrapper = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: start;
-  margin: 1em;
+  justify-content: center;
 `;

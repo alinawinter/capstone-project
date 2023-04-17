@@ -36,12 +36,17 @@ export default function Score({ selectedFoodCategories }) {
 }
 
 const StyledScore = styled.h1`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: var(--color-blue);
   font-family: var(--font-family-text);
   background-color: var(--color-yellow);
   border: none;
-  border-radius: 999px;
-  padding: 1em 2em;
+  border-radius: 50%;
+  width: 4.5em;
+  height: 4.5em;
+  padding: 0.5em 0.5em;
   cursor: pointer;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);

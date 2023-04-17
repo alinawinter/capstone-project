@@ -15,7 +15,7 @@ export default function RestartQuizButton({ setSelectedFoodCategories }) {
       <BasicButton
         aria-label="Quiz neu starten"
         onClick={handleClick}
-      >{`< Restart Quiz`}</BasicButton>
+      >{`< Quiz neustarten`}</BasicButton>
     </StyledRestartQuizButtonWrapper>
   );
 }
