@@ -15,15 +15,17 @@ export default function Home({
           setSelectedFoodCategories={setSelectedFoodCategories}
           text="Starte dein tägliches Essensquiz"
         />
-        <ScoreTextAndScoreBox>
-          <p>Dein letzter Tagesscore:</p>
-          <ScoreWrapper>
-            <Score
-              selectedFoodCategories={dailyQuizzesResultCollection}
-              dailyQuizzesResultCollection={dailyQuizzesResultCollection}
-            />
-          </ScoreWrapper>
-        </ScoreTextAndScoreBox>
+        {dailyQuizzesResultCollection.length > 0 && (
+          <ScoreTextAndScoreBox>
+            <p>Dein letzter Tagesscore:</p>
+            <ScoreWrapper>
+              <Score
+                selectedFoodCategories={dailyQuizzesResultCollection}
+                dailyQuizzesResultCollection={dailyQuizzesResultCollection}
+              />
+            </ScoreWrapper>
+          </ScoreTextAndScoreBox>
+        )}
       </StartContentWrapper>
     </Layout>
   );
