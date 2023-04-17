@@ -25,7 +25,16 @@ export default createGlobalStyle`
     font-family: ${montserrat.style.fontFamily}, sans-serif;
     background-color: var(--color-beige);
     color: var(--color-blue);
-    overflow: hidden
-    ;
+  }
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1em;
+    margin: 0.5rem auto;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    min-height: 80vh;
   }
 `;

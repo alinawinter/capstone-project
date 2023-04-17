@@ -26,10 +26,6 @@ export default function App({ Component, pageProps }) {
         newAssignedFoodCategory,
       ]);
     } else {
-      /*const foodCategoryInSelectedFoodCategories = selectedFoodCategories.find(
-        (foodCategory) => foodCategory.name === assignedFoodCategoryFromDB.name
-      );
-      foodCategoryInSelectedFoodCategories.isChecked = false;*/
       const filteredArray = selectedFoodCategories.filter(
         (foodCategory) => foodCategory.name !== selection
       );

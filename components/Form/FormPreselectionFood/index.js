@@ -13,7 +13,7 @@ export default function FormPreselection({
 }) {
   const router = useRouter();
   const [allIsMarked, setAllIsMarked] = useState(false);
-  const [buttonText, setButtonText] = useState("Mark All");
+  const [buttonText, setButtonText] = useState("Alle auswählen");
 
   function handleCheckBoxChange(event) {
     const checkBoxValue = event.target.value;
@@ -36,7 +36,7 @@ export default function FormPreselection({
     if (allIsMarked === true) {
       setSelectedFoodCategories([]);
       setAllIsMarked(false);
-      setButtonText("Select all");
+      setButtonText("Alle Auswählen");
     }
     if (allIsMarked === false) {
       const checkedFoodCategories = foodCategories.map((foodCategory) => ({
@@ -46,7 +46,7 @@ export default function FormPreselection({
       }));
       setSelectedFoodCategories([...checkedFoodCategories]);
       setAllIsMarked(true);
-      setButtonText("Reset");
+      setButtonText("Zurücksetzen");
     }
   }
 
@@ -112,24 +112,18 @@ const CheckBoxContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(61, 64, 91, 0.7);
+  color: rgba(61, 64, 91, 0.6);
   font-family: var(--font-family-text);
   background-color: ${({ isChecked }) =>
-    isChecked ? "var(--color-yellow)" : "rgba(244, 241, 222, 0.7)"};
+    isChecked ? "var(--color-yellow)" : "rgba(244, 241, 222, 0.6)"};
   border: none;
   border-radius: 999px;
   padding: 0.3em 1em;
   cursor: pointer;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
   width: 10em;
   height: 3em;
-  /*
-&:hover {
-  color: var(--color-blue)
-  opacity: 100%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 `;
 
 const CheckBoxInput = styled.input.attrs({ type: "checkbox" })`

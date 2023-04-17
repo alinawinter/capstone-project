@@ -65,7 +65,7 @@ export default function FormDetailspage({
         </ContentCard>
         <StyledButtonWrapper>
           <BasicButton onClick={handlePreviousPage}>
-            {currentIndex === 0 ? "< Restart Quiz" : "<"}
+            {currentIndex === 0 ? "< Quiz neustarten" : "<"}
           </BasicButton>
         </StyledButtonWrapper>
       </Layout>

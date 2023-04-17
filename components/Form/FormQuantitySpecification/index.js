@@ -114,12 +114,8 @@ export default function FormQuantitySpecification({
           <TooltipBox></TooltipBox>
         )}
         <ButtonBox>
-          <BasicButton
-            type="reset"
-            text="Reset"
-            onClick={handleResetRangeInput}
-          >
-            Reset
+          <BasicButton type="reset" onClick={handleResetRangeInput}>
+            Zurücksetzen
           </BasicButton>
           <SubmitButton text={buttonText} />
         </ButtonBox>
@@ -172,7 +168,7 @@ const StyledSection = styled.section`
 `;
 
 const TooltipBox = styled.div`
-  width: 13em;
+  width: 15em;
   height: 6em;
   font-size: 13px;
   font-style: italic;

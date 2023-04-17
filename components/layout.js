@@ -5,17 +5,7 @@ export default function Layout({ children }) {
   return (
     <>
       <Header text="FuturePlate"></Header>
-      <StyledMain>{children}</StyledMain>
+      <main>{children}</main>
     </>
   );
 }
-
-const StyledMain = styled.main`
-  display: flex;
-  flex-direction: column;
-  gap: 0.1em;
-  justify-content: center;
-  flex-wrap: wrap;
-  min-height: 80vh;
-  width: 100%;
-`;

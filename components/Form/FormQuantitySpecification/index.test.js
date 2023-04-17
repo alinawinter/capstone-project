@@ -17,20 +17,62 @@ describe("FormQuantitySpecification", () => {
         selectedFoodCategories={{
           id: "1",
           name: "Vollkorngetreide",
+          slug: "vollkorngetreide",
           recommendedConsumption: 232,
           recommendedExample:
-            "2 Tassen Vollkornreis und 1,5 Scheiben Vollkornroggenbrot",
-          maxRange: 464,
-          maxRangeInputField: 600,
+            "1 Tasse Vollkornreis und 1 Scheibe Vollkornroggenbrot",
+          maxRa600nge: 464,
+          maxRangeInputField: 400,
+          furtherExamplaryPortions: [
+            {
+              quantity: 20,
+              example: "1 Scheibe Vollkornroggenbrot",
+            },
+            {
+              quantity: 50,
+              example: "1 Schüssel Haferflocken",
+            },
+            {
+              quantity: 150,
+              example: "1 Tasse Quinoa oder 1 Tasse Buchweizen",
+            },
+            {
+              quantity: 350,
+              example: "3 Tassen Dinkelvollkornnudeln",
+            },
+          ],
+          consumedQuantity: 0,
+          isChecked: true,
         }}
         selectedFoodCategory={{
           id: "1",
           name: "Vollkorngetreide",
+          slug: "vollkorngetreide",
           recommendedConsumption: 232,
           recommendedExample:
-            "2 Tassen Vollkornreis und 1,5 Scheiben Vollkornroggenbrot",
-          maxRange: 464,
-          maxRangeInputField: 600,
+            "1 Tasse Vollkornreis und 1 Scheibe Vollkornroggenbrot",
+          maxRa600nge: 464,
+          maxRangeInputField: 400,
+          furtherExamplaryPortions: [
+            {
+              quantity: 20,
+              example: "1 Scheibe Vollkornroggenbrot",
+            },
+            {
+              quantity: 50,
+              example: "1 Schüssel Haferflocken",
+            },
+            {
+              quantity: 150,
+              example: "1 Tasse Quinoa oder 1 Tasse Buchweizen",
+            },
+            {
+              quantity: 350,
+              example: "3 Tassen Dinkelvollkornnudeln",
+            },
+          ],
+          consumedQuantity: 0,
+          isChecked: true,
         }}
       />
     );
@@ -38,7 +80,7 @@ describe("FormQuantitySpecification", () => {
     expect(selectedFoodCategory).toHaveTextContent("Vollkorngetreide");
 
     const maxRangeInputField = screen.getByRole("maxRangeInputField");
-    expect(maxRangeInputField).toHaveTextContent("600");
+    expect(maxRangeInputField).toHaveTextContent("400");
   });
 });
 
@@ -53,20 +95,62 @@ describe("FormQuantitySpecification", () => {
         selectedFoodCategories={{
           id: "1",
           name: "Vollkorngetreide",
+          slug: "vollkorngetreide",
           recommendedConsumption: 232,
           recommendedExample:
-            "2 Tassen Vollkornreis und 1,5 Scheiben Vollkornroggenbrot",
-          maxRange: 464,
-          maxRangeInputField: 600,
+            "1 Tasse Vollkornreis und 1 Scheibe Vollkornroggenbrot",
+          maxRa600nge: 464,
+          maxRangeInputField: 400,
+          furtherExamplaryPortions: [
+            {
+              quantity: 20,
+              example: "1 Scheibe Vollkornroggenbrot",
+            },
+            {
+              quantity: 50,
+              example: "1 Schüssel Haferflocken",
+            },
+            {
+              quantity: 150,
+              example: "1 Tasse Quinoa oder 1 Tasse Buchweizen",
+            },
+            {
+              quantity: 350,
+              example: "3 Tassen Dinkelvollkornnudeln",
+            },
+          ],
+          consumedQuantity: 0,
+          isChecked: true,
         }}
         selectedFoodCategory={{
           id: "1",
           name: "Vollkorngetreide",
+          slug: "vollkorngetreide",
           recommendedConsumption: 232,
           recommendedExample:
-            "2 Tassen Vollkornreis und 1,5 Scheiben Vollkornroggenbrot",
-          maxRange: 464,
-          maxRangeInputField: 600,
+            "1 Tasse Vollkornreis und 1 Scheibe Vollkornroggenbrot",
+          maxRa600nge: 464,
+          maxRangeInputField: 400,
+          furtherExamplaryPortions: [
+            {
+              quantity: 20,
+              example: "1 Scheibe Vollkornroggenbrot",
+            },
+            {
+              quantity: 50,
+              example: "1 Schüssel Haferflocken",
+            },
+            {
+              quantity: 150,
+              example: "1 Tasse Quinoa oder 1 Tasse Buchweizen",
+            },
+            {
+              quantity: 350,
+              example: "3 Tassen Dinkelvollkornnudeln",
+            },
+          ],
+          consumedQuantity: 0,
+          isChecked: true,
         }}
       />
     );
@@ -74,6 +158,6 @@ describe("FormQuantitySpecification", () => {
     await fireEvent.change(rangeInput, { target: { value: "200" } });
 
     const outputElement = screen.getByRole("output");
-    expect(outputElement).toHaveTextContent("200 gramm");
+    expect(outputElement).toHaveTextContent("200 g");
   });
 });

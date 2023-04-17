@@ -6,7 +6,7 @@ export const BasicButton = styled.button`
   background-color: var(--color-green);
   border: none;
   border-radius: 999px;
-  padding: 1em 2em;
+  padding: 1em 1em;
   cursor: pointer;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
