@@ -1,26 +1,50 @@
 import Layout from "../components/layout";
 import ContentCard from "../components/ContentCard/ContentCard";
-import FormPreselection from "../components/Form/FormPreselectionFood";
-import { useEffect } from "react";
+import RestartQuizButton from "../components/Buttons/RestartQuizButton/RestartQuizButton";
+import Score from "../components/Score/Score";
+import styled from "styled-components";
 
 export default function Home({
-  handleSelectedFoodCategories,
   setSelectedFoodCategories,
-  selectedFoodCategories,
+  dailyQuizzesResultCollection,
 }) {
-  useEffect(() => {
-    setSelectedFoodCategories([]);
-  }, [setSelectedFoodCategories]);
-
   return (
     <Layout>
       <ContentCard>
-        <FormPreselection
+        <RestartQuizButton
           setSelectedFoodCategories={setSelectedFoodCategories}
-          selectedFoodCategories={selectedFoodCategories}
-          handleSelectedFoodCategories={handleSelectedFoodCategories}
+          text="Starte dein tägliches Essensquiz"
         />
+        <ScoreTextAndScoreBox>
+          <p>Dein letzter Tagesscore:</p>
+          <ScoreWrapper>
+            <Score
+              selectedFoodCategories={dailyQuizzesResultCollection}
+              dailyQuizzesResultCollection={dailyQuizzesResultCollection}
+            />
+          </ScoreWrapper>
+        </ScoreTextAndScoreBox>
       </ContentCard>
     </Layout>
   );
 }
+
+const ScoreTextAndScoreBox = styled.div`
+  font-size: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2em;
+  & > p {
+    margin: 0;
+    line-height: 0;
+  }
+  & > div {
+    margin: 0;
+  }
+`;
+
+const ScoreWrapper = styled.div`
+  scale: 60%;
+`;

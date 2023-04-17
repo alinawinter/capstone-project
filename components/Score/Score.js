@@ -7,7 +7,10 @@ import {
   calculateDetailsScoreAccordance,
 } from "../../utils/detailsScoreUtils";
 
-export default function Score({ selectedFoodCategories }) {
+export default function Score({
+  selectedFoodCategories,
+  dailyQuizzesResultCollection,
+}) {
   const mergedArrayAllFoodAndSelectedFood = mergeArrayAllFoodAndSelectedFood(
     foodCategories,
     selectedFoodCategories
@@ -24,13 +27,15 @@ export default function Score({ selectedFoodCategories }) {
       <StyledScore>
         {Math.floor(consumedQuantityAccordanceAverage)} %
       </StyledScore>
-      <section>
-        <p>
-          Insgesamt stimmt deine heutige Ernährungsweise zu{" "}
-          {Math.floor(consumedQuantityAccordanceAverage)} % mit den Empfehlungen
-          der Planetary Health Diet überein.
-        </p>
-      </section>
+      {dailyQuizzesResultCollection === undefined ? (
+        <section>
+          <p>
+            Insgesamt stimmt deine heutige Ernährungsweise zu{" "}
+            {Math.floor(consumedQuantityAccordanceAverage)} % mit den
+            Empfehlungen der Planetary Health Diet überein.
+          </p>
+        </section>
+      ) : null}
     </>
   );
 }

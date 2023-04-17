@@ -23,7 +23,7 @@ export default function FormDetailspage({
       if (calledPush) {
         return;
       }
-      router.push("/");
+      router.push("/selectcategoriesformpage");
       setCalledPush(true);
     }
   }, [selectedFoodCategories, router, calledPush]);
@@ -42,7 +42,7 @@ export default function FormDetailspage({
   function handlePreviousPage() {
     if (currentIndex === 0) {
       setSelectedFoodCategories([]);
-      router.push("/");
+      router.push("/selectcategoriesformpage");
     } else {
       setCurrentIndex(currentIndex - 1);
       router.push(
