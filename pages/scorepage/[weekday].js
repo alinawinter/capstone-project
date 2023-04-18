@@ -7,11 +7,21 @@ import { useRouter } from "next/router";
 export default function ScorePage({
   selectedFoodCategories,
   setDailyQuizzesResultCollection,
+  dailyQuizzesResultCollection,
+  currentWeekDay,
 }) {
   const router = useRouter();
 
   function handleSaveAndStartPage() {
-    setDailyQuizzesResultCollection(selectedFoodCategories);
+    const newObjectForWeeklyCollection = {
+      weekday: currentWeekDay,
+      data: selectedFoodCategories,
+    };
+
+    setDailyQuizzesResultCollection([
+      ...dailyQuizzesResultCollection,
+      newObjectForWeeklyCollection,
+    ]);
     router.push("/");
   }
 
@@ -30,3 +40,25 @@ export default function ScorePage({
     </Layout>
   );
 }
+
+/*
+
+if (dailyQuizzesResultCollection.length === 0) {
+      let updatedResults = dailyQuizzesResultCollection.push(
+        selectedFoodCategories
+      );
+      let namedUpdatedResults = (updatedResults[0].name = "Montag");
+      setDailyQuizzesResultCollection(namedUpdatedResults);
+    } else {
+      let updatedResults = dailyQuizzesResultCollection.splice(
+        1,
+        0,
+        selectedFoodCategories
+      );
+      let namedUpdatedResults = (updatedResults[1].name = "Dienstag");
+
+      setDailyQuizzesResultCollection(namedUpdatedResults);
+    }
+
+
+*/

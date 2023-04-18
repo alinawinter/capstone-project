@@ -8,6 +8,7 @@ export default function App({ Component, pageProps }) {
   const [selectedFoodCategories, setSelectedFoodCategories] = useState([]);
   const [dailyQuizzesResultCollection, setDailyQuizzesResultCollection] =
     useLocalStorageState("dailyQuizzesResultCollection", { defaultValue: [] });
+  const [currentWeekDay, setCurrentWeekDay] = useState("");
 
   function handleSelectedFoodCategories(selection) {
     const assignedFoodCategoryFromDB = foodCategories.find(
@@ -65,6 +66,8 @@ export default function App({ Component, pageProps }) {
         handleSetQuantityPerCategory={handleSetQuantityPerCategory}
         dailyQuizzesResultCollection={dailyQuizzesResultCollection}
         setDailyQuizzesResultCollection={setDailyQuizzesResultCollection}
+        currentWeekDay={currentWeekDay}
+        setCurrentWeekDay={setCurrentWeekDay}
       />
     </>
   );

@@ -1,65 +1,40 @@
 import Layout from "../components/layout";
-import ContentCard from "../components/ContentCard/ContentCard";
-import RestartQuizButton from "../components/Buttons/RestartQuizButton/RestartQuizButton";
-import Score from "../components/Score/Score";
-import styled from "styled-components";
+import WeekdayOptions from "../components/WeekdayOptions/WeekdayOptions";
+import { useEffect } from "react";
 
 export default function Home({
   setSelectedFoodCategories,
+  setDailyQuizzesResultCollection,
   dailyQuizzesResultCollection,
+  setCurrentWeekDay,
+  currentWeekDay,
 }) {
+  const weekDays = [
+    "Montag",
+    "Dienstag",
+    "Mittwoch",
+    "Donnerstag",
+    "Freitag",
+    "Samstag",
+    "Sonntag",
+  ];
+
+  console.log(dailyQuizzesResultCollection);
+
   return (
     <Layout>
-      <StartContentWrapper>
-        <RestartQuizButton
+      <h2>Deine Woche</h2>
+      {weekDays.map((weekDay) => (
+        <WeekdayOptions
+          key={weekDay}
           setSelectedFoodCategories={setSelectedFoodCategories}
-          text="Starte dein tägliches Essensquiz"
+          dailyQuizzesResultCollection={dailyQuizzesResultCollection}
+          setDailyQuizzesResultCollection={setDailyQuizzesResultCollection}
+          weekDay={weekDay}
+          setCurrentWeekDay={setCurrentWeekDay}
+          currentWeekDay={currentWeekDay}
         />
-        {dailyQuizzesResultCollection.length > 0 && (
-          <ScoreTextAndScoreBox>
-            <p>Dein letzter Tagesscore:</p>
-            <ScoreWrapper>
-              <Score
-                selectedFoodCategories={dailyQuizzesResultCollection}
-                dailyQuizzesResultCollection={dailyQuizzesResultCollection}
-              />
-            </ScoreWrapper>
-          </ScoreTextAndScoreBox>
-        )}
-      </StartContentWrapper>
+      ))}
     </Layout>
   );
 }
-
-const StartContentWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  color: var(--color-blue);
-  align-items: center;
-  gap: 1em;
-  padding: 1em;
-  flex-wrap: wrap;
-  height: auto;
-  width: 90vw;
-  margin: 1em;
-`;
-
-const ScoreTextAndScoreBox = styled.div`
-  font-size: 1em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 2em;
-  & > p {
-    margin: 0;
-    line-height: 0;
-  }
-  & > div {
-    margin: 0;
-  }
-`;
-
-const ScoreWrapper = styled.div`
-  scale: 60%;
-`;

@@ -8,8 +8,8 @@ import { useState, useEffect } from "react";
 
 export default function FormDetailspage({
   selectedFoodCategories,
-  setSelectedFoodCategories,
   handleSetQuantityPerCategory,
+  currentWeekDay,
 }) {
   const router = useRouter();
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -30,7 +30,7 @@ export default function FormDetailspage({
 
   function handleNextPage() {
     if (currentIndex === selectedFoodCategories.length - 1) {
-      router.push("/scorepage");
+      router.push(`/scorepage/${currentWeekDay.toLowerCase()}`);
     } else {
       setCurrentIndex(currentIndex + 1);
       router.push(
@@ -41,12 +41,12 @@ export default function FormDetailspage({
 
   function handlePreviousPage() {
     if (currentIndex === 0) {
-      setSelectedFoodCategories([]);
+      dataSetSelectedFoodCategories([]);
       router.push("/selectcategoriesformpage");
     } else {
       setCurrentIndex(currentIndex - 1);
       router.push(
-        `/detailsformpage/${selectedFoodCategories[currentIndex - 1].slug}`
+        `/detailsformpage/${dataSelectedFoodCategories[currentIndex - 1].slug}`
       );
     }
   }

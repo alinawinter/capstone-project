@@ -12,7 +12,7 @@ export default function FormPreselection({
   setSelectedFoodCategories,
 }) {
   const router = useRouter();
-  const [allIsMarked, setAllIsMarked] = useState(false);
+  const [allIsSelected, setAllIsSelected] = useState(false);
   const [buttonText, setButtonText] = useState("Alle auswählen");
 
   function handleCheckBoxChange(event) {
@@ -31,21 +31,21 @@ export default function FormPreselection({
     }
   }
 
-  function handleMarkAll(event) {
+  function handleSelectAll(event) {
     event.preventDefault();
-    if (allIsMarked === true) {
+    if (allIsSelected === true) {
       setSelectedFoodCategories([]);
-      setAllIsMarked(false);
+      setAllIsSelected(false);
       setButtonText("Alle Auswählen");
     }
-    if (allIsMarked === false) {
+    if (allIsSelected === false) {
       const checkedFoodCategories = foodCategories.map((foodCategory) => ({
         ...foodCategory,
         consumedQuantity: 0,
         isChecked: true,
       }));
       setSelectedFoodCategories([...checkedFoodCategories]);
-      setAllIsMarked(true);
+      setAllIsSelected(true);
       setButtonText("Zurücksetzen");
     }
   }
@@ -85,7 +85,7 @@ export default function FormPreselection({
       </CheckBoxList>
       <ButtonBox>
         <BasicButton
-          onClick={handleMarkAll}
+          onClick={handleSelectAll}
           aria-label="Auswahl markieren togglen"
         >
           {buttonText}
