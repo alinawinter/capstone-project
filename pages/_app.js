@@ -2,9 +2,12 @@ import GlobalStyle from "../styles";
 import Head from "next/head";
 import { useState } from "react";
 import { foodCategories } from "../lib/db";
+import useLocalStorageState from "use-local-storage-state";
 
 export default function App({ Component, pageProps }) {
   const [selectedFoodCategories, setSelectedFoodCategories] = useState([]);
+  const [dailyQuizzesResultCollection, setDailyQuizzesResultCollection] =
+    useLocalStorageState("dailyQuizzesResultCollection", { defaultValue: [] });
 
   function handleSelectedFoodCategories(selection) {
     const assignedFoodCategoryFromDB = foodCategories.find(
@@ -60,6 +63,8 @@ export default function App({ Component, pageProps }) {
         setSelectedFoodCategories={setSelectedFoodCategories}
         handleSelectedFoodCategories={handleSelectedFoodCategories}
         handleSetQuantityPerCategory={handleSetQuantityPerCategory}
+        dailyQuizzesResultCollection={dailyQuizzesResultCollection}
+        setDailyQuizzesResultCollection={setDailyQuizzesResultCollection}
       />
     </>
   );

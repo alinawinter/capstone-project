@@ -86,7 +86,7 @@ export default function FormQuantitySpecification({
         aria-describedby="form-description"
         onSubmit={handleQuantitySpecification}
       >
-        <h3 id="form-title">Tägliches Essensquiz</h3>
+        <h2 id="form-title">Tägliches Essensquiz</h2>
         <Legend id="form-description" htmlFor="range-input">
           Bitte wähle aus, wieviel <b>{name}</b> du heute gegessen hast:
         </Legend>

@@ -9,12 +9,14 @@ const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5em;
-  padding: 2em;
+  gap: 1em;
+  padding: 1em;
   flex-wrap: wrap;
   height: auto;
-  margin: 6%;
+  width: 90vw;
+  margin: 1em;
   border-radius: 1.5em;
   color: var(--color-blue);
   text-align: center;
+
 `;
