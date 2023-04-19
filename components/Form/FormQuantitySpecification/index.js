@@ -8,6 +8,7 @@ export default function FormQuantitySpecification({
   selectedFoodCategory,
   handleQuantityPerCategory,
   handleNextPage,
+  handlePreviousPage,
   currentIndex,
   selectedFoodCategories,
 }) {
@@ -113,9 +114,14 @@ export default function FormQuantitySpecification({
         ) : (
           <TooltipBox></TooltipBox>
         )}
-        <ButtonBox>
+        <StyledButtonWrapper>
           <BasicButton type="reset" onClick={handleResetRangeInput}>
             Zurücksetzen
+          </BasicButton>{" "}
+        </StyledButtonWrapper>
+        <ButtonBox>
+          <BasicButton type="button" onClick={handlePreviousPage}>
+            {currentIndex === 0 ? "< Quiz neustarten" : "< Zurück"}
           </BasicButton>
           <SubmitButton text={buttonText} />
         </ButtonBox>
@@ -179,4 +185,11 @@ const ButtonBox = styled.div`
   flex-direction: row;
   gap: 1em;
   flex-wrap: wrap;
+`;
+
+const StyledButtonWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 `;

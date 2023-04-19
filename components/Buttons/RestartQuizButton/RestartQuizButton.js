@@ -19,7 +19,7 @@ export default function RestartQuizButton({
       ({ weekday }) => weekday !== weekDay
     );
     handleDailyQuizzesResultCollection(updatedQuizCollection);
-    router.push(`/selectcategoriesformpage/${weekDay.toLowerCase()}`);
+    router.push("/selectcategoriesformpage");
   }
 
   return (

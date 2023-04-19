@@ -80,7 +80,7 @@ export default function WeeklyScore({
       <StyledScore>{Math.floor(calculatedWeeklyScoreNumber)} %</StyledScore>
       <section>
         <Hint>
-          Insgesamt stimmt deine heutige Ernährungsweise zu{" "}
+          Deine Ernährungsweise stimmt zu{" "}
           {Math.floor(calculatedWeeklyScoreNumber)} % mit den Empfehlungen der
           Planetary Health Diet überein.
         </Hint>
