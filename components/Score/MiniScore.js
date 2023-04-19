@@ -6,10 +6,19 @@ import {
   calculateDetailsScoreAccordance,
 } from "../../utils/detailsScoreUtils";
 
-export default function Score({ selectedFoodCategories, foodCategories }) {
+export default function MiniScore({
+  dailyQuizzesResultCollection,
+  weekDay,
+  foodCategories,
+}) {
+  const dailyQuizForWeekDay = dailyQuizzesResultCollection.find(
+    ({ weekday }) => weekday === weekDay
+  );
+  const selectedFoodForWeekDay = dailyQuizForWeekDay?.data || [];
+
   const mergedArrayAllFoodAndSelectedFood = mergeArrayAllFoodAndSelectedFood(
     foodCategories,
-    selectedFoodCategories
+    selectedFoodForWeekDay
   );
 
   const consumedQuantityAccordanceAverage = calculateAverageScoreAccordance(
@@ -19,18 +28,7 @@ export default function Score({ selectedFoodCategories, foodCategories }) {
   );
 
   return (
-    <>
-      <StyledScore>
-        {Math.floor(consumedQuantityAccordanceAverage)} %
-      </StyledScore>
-      <section>
-        <p>
-          Insgesamt stimmt deine heutige Ernährungsweise zu{" "}
-          {Math.floor(consumedQuantityAccordanceAverage)} % mit den Empfehlungen
-          der Planetary Health Diet überein.
-        </p>
-      </section>
-    </>
+    <StyledScore>{Math.floor(consumedQuantityAccordanceAverage)} %</StyledScore>
   );
 }
 
@@ -40,15 +38,12 @@ const StyledScore = styled.h1`
   align-items: center;
   color: var(--color-blue);
   font-family: var(--font-family-text);
+  font-size: 1em;
   background-color: var(--color-yellow);
   border-radius: 50%;
-  width: 4.5em;
-  height: 4.5em;
-  padding: 0.5em 0.5em;
+  width: 3.5em;
+  height: 3.5em;
+  padding: 0.1em 0.1em;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-`;
-
-const Hint = styled.p`
-  font-style: italic;
 `;

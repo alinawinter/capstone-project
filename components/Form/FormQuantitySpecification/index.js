@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 
 export default function FormQuantitySpecification({
   selectedFoodCategory,
-  handleSetQuantityPerCategory,
+  handleQuantityPerCategory,
   handleNextPage,
   currentIndex,
   selectedFoodCategories,
@@ -64,7 +64,7 @@ export default function FormQuantitySpecification({
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
     const consumedQuantityValue = parseFloat(data.consumedQuantity);
-    handleSetQuantityPerCategory(
+    handleQuantityPerCategory(
       selectedFoodCategories,
       id,
       consumedQuantityValue
