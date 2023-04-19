@@ -6,9 +6,10 @@ import { useRouter } from "next/router";
 
 export default function ScorePage({
   selectedFoodCategories,
-  setDailyQuizzesResultCollection,
+  handleDailyQuizzesResultCollection,
   dailyQuizzesResultCollection,
   currentWeekDay,
+  foodCategories,
 }) {
   const router = useRouter();
 
@@ -18,7 +19,7 @@ export default function ScorePage({
       data: selectedFoodCategories,
     };
 
-    setDailyQuizzesResultCollection([
+    handleDailyQuizzesResultCollection([
       ...dailyQuizzesResultCollection,
       newObjectForWeeklyCollection,
     ]);
@@ -29,11 +30,11 @@ export default function ScorePage({
     <Layout>
       <ContentCard>
         <h2>Tagesscore</h2>
-        <Score selectedFoodCategories={selectedFoodCategories} />
-        <BasicButton
-          onClick={handleSaveAndStartPage}
-          aria-label="Ergebnis speichern und zur Wochenübersicht"
-        >
+        <Score
+          selectedFoodCategories={selectedFoodCategories}
+          foodCategories={foodCategories}
+        />
+        <BasicButton onClick={handleSaveAndStartPage} type="button">
           Speichern und zur Wochenübersicht
         </BasicButton>
       </ContentCard>

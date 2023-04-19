@@ -8,7 +8,7 @@ import { useState, useEffect } from "react";
 
 export default function FormDetailspage({
   selectedFoodCategories,
-  handleSetQuantityPerCategory,
+  handleQuantityPerCategory,
   currentWeekDay,
 }) {
   const router = useRouter();
@@ -60,7 +60,7 @@ export default function FormDetailspage({
             currentIndex={currentIndex}
             selectedFoodCategories={selectedFoodCategories}
             selectedFoodCategory={selectedFoodCategories[currentIndex]}
-            handleSetQuantityPerCategory={handleSetQuantityPerCategory}
+            handleQuantityPerCategory={handleQuantityPerCategory}
           />
         </ContentCard>
         <StyledButtonWrapper>

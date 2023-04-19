@@ -5,29 +5,27 @@ import { useRouter } from "next/router";
 export default function RestartQuizButton({
   setSelectedFoodCategories,
   weekDay,
-  setCurrentWeekDay,
-  setDailyQuizzesResultCollection,
+  handleCurrentWeekDay,
+  handleDailyQuizzesResultCollection,
   dailyQuizzesResultCollection,
+  isQuizTaken,
 }) {
   const router = useRouter();
-  const quizTaken = dailyQuizzesResultCollection.some(
-    (obj) => obj.weekday === weekDay
-  );
 
   function handleClick() {
-    setCurrentWeekDay(weekDay);
+    handleCurrentWeekDay(weekDay);
     setSelectedFoodCategories([]);
     const updatedQuizCollection = dailyQuizzesResultCollection.filter(
       ({ weekday }) => weekday !== weekDay
     );
-    setDailyQuizzesResultCollection(updatedQuizCollection);
+    handleDailyQuizzesResultCollection(updatedQuizCollection);
     router.push(`/selectcategoriesformpage/${weekDay.toLowerCase()}`);
   }
 
   return (
     <StyledRestartQuizButtonWrapper>
-      <BasicButton aria-label="Quiz neu starten" onClick={handleClick}>
-        {quizTaken ? "Quiz neustarten" : "Quiz starten"}
+      <BasicButton type="button" onClick={handleClick}>
+        {isQuizTaken ? "Quiz neustarten" : "Quiz starten"}
       </BasicButton>
     </StyledRestartQuizButtonWrapper>
   );

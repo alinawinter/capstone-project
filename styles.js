@@ -36,6 +36,10 @@ export default createGlobalStyle`
     width: 100%;
     min-height: 90vh;
   }
-  h2 {font-size: 1.2rem;}
-  h3 {font-size: 1rem;}
+  h2 {
+    font-size: 1.2rem;
+  }
+  h3 {
+    font-size: 1rem;
+  }
 `;

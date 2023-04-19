@@ -1,13 +1,14 @@
 import Layout from "../components/layout";
 import WeekdayOptions from "../components/WeekdayOptions/WeekdayOptions";
-import { useEffect } from "react";
+import styled from "styled-components";
 
 export default function Home({
   setSelectedFoodCategories,
-  setDailyQuizzesResultCollection,
+  handleDailyQuizzesResultCollection,
   dailyQuizzesResultCollection,
-  setCurrentWeekDay,
+  handleCurrentWeekDay,
   currentWeekDay,
+  foodCategories,
 }) {
   const weekDays = [
     "Montag",
@@ -19,22 +20,33 @@ export default function Home({
     "Sonntag",
   ];
 
-  console.log(dailyQuizzesResultCollection);
-
   return (
     <Layout>
       <h2>Deine Woche</h2>
-      {weekDays.map((weekDay) => (
-        <WeekdayOptions
-          key={weekDay}
-          setSelectedFoodCategories={setSelectedFoodCategories}
-          dailyQuizzesResultCollection={dailyQuizzesResultCollection}
-          setDailyQuizzesResultCollection={setDailyQuizzesResultCollection}
-          weekDay={weekDay}
-          setCurrentWeekDay={setCurrentWeekDay}
-          currentWeekDay={currentWeekDay}
-        />
-      ))}
+      <List>
+        {weekDays.map((weekDay) => (
+          <li key={weekDay}>
+            <WeekdayOptions
+              key={weekDay}
+              setSelectedFoodCategories={setSelectedFoodCategories}
+              dailyQuizzesResultCollection={dailyQuizzesResultCollection}
+              handleDailyQuizzesResultCollection={
+                handleDailyQuizzesResultCollection
+              }
+              weekDay={weekDay}
+              handleCurrentWeekDay={handleCurrentWeekDay}
+              currentWeekDay={currentWeekDay}
+              foodCategories={foodCategories}
+            />
+          </li>
+        ))}
+      </List>
     </Layout>
   );
 }
+
+const List = styled.ul`
+  list-style: none;
+  padding 0;
+  margin: 0;
+`;

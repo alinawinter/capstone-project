@@ -7,40 +7,50 @@ import { BasicButton } from "../Buttons/buttonStyles";
 export default function WeekdayOptions({
   setSelectedFoodCategories,
   dailyQuizzesResultCollection,
-  setDailyQuizzesResultCollection,
+  handleDailyQuizzesResultCollection,
   weekDay,
-  setCurrentWeekDay,
+  handleCurrentWeekDay,
+  foodCategories,
 }) {
   function handleReset() {
     const updatedQuizCollection = dailyQuizzesResultCollection.filter(
       ({ weekday }) => weekday !== weekDay
     );
-    setDailyQuizzesResultCollection(updatedQuizCollection);
+    handleDailyQuizzesResultCollection(updatedQuizCollection);
   }
+
+  const isQuizTaken = dailyQuizzesResultCollection.some(
+    (dailyQuiz) => dailyQuiz.weekday === weekDay
+  );
 
   return (
     <WeekdayOptionsCard
       dailyQuizzesResultCollection={dailyQuizzesResultCollection}
       weekDay={weekDay}
+      isQuizTaken={isQuizTaken}
     >
       <DayAndButtonWrapper>
         <h3>{weekDay}</h3>
         <RestartQuizButton
           setSelectedFoodCategories={setSelectedFoodCategories}
           weekDay={weekDay}
-          setCurrentWeekDay={setCurrentWeekDay}
-          setDailyQuizzesResultCollection={setDailyQuizzesResultCollection}
+          handleCurrentWeekDay={handleCurrentWeekDay}
+          handleDailyQuizzesResultCollection={
+            handleDailyQuizzesResultCollection
+          }
           dailyQuizzesResultCollection={dailyQuizzesResultCollection}
+          isQuizTaken={isQuizTaken}
         />
       </DayAndButtonWrapper>
       {dailyQuizzesResultCollection.some(
-        (object) => object.weekday === weekDay
+        (dailyQuiz) => dailyQuiz.weekday === weekDay
       ) && (
         <ScoreWrapper>
           <p>Letzter Tagesscore:</p>
           <MiniScore
             dailyQuizzesResultCollection={dailyQuizzesResultCollection}
             weekDay={weekDay}
+            foodCategories={foodCategories}
           />
           <ResetButtonWrapper>
             <BasicButton type="reset" onClick={handleReset}>
