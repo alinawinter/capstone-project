@@ -23,7 +23,7 @@ export default function Home({
   return (
     <Layout>
       <h2>Deine Woche</h2>
-      <List>
+      <List role="list">
         {weekDays.map((weekDay) => (
           <li key={weekDay}>
             <WeekdayOptions
