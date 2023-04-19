@@ -35,8 +35,3 @@ const StyledContainer = styled.div`
   color: var(--color-blue);
   text-align: center;
 `;
-
-/*  background-color: ${({ dailyQuizzesResultCollection }) =>
-    dailyQuizzesResultCollection.length > 0
-      ? "rgba(129, 178, 154, 0.3)"
-      : "white"};*/

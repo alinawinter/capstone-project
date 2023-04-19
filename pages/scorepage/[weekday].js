@@ -32,33 +32,11 @@ export default function ScorePage({
         <Score selectedFoodCategories={selectedFoodCategories} />
         <BasicButton
           onClick={handleSaveAndStartPage}
-          aria-label="Ergebnis speichern und zurück zur Startseite"
+          aria-label="Ergebnis speichern und zur Wochenübersicht"
         >
-          Speichern und zur Startseite
+          Speichern und zur Wochenübersicht
         </BasicButton>
       </ContentCard>
     </Layout>
   );
 }
-
-/*
-
-if (dailyQuizzesResultCollection.length === 0) {
-      let updatedResults = dailyQuizzesResultCollection.push(
-        selectedFoodCategories
-      );
-      let namedUpdatedResults = (updatedResults[0].name = "Montag");
-      setDailyQuizzesResultCollection(namedUpdatedResults);
-    } else {
-      let updatedResults = dailyQuizzesResultCollection.splice(
-        1,
-        0,
-        selectedFoodCategories
-      );
-      let namedUpdatedResults = (updatedResults[1].name = "Dienstag");
-
-      setDailyQuizzesResultCollection(namedUpdatedResults);
-    }
-
-
-*/

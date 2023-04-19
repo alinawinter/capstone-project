@@ -21,13 +21,12 @@ export default function WeekdayOptions({
   return (
     <WeekdayOptionsCard
       dailyQuizzesResultCollection={dailyQuizzesResultCollection}
-      currentWeekDay={weekDay}
+      weekDay={weekDay}
     >
       <DayAndButtonWrapper>
         <h3>{weekDay}</h3>
         <RestartQuizButton
           setSelectedFoodCategories={setSelectedFoodCategories}
-          text="Starte Tagesquiz"
           weekDay={weekDay}
           setCurrentWeekDay={setCurrentWeekDay}
           setDailyQuizzesResultCollection={setDailyQuizzesResultCollection}

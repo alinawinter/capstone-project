@@ -37,4 +37,5 @@ export default createGlobalStyle`
     min-height: 90vh;
   }
   h2 {font-size: 1.2rem;}
+  h3 {font-size: 1rem;}
 `;

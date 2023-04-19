@@ -4,13 +4,15 @@ import { useRouter } from "next/router";
 
 export default function RestartQuizButton({
   setSelectedFoodCategories,
-  text,
   weekDay,
   setCurrentWeekDay,
   setDailyQuizzesResultCollection,
   dailyQuizzesResultCollection,
 }) {
   const router = useRouter();
+  const quizTaken = dailyQuizzesResultCollection.some(
+    (obj) => obj.weekday === weekDay
+  );
 
   function handleClick() {
     setCurrentWeekDay(weekDay);
@@ -25,7 +27,7 @@ export default function RestartQuizButton({
   return (
     <StyledRestartQuizButtonWrapper>
       <BasicButton aria-label="Quiz neu starten" onClick={handleClick}>
-        {text}
+        {quizTaken ? "Quiz neustarten" : "Quiz starten"}
       </BasicButton>
     </StyledRestartQuizButtonWrapper>
   );
