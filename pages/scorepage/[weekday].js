@@ -1,8 +1,9 @@
 import Layout from "../../components/layout";
 import ContentCard from "../../components/ContentCard/ContentCard";
-import Score from "../../components/Score/Score";
+import DayScore from "../../components/Score/DayScore";
 import { BasicButton } from "../../components/Buttons/buttonStyles";
 import { useRouter } from "next/router";
+import { mergeArrayAllFoodAndSelectedFood } from "../../utils/mergeSelectedAndOtherFoodUtils";
 
 export default function ScorePage({
   selectedFoodCategories,
@@ -14,23 +15,41 @@ export default function ScorePage({
   const router = useRouter();
 
   function handleSaveAndStartPage() {
+    const mergedArrayAllFoodAndSelectedFood = mergeArrayAllFoodAndSelectedFood(
+      foodCategories,
+      selectedFoodCategories
+    );
+
     const newObjectForWeeklyCollection = {
       weekday: currentWeekDay,
-      data: selectedFoodCategories,
+      data: mergedArrayAllFoodAndSelectedFood,
     };
 
-    handleDailyQuizzesResultCollection([
-      ...dailyQuizzesResultCollection,
-      newObjectForWeeklyCollection,
-    ]);
-    router.push("/");
+    let quizForWeekdayAlreadyExists = false;
+    for (let i = 0; i < dailyQuizzesResultCollection.length; i++) {
+      if (
+        dailyQuizzesResultCollection[i].weekday ===
+        newObjectForWeeklyCollection.weekday
+      ) {
+        quizForWeekdayAlreadyExists = true;
+        break;
+      }
+    }
+
+    if (!quizForWeekdayAlreadyExists) {
+      handleDailyQuizzesResultCollection([
+        ...dailyQuizzesResultCollection,
+        newObjectForWeeklyCollection,
+      ]);
+      router.push("/");
+    }
   }
 
   return (
     <Layout>
       <ContentCard>
         <h2>Tagesscore</h2>
-        <Score
+        <DayScore
           selectedFoodCategories={selectedFoodCategories}
           foodCategories={foodCategories}
         />

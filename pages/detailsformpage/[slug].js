@@ -41,12 +41,12 @@ export default function FormDetailspage({
 
   function handlePreviousPage() {
     if (currentIndex === 0) {
-      dataSetSelectedFoodCategories([]);
+      setSelectedFoodCategories([]);
       router.push("/selectcategoriesformpage");
     } else {
       setCurrentIndex(currentIndex - 1);
       router.push(
-        `/detailsformpage/${dataSelectedFoodCategories[currentIndex - 1].slug}`
+        `/detailsformpage/${selectedFoodCategories[currentIndex - 1].slug}`
       );
     }
   }
