@@ -39,7 +39,16 @@ export default function WeeklyScoreTable({}) {
                 },
               }}
             >
-              <TableCell>Lebensmittel</TableCell>
+              <TableCell
+                sx={{
+                  fontWeight: "bold",
+                  backgroundColor: "var(--color-yellow)",
+                  position: "sticky",
+                  left: "0",
+                }}
+              >
+                Lebensmittel
+              </TableCell>
               <TableCell align="right">Dein Score</TableCell>
               <TableCell align="right">Dein Konsum&nbsp;(g)</TableCell>
               <TableCell align="right">
@@ -101,9 +110,15 @@ export default function WeeklyScoreTable({}) {
         onRowsPerPageChange={handleChangeRowsPerPage}
         sx={{
           ".MuiTablePagination-toolbar": {
-            fontFamily: "var(--font-family-text)",
+            margin: "1.2em",
+          },
+          ".MuiTablePagination-displayedRows": {
             color: "var(--color-blue)",
-            marginBottom: "1em",
+            fontFamily: "var(--font-family-text)",
+            fontSize: "1.2em",
+          },
+          ".MuiTablePagination-selectLabel": {
+            color: "var(--color-blue)",
           },
         }}
       />
@@ -123,12 +138,12 @@ const rows = foodCategories.map((foodCategory) =>
   )
 );
 
-/* It is in the end supposed to look like this, in terms of feeding with data:
+/* It is in the end supposed to be something like this, in terms of feeding with data:
 
 const rows = foodCategories.map((foodCategory) =>
   createData(
     foodCategory.name,
-    HERE I STILL HAVE TO WRITE THE CALCULATING FUNCTION,
+    calculateDetailsScoreAccordance(calculateDetailsScoreDeviation, sumOfActualWeeklyConsumptionByFoodCategories[foodCategory.name], recommendedConsumptionByFoodCategoryBasedOnNumberQuizzes[foodCategory.name], maxRangeByFoodCategoryBasedOnNumberQuizzes[foodCategory.name]),
     sumOfActualWeeklyConsumptionByFoodCategories[foodCategory.name],
     recommendedConsumptionByFoodCategoryBasedOnNumberQuizzes[foodCategory.name],
     foodCategory.recommendedConsumption

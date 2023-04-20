@@ -69,7 +69,6 @@ const StyledScore = styled.h1`
   height: 4.5em;
   padding: 0.5em 0.5em;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 `;
 
 const Hint = styled.p`

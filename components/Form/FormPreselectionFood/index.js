@@ -117,19 +117,24 @@ const CheckBoxContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(61, 64, 91, 0.6);
+  color: ${({ isChecked }) =>
+    isChecked ? "rgba(244, 241, 222, 1)" : "rgba(224, 122, 95, 1)"};
   font-family: var(--font-family-text);
   background-color: ${({ isChecked }) =>
-    isChecked ? "var(--color-yellow)" : "rgba(244, 241, 222, 0.6)"};
+    isChecked ? "rgba(224, 122, 95, 0.9)" : "rgba(244, 241, 222, 0.6)"};
   border: none;
   border-radius: 999px;
   padding: 0.3em 1em;
   cursor: pointer;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-shadow: ${({ isChecked }) =>
+    isChecked && "1px 1px 2px rgba(0, 0, 0, 0.2)"};
   width: 11em;
   height: 4em;
 `;
 
+// font rgba(61, 64, 91, 0.6)
+// background rgba(244, 241, 222, 0.6)
 const CheckBoxInput = styled.input.attrs({ type: "checkbox" })`
   position: absolute;
   display: none;
