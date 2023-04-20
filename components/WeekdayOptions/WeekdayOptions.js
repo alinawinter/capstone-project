@@ -1,6 +1,6 @@
 import WeekdayOptionsCard from "./WeekdayOptionsCard";
 import RestartQuizButton from "../Buttons/RestartQuizButton/RestartQuizButton";
-import MiniScore from "../Score/MiniScore";
+import MiniDayScore from "../Score/MiniDayScore";
 import styled from "styled-components";
 import { BasicButton } from "../Buttons/buttonStyles";
 
@@ -47,7 +47,7 @@ export default function WeekdayOptions({
       ) && (
         <ScoreWrapper>
           <p>Letzter Tagesscore:</p>
-          <MiniScore
+          <MiniDayScore
             dailyQuizzesResultCollection={dailyQuizzesResultCollection}
             weekDay={weekDay}
             foodCategories={foodCategories}

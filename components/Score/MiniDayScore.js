@@ -6,7 +6,7 @@ import {
   calculateDetailsScoreAccordance,
 } from "../../utils/detailsScoreUtils";
 
-export default function MiniScore({
+export default function MiniDayScore({
   dailyQuizzesResultCollection,
   weekDay,
   foodCategories,

@@ -110,7 +110,7 @@ const CheckBoxList = styled.ul`
   font-size: 12px;
   margin: 0;
   padding: 0;
-  gap: 0.4em;
+  gap: 1.2em;
   flex-wrap: wrap;
 `;
 const CheckBoxContainer = styled.div`
@@ -126,8 +126,8 @@ const CheckBoxContainer = styled.div`
   padding: 0.3em 1em;
   cursor: pointer;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  width: 10em;
-  height: 3em;
+  width: 11em;
+  height: 4em;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 `;
 

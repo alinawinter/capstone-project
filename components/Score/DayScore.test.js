@@ -1,10 +1,10 @@
-import Score from "./Score";
+import DayScore from "./DayScore";
 import { render, screen } from "@testing-library/react";
 import { foodCategories } from "../../lib/db";
 
 test("renders a score that is based on selectedFoodCategories from the array and the users range input on consumed amount of food", () => {
   render(
-    <Score
+    <DayScore
       foodCategories={foodCategories}
       selectedFoodCategories={[
         {

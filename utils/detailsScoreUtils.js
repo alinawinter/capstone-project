@@ -36,5 +36,9 @@ export function calculateDetailsScoreAccordance(
     maxRange
   );
   const accordance = 100 - deviation;
-  return accordance;
+  if (accordance < 0) {
+    return 0;
+  } else {
+    return accordance;
+  }
 }
