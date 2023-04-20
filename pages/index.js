@@ -1,8 +1,12 @@
+import calculateSumOfActualWeeklyConsumptionByFoodCategories from "../utils/sumConsumptionByFoodCategory";
+import calculateRecommendedConsumptionByFoodCategoryBasedOnNumberQuizzes from "../utils/sumRecommendedConsumptionByFoodCategory";
 import Layout from "../components/layout";
 import WeekdayOptions from "../components/WeekdayOptions/WeekdayOptions";
 import WeeklyScore from "../components/Score/WeeklyScore";
+import WeeklyScoreTable from "../components/Score/WeeklyScoreTable";
 import { BasicButton } from "../components/Buttons/buttonStyles";
 import styled from "styled-components";
+import { useEffect, useState } from "react";
 
 export default function Home({
   setSelectedFoodCategories,
@@ -21,10 +25,54 @@ export default function Home({
     "Samstag",
     "Sonntag",
   ];
+  const [
+    sumOfActualWeeklyConsumptionByFoodCategories,
+    setSumOfActualWeeklyConsumptionByFoodCategories,
+  ] = useState(null);
+  const [
+    recommendedConsumptionByFoodCategoryBasedOnNumberQuizzes,
+    setRecommendedConsumptionByFoodCategoryBasedOnNumberQuizzes,
+  ] = useState(null);
+  const [
+    maxRangeByFoodCategoryBasedOnNumberQuizzes,
+    setMaxRangeByFoodCategoryBasedOnNumberQuizzes,
+  ] = useState(null);
 
   function handleResetWeek() {
     handleDailyQuizzesResultCollection([]);
   }
+
+  useEffect(() => {
+    const newSumOfActualWeeklyConsumptionByFoodCategories =
+      calculateSumOfActualWeeklyConsumptionByFoodCategories(
+        dailyQuizzesResultCollection
+      );
+    setSumOfActualWeeklyConsumptionByFoodCategories(
+      newSumOfActualWeeklyConsumptionByFoodCategories
+    );
+
+    const newRecommendedConsumptionByFoodCategoryBasedOnNumberQuizzes =
+      calculateRecommendedConsumptionByFoodCategoryBasedOnNumberQuizzes(
+        dailyQuizzesResultCollection,
+        foodCategories
+      );
+
+    setRecommendedConsumptionByFoodCategoryBasedOnNumberQuizzes(
+      newRecommendedConsumptionByFoodCategoryBasedOnNumberQuizzes
+    );
+
+    const newMaxRangeByFoodCategoryBasedOnNumberQuizzes = foodCategories.reduce(
+      (result, foodCategory) => {
+        result[foodCategory.name] =
+          foodCategory.maxRange * dailyQuizzesResultCollection.length;
+        return result;
+      },
+      {}
+    );
+    setMaxRangeByFoodCategoryBasedOnNumberQuizzes(
+      newMaxRangeByFoodCategoryBasedOnNumberQuizzes
+    );
+  }, [dailyQuizzesResultCollection, foodCategories]);
 
   return (
     <Layout>
@@ -53,11 +101,30 @@ export default function Home({
         ))}
       </List>
       {dailyQuizzesResultCollection.length !== 0 && (
-        <>
+        <ScoreBox>
           <h2>Bisheriger Wochenscore:</h2>
           <WeeklyScore
             dailyQuizzesResultCollection={dailyQuizzesResultCollection}
             foodCategories={foodCategories}
+            sumOfActualWeeklyConsumptionByFoodCategories={
+              sumOfActualWeeklyConsumptionByFoodCategories
+            }
+            recommendedConsumptionByFoodCategoryBasedOnNumberQuizzes={
+              recommendedConsumptionByFoodCategoryBasedOnNumberQuizzes
+            }
+            maxRangeByFoodCategoryBasedOnNumberQuizzes={
+              maxRangeByFoodCategoryBasedOnNumberQuizzes
+            }
+          />
+          <WeeklyScoreTable
+            dailyQuizzesResultCollection={dailyQuizzesResultCollection}
+            foodCategories={foodCategories}
+            sumOfActualWeeklyConsumptionByFoodCategories={
+              sumOfActualWeeklyConsumptionByFoodCategories
+            }
+            recommendedConsumptionByFoodCategoryBasedOnNumberQuizzes={
+              recommendedConsumptionByFoodCategoryBasedOnNumberQuizzes
+            }
           />
           <BasicButton
             type="reset"
@@ -66,11 +133,19 @@ export default function Home({
           >
             Woche zurücksetzen
           </BasicButton>
-        </>
+        </ScoreBox>
       )}
     </Layout>
   );
 }
+
+const ScoreBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: wrap;
+`;
 
 const List = styled.ul`
   list-style: none;

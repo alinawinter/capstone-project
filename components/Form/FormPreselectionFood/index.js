@@ -128,7 +128,6 @@ const CheckBoxContainer = styled.div`
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   width: 11em;
   height: 4em;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 `;
 
 const CheckBoxInput = styled.input.attrs({ type: "checkbox" })`

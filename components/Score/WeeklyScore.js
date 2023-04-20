@@ -5,62 +5,25 @@ import {
   calculateDetailsScoreAccordance,
 } from "../../utils/detailsScoreUtils";
 import { useState, useEffect } from "react";
+import calculateFormatWeekDataForScoreCalculation from "../../utils/formatWeekDataForScores";
 
 export default function WeeklyScore({
   dailyQuizzesResultCollection,
   foodCategories,
+  sumOfActualWeeklyConsumptionByFoodCategories,
+  recommendedConsumptionByFoodCategoryBasedOnNumberQuizzes,
+  maxRangeByFoodCategoryBasedOnNumberQuizzes,
 }) {
   const [calculatedWeeklyScoreNumber, setCalculatedWeeklyScoreNumber] =
     useState(null);
 
   useEffect(() => {
-    const sumOfActualWeeklyConsumptionByFoodCategories = {};
-    dailyQuizzesResultCollection.forEach((dailyQuiz) => {
-      dailyQuiz.data.forEach((foodCategory) => {
-        const { name, consumedQuantity } = foodCategory;
-
-        if (sumOfActualWeeklyConsumptionByFoodCategories[name]) {
-          sumOfActualWeeklyConsumptionByFoodCategories[name] +=
-            consumedQuantity;
-        } else {
-          sumOfActualWeeklyConsumptionByFoodCategories[name] = consumedQuantity;
-        }
-      });
-    });
-
-    const recommendedConsumptionByFoodCategoryBasedOnNumberQuizzes =
-      foodCategories.reduce((result, foodCategory) => {
-        result[foodCategory.name] =
-          foodCategory.recommendedConsumption *
-          dailyQuizzesResultCollection.length;
-        return result;
-      }, {});
-
-    const maxRangeByFoodCategoryBasedOnNumberQuizzes = foodCategories.reduce(
-      (result, foodCategory) => {
-        result[foodCategory.name] =
-          foodCategory.maxRange * dailyQuizzesResultCollection.length;
-        return result;
-      },
-      {}
-    );
-
-    const weekDataForScoreCalculation = [];
-
-    for (let foodCategory in sumOfActualWeeklyConsumptionByFoodCategories) {
-      const consumedQuantity =
-        sumOfActualWeeklyConsumptionByFoodCategories[foodCategory];
-      const recommendedConsumption =
-        recommendedConsumptionByFoodCategoryBasedOnNumberQuizzes[foodCategory];
-      const maxRange = maxRangeByFoodCategoryBasedOnNumberQuizzes[foodCategory];
-
-      weekDataForScoreCalculation.push({
-        name: foodCategory,
-        consumedQuantity: consumedQuantity,
-        recommendedConsumption: recommendedConsumption,
-        maxRange: maxRange,
-      });
-    }
+    const weekDataForScoreCalculation =
+      calculateFormatWeekDataForScoreCalculation(
+        sumOfActualWeeklyConsumptionByFoodCategories,
+        recommendedConsumptionByFoodCategoryBasedOnNumberQuizzes,
+        maxRangeByFoodCategoryBasedOnNumberQuizzes
+      );
 
     const score = calculateAverageScoreAccordance(
       weekDataForScoreCalculation,
@@ -69,12 +32,17 @@ export default function WeeklyScore({
     );
 
     setCalculatedWeeklyScoreNumber(Math.floor(score));
-  }, [dailyQuizzesResultCollection, foodCategories]);
-
+  }, [
+    calculatedWeeklyScoreNumber,
+    dailyQuizzesResultCollection,
+    foodCategories,
+    maxRangeByFoodCategoryBasedOnNumberQuizzes,
+    recommendedConsumptionByFoodCategoryBasedOnNumberQuizzes,
+    sumOfActualWeeklyConsumptionByFoodCategories,
+  ]);
   if (calculatedWeeklyScoreNumber === null) {
     return null;
   }
-
   return (
     <>
       <StyledScore>{Math.floor(calculatedWeeklyScoreNumber)} %</StyledScore>
