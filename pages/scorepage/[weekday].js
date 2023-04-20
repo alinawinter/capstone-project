@@ -4,6 +4,7 @@ import DayScore from "../../components/Score/DayScore";
 import { BasicButton } from "../../components/Buttons/buttonStyles";
 import { useRouter } from "next/router";
 import { mergeArrayAllFoodAndSelectedFood } from "../../utils/mergeSelectedAndOtherFoodUtils";
+import { useState } from "react";
 
 export default function ScorePage({
   selectedFoodCategories,
@@ -12,6 +13,8 @@ export default function ScorePage({
   currentWeekDay,
   foodCategories,
 }) {
+  const [quizForWeekdayAlreadyExists, setQuizForWeekdayAlreadyExists] =
+    useState(false);
   const router = useRouter();
 
   function handleSaveAndStartPage() {
@@ -25,13 +28,15 @@ export default function ScorePage({
       data: mergedArrayAllFoodAndSelectedFood,
     };
 
-    let quizForWeekdayAlreadyExists = false;
     for (let i = 0; i < dailyQuizzesResultCollection.length; i++) {
       if (
         dailyQuizzesResultCollection[i].weekday ===
         newObjectForWeeklyCollection.weekday
       ) {
-        quizForWeekdayAlreadyExists = true;
+        setQuizForWeekdayAlreadyExists(true);
+        alert(
+          "Deine Daten für diesen Tag wurden bereits gespeichert. Bitte gehe zurück zur Startseite. Dort hast du die Möglichkeit, das Quiz neu zu starten"
+        );
         break;
       }
     }
