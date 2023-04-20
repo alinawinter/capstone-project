@@ -111,7 +111,8 @@ export default function WeeklyScoreTable({}) {
   );
 }
 
-//Hier kriege ich keine Daten rein:
+//Here i cant get data into it from external folders:
+
 const rows = foodCategories.map((foodCategory) =>
   createData(
     foodCategory.name,
@@ -121,8 +122,18 @@ const rows = foodCategories.map((foodCategory) =>
     foodCategory.recommendedConsumption
   )
 );
-//Dabei wird hierdrauf zugegriffen, um Zuordnung zu rows zu machen   sumOfActualWeeklyConsumptionByFoodCategories[foodCategory.name],
-//recommendedConsumptionByFoodCategoryBasedOnNumberQuizzes[foodCategory.name],
+
+/* It is in the end supposed to look like this, in terms of feeding with data:
+
+const rows = foodCategories.map((foodCategory) =>
+  createData(
+    foodCategory.name,
+    HERE I STILL HAVE TO WRITE THE CALCULATING FUNCTION,
+    sumOfActualWeeklyConsumptionByFoodCategories[foodCategory.name],
+    recommendedConsumptionByFoodCategoryBasedOnNumberQuizzes[foodCategory.name],
+    foodCategory.recommendedConsumption
+
+*/
 
 function createData(
   foodCategoryName,
