@@ -3,7 +3,7 @@ import { BasicForm } from "../formStyles";
 import SubmitButton from "../../Buttons/SubmitButton/SubmitButton";
 import { BasicButton } from "../../Buttons/buttonStyles";
 import { useState, useEffect } from "react";
-import ChevronLeft from "../../../public/chevron-left.svg";
+//import { ChevronLeft } from "../../../public/chevron-left.svg";
 
 export default function FormQuantitySpecification({
   selectedFoodCategory,
@@ -122,7 +122,6 @@ export default function FormQuantitySpecification({
         </StyledButtonWrapper>
         <ButtonBox>
           <BasicButton type="button" onClick={handlePreviousPage}>
-            <StyledChevronLeft />
             {currentIndex === 0 ? "Quiz neustarten" : "Zurück"}
           </BasicButton>
           <SubmitButton text={buttonText} />
@@ -131,6 +130,7 @@ export default function FormQuantitySpecification({
     </>
   );
 }
+
 const Legend = styled.legend`
   height: 4em;
   widht: 4em;
@@ -196,9 +196,12 @@ const StyledButtonWrapper = styled.div`
   justify-content: center;
 `;
 
+/*
+<ChevronLeft />
+
 const StyledChevronLeft = styled(ChevronLeft)`
   width: 1em;
   height: 1em;
-  z-index: 100;
   fill: var(--color-beige);
 `;
+*/

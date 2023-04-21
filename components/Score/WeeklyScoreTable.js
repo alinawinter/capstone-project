@@ -6,10 +6,13 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import TablePagination from "@mui/material/TablePagination";
 import Paper from "@mui/material/Paper";
-import { foodCategories } from "../../lib/db";
 import { useState } from "react";
 
-export default function WeeklyScoreTable({}) {
+export default function WeeklyScoreTable({
+  sumOfActualWeeklyConsumptionByFoodCategories,
+  recommendedConsumptionByFoodCategoryBasedOnNumberQuizzes,
+  foodCategories,
+}) {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(7);
 
@@ -21,6 +24,17 @@ export default function WeeklyScoreTable({}) {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
+
+  const rows = foodCategories.map((category) => {
+    return {
+      foodCategoryName: category.name,
+      actualConsumptionOnNumberOfDays:
+        sumOfActualWeeklyConsumptionByFoodCategories[category.name],
+      recommendedConsumptionForNumberOfDays:
+        recommendedConsumptionByFoodCategoryBasedOnNumberQuizzes[category.name],
+      recommendedDailyConsumption: category.recommendedConsumption,
+    };
+  });
 
   return (
     <>
@@ -126,42 +140,78 @@ export default function WeeklyScoreTable({}) {
   );
 }
 
-//Here i cant get data into it from external folders:
-
-const rows = foodCategories.map((foodCategory) =>
-  createData(
-    foodCategory.name,
-    foodCategory.name,
-    foodCategory.name,
-    foodCategory.name,
-    foodCategory.recommendedConsumption
-  )
-);
-
-/* It is in the end supposed to be something like this, in terms of feeding with data:
-
-const rows = foodCategories.map((foodCategory) =>
-  createData(
-    foodCategory.name,
-    calculateDetailsScoreAccordance(calculateDetailsScoreDeviation, sumOfActualWeeklyConsumptionByFoodCategories[foodCategory.name], recommendedConsumptionByFoodCategoryBasedOnNumberQuizzes[foodCategory.name], maxRangeByFoodCategoryBasedOnNumberQuizzes[foodCategory.name]),
-    sumOfActualWeeklyConsumptionByFoodCategories[foodCategory.name],
-    recommendedConsumptionByFoodCategoryBasedOnNumberQuizzes[foodCategory.name],
-    foodCategory.recommendedConsumption
-
-*/
-
+/*
 function createData(
+foodCategoryName,
+scoreBasedOnNumberOfDays,
+actualConsumptionOnNumberOfDays,
+recommendedConsumptionForNumberOfDays,
+recommendedDailyConsumption
+) {
+return {
   foodCategoryName,
   scoreBasedOnNumberOfDays,
   actualConsumptionOnNumberOfDays,
   recommendedConsumptionForNumberOfDays,
-  recommendedDailyConsumption
-) {
-  return {
-    foodCategoryName,
-    scoreBasedOnNumberOfDays,
-    actualConsumptionOnNumberOfDays,
-    recommendedConsumptionForNumberOfDays,
-    recommendedDailyConsumption,
-  };
-}
+  recommendedDailyConsumption,
+};
+}*/
+
+/*foodCategory.name,
+  foodCategory.name,
+  foodCategory.name,
+  foodCategory.name,
+  foodCategory.recommendedConsumption*/
+
+/* It is in the end supposed to be something like this, in terms of feeding with data:
+
+const rows = foodCategories.map((foodCategory) =>
+createData(
+  foodCategory.name,
+  calculateDetailsScoreAccordance(calculateDetailsScoreDeviation, sumOfActualWeeklyConsumptionByFoodCategories[foodCategory.name], recommendedConsumptionByFoodCategoryBasedOnNumberQuizzes[foodCategory.name], maxRangeByFoodCategoryBasedOnNumberQuizzes[foodCategory.name]),
+  sumOfActualWeeklyConsumptionByFoodCategories[foodCategory.name],
+  recommendedConsumptionByFoodCategoryBasedOnNumberQuizzes[foodCategory.name],
+  foodCategory.recommendedConsumption
+
+*/
+
+/*
+    return {
+      foodCategoryName: category.name,
+      recommendedDailyConsumption: category.recommendedConsumption,
+    };
+  /*
+  const basicDataFromFoodCategoriesArray = foodCategories.map((category) => {
+    return {
+      foodCategoryName: category.name,
+      recommendedDailyConsumption: category.recommendedConsumption,
+    };
+  });
+
+
+  const rows = basicDataFromFoodCategoriesArray.map((item) => {
+    const { foodCategoryName } = item;
+    const actualConsumptionOnNumberOfDays =
+      sumOfActualWeeklyConsumptionByFoodCategories[foodCategoryName];
+    return { ...item, actualConsumptionOnNumberOfDays };
+  });
+*/
+/*
+
+  const = 
+  
+
+  actualConsumptionOnNumberOfDays:
+  sumOfActualWeeklyConsumptionByFoodCategories[category.name],
+recommendedConsumptionForNumberOfDays:
+  recommendedConsumptionByFoodCategoryBasedOnNumberQuizzes[category.name],
+*/
+
+/*
+        scoreBasedOnNumberOfDays,
+
+  actualWeeklyConsumption:
+  sumOfActualWeeklyConsumptionByFoodCategories[category.name],
+recommendedConsumption:
+  recommendedConsumptionByFoodCategoryBasedOnNumberQuizzes[category.name],
+*/

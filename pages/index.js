@@ -28,15 +28,15 @@ export default function Home({
   const [
     sumOfActualWeeklyConsumptionByFoodCategories,
     setSumOfActualWeeklyConsumptionByFoodCategories,
-  ] = useState(null);
+  ] = useState({});
   const [
     recommendedConsumptionByFoodCategoryBasedOnNumberQuizzes,
     setRecommendedConsumptionByFoodCategoryBasedOnNumberQuizzes,
-  ] = useState(null);
+  ] = useState({});
   const [
     maxRangeByFoodCategoryBasedOnNumberQuizzes,
     setMaxRangeByFoodCategoryBasedOnNumberQuizzes,
-  ] = useState(null);
+  ] = useState({});
 
   function handleResetWeek() {
     handleDailyQuizzesResultCollection([]);
