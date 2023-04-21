@@ -1,3 +1,8 @@
+import calculateWeeklyScoreByFoodCategory from "../../utils/weeklyScoreByFoodCategoryUtils";
+import {
+  calculateDetailsScoreAccordance,
+  calculateDetailsScoreDeviation,
+} from "../../utils/detailsScoreUtils";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -11,6 +16,7 @@ import { useState } from "react";
 export default function WeeklyScoreTable({
   sumOfActualWeeklyConsumptionByFoodCategories,
   recommendedConsumptionByFoodCategoryBasedOnNumberQuizzes,
+  maxRangeByFoodCategoryBasedOnNumberQuizzes,
   foodCategories,
 }) {
   const [page, setPage] = useState(0);
@@ -25,9 +31,19 @@ export default function WeeklyScoreTable({
     setPage(0);
   };
 
+  const scoreBasedOnNumberOfDaysObject = calculateWeeklyScoreByFoodCategory(
+    foodCategories,
+    sumOfActualWeeklyConsumptionByFoodCategories,
+    recommendedConsumptionByFoodCategoryBasedOnNumberQuizzes,
+    maxRangeByFoodCategoryBasedOnNumberQuizzes,
+    calculateDetailsScoreAccordance,
+    calculateDetailsScoreDeviation
+  );
+
   const rows = foodCategories.map((category) => {
     return {
       foodCategoryName: category.name,
+      scoreBasedOnNumberOfDays: scoreBasedOnNumberOfDaysObject[category.name],
       actualConsumptionOnNumberOfDays:
         sumOfActualWeeklyConsumptionByFoodCategories[category.name],
       recommendedConsumptionForNumberOfDays:
@@ -137,79 +153,3 @@ export default function WeeklyScoreTable({
     </>
   );
 }
-
-/*
-function createData(
-foodCategoryName,
-scoreBasedOnNumberOfDays,
-actualConsumptionOnNumberOfDays,
-recommendedConsumptionForNumberOfDays,
-recommendedDailyConsumption
-) {
-return {
-  foodCategoryName,
-  scoreBasedOnNumberOfDays,
-  actualConsumptionOnNumberOfDays,
-  recommendedConsumptionForNumberOfDays,
-  recommendedDailyConsumption,
-};
-}*/
-
-/*foodCategory.name,
-  foodCategory.name,
-  foodCategory.name,
-  foodCategory.name,
-  foodCategory.recommendedConsumption*/
-
-/* It is in the end supposed to be something like this, in terms of feeding with data:
-
-const rows = foodCategories.map((foodCategory) =>
-createData(
-  foodCategory.name,
-  calculateDetailsScoreAccordance(calculateDetailsScoreDeviation, sumOfActualWeeklyConsumptionByFoodCategories[foodCategory.name], recommendedConsumptionByFoodCategoryBasedOnNumberQuizzes[foodCategory.name], maxRangeByFoodCategoryBasedOnNumberQuizzes[foodCategory.name]),
-  sumOfActualWeeklyConsumptionByFoodCategories[foodCategory.name],
-  recommendedConsumptionByFoodCategoryBasedOnNumberQuizzes[foodCategory.name],
-  foodCategory.recommendedConsumption
-
-*/
-
-/*
-    return {
-      foodCategoryName: category.name,
-      recommendedDailyConsumption: category.recommendedConsumption,
-    };
-  /*
-  const basicDataFromFoodCategoriesArray = foodCategories.map((category) => {
-    return {
-      foodCategoryName: category.name,
-      recommendedDailyConsumption: category.recommendedConsumption,
-    };
-  });
-
-
-  const rows = basicDataFromFoodCategoriesArray.map((item) => {
-    const { foodCategoryName } = item;
-    const actualConsumptionOnNumberOfDays =
-      sumOfActualWeeklyConsumptionByFoodCategories[foodCategoryName];
-    return { ...item, actualConsumptionOnNumberOfDays };
-  });
-*/
-/*
-
-  const = 
-  
-
-  actualConsumptionOnNumberOfDays:
-  sumOfActualWeeklyConsumptionByFoodCategories[category.name],
-recommendedConsumptionForNumberOfDays:
-  recommendedConsumptionByFoodCategoryBasedOnNumberQuizzes[category.name],
-*/
-
-/*
-        scoreBasedOnNumberOfDays,
-
-  actualWeeklyConsumption:
-  sumOfActualWeeklyConsumptionByFoodCategories[category.name],
-recommendedConsumption:
-  recommendedConsumptionByFoodCategoryBasedOnNumberQuizzes[category.name],
-*/

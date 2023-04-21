@@ -3,7 +3,6 @@ import { BasicForm } from "../formStyles";
 import SubmitButton from "../../Buttons/SubmitButton/SubmitButton";
 import { BasicButton } from "../../Buttons/buttonStyles";
 import { useState, useEffect } from "react";
-//import { ChevronLeft } from "../../../public/chevron-left.svg";
 
 export default function FormQuantitySpecification({
   selectedFoodCategory,
@@ -195,13 +194,3 @@ const StyledButtonWrapper = styled.div`
   flex-wrap: wrap;
   justify-content: center;
 `;
-
-/*
-<ChevronLeft />
-
-const StyledChevronLeft = styled(ChevronLeft)`
-  width: 1em;
-  height: 1em;
-  fill: var(--color-beige);
-`;
-*/

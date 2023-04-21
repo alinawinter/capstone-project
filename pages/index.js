@@ -125,6 +125,9 @@ export default function Home({
             recommendedConsumptionByFoodCategoryBasedOnNumberQuizzes={
               recommendedConsumptionByFoodCategoryBasedOnNumberQuizzes
             }
+            maxRangeByFoodCategoryBasedOnNumberQuizzes={
+              maxRangeByFoodCategoryBasedOnNumberQuizzes
+            }
           />
           <BasicButton
             type="reset"
