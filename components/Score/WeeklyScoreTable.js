@@ -50,19 +50,17 @@ export default function WeeklyScoreTable({
                 "& th": {
                   color: "var(--color-blue)",
                   fontFamily: "var(--font-family-text)",
+                  fontWeight: "bold",
                 },
               }}
             >
               <TableCell
                 sx={{
-                  fontWeight: "bold",
                   backgroundColor: "var(--color-yellow)",
                   position: "sticky",
                   left: "0",
                 }}
-              >
-                Lebensmittel
-              </TableCell>
+              ></TableCell>
               <TableCell align="right">Dein Score</TableCell>
               <TableCell align="right">Dein Konsum&nbsp;(g)</TableCell>
               <TableCell align="right">
