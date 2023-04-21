@@ -29,7 +29,8 @@ export default createGlobalStyle`
   main {
     display: flex;
     flex-direction: column;
-    margin: 1rem auto;
+    margin-top: 1rem auto;
+    margin-bottom: 5rem;
     justify-content: start;
     align-items: center;
     flex-wrap: wrap;

@@ -18,5 +18,4 @@ const StyledContainer = styled.div`
   border-radius: 1.5em;
   color: var(--color-blue);
   text-align: center;
-
 `;
