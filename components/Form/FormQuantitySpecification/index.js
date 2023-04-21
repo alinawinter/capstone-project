@@ -121,7 +121,7 @@ export default function FormQuantitySpecification({
         </StyledButtonWrapper>
         <ButtonBox>
           <BasicButton type="button" onClick={handlePreviousPage}>
-            {currentIndex === 0 ? "< Quiz neustarten" : "< Zurück"}
+            {currentIndex === 0 ? "Quiz neustarten" : "Zurück"}
           </BasicButton>
           <SubmitButton text={buttonText} />
         </ButtonBox>
@@ -129,6 +129,7 @@ export default function FormQuantitySpecification({
     </>
   );
 }
+
 const Legend = styled.legend`
   height: 4em;
   widht: 4em;

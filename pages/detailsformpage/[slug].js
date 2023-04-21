@@ -14,8 +14,6 @@ export default function FormDetailspage({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [calledPush, setCalledPush] = useState(false);
 
-  console.log("currentIndex", currentIndex);
-
   useEffect(() => {
     if (
       selectedFoodCategories === undefined ||
