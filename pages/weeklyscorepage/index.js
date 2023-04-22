@@ -72,7 +72,7 @@ export default function WeeklyScorePage({
         </>
       ) : (
         <ScoreBox>
-          <h2>Dein Wochenscore:</h2>
+          <h2>Dein Wochenscore</h2>
           <WeeklyScore
             dailyQuizzesResultCollection={dailyQuizzesResultCollection}
             foodCategories={foodCategories}
