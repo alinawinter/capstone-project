@@ -102,9 +102,10 @@ export default function InfoPage() {
                 und Gemüse das Risiko von Herz-Kreislauf-Erkrankungen senken.
               </StyledParagraph>
               <StyledParagraph>
-                Auf den Websites des EAT-Lancet-Komitees und des Bundeszentrums
-                für Ernährung finden Sie weitere Informationen und Ressourcen
-                zur Planetary Health Diet und einer nachhaltigen Ernährung.
+                Auf den Websites der EAT-Lancet-Kommission und des
+                Bundeszentrums für Ernährung finden Sie weitere Informationen
+                und Ressourcen zur Planetary Health Diet und einer nachhaltigen
+                Ernährung.
               </StyledParagraph>
             </>
           )}
