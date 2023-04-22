@@ -7,6 +7,7 @@ import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { faLightbulb } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
 import Lottie from "lottie-react";
+import lightbulb from "../../../public/lottie/lightbulb.json";
 
 export default function FormQuantitySpecification({
   selectedFoodCategory,
@@ -107,11 +108,7 @@ export default function FormQuantitySpecification({
             </TooltipBox>
           ) : (
             <EmptyTooltipBox>
-              <LightBulbAnimation
-                animationData={require("../../../public/lottie/lightbulb.json")}
-                autoplay={true}
-                loop={true}
-              />
+              <LightBulbAnimation animationData={lightbulb} />
               <ExplanationToolTip>
                 Hier erhältst du Beispiele für Essensportionen, die dir bei der
                 Einschätzung helfen.
