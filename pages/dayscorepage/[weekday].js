@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import { mergeArrayAllFoodAndSelectedFood } from "../../utils/mergeSelectedAndOtherFoodUtils";
 import { useState } from "react";
 
-export default function ScorePage({
+export default function DayScorePage({
   selectedFoodCategories,
   handleDailyQuizzesResultCollection,
   dailyQuizzesResultCollection,

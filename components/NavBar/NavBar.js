@@ -11,6 +11,9 @@ export default function NavBar() {
         <li>
           <NavItem text="Home" href="/" />
         </li>
+        <li>
+          <NavItem text="Score" href="/weeklyscorepage" />
+        </li>
       </NavBarList>
     </NavBarBox>
   );

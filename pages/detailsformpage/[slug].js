@@ -29,7 +29,7 @@ export default function FormDetailspage({
 
   function handleNextPage() {
     if (currentIndex === selectedFoodCategories.length - 1) {
-      router.push(`/scorepage/${currentWeekDay.toLowerCase()}`);
+      router.push(`/dayscorepage/${currentWeekDay.toLowerCase()}`);
     } else {
       setCurrentIndex(currentIndex + 1);
       router.push(
