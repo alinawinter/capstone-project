@@ -208,12 +208,12 @@ const ToolTipSection = styled.section`
   margin-bottom: 0.3em;
   margin-left: 0.3em;
   margin-right: 0.3em;
+  font-size: 0.9em;
   padding: 0;
   display: flex;
   flex-direction: column;
   gap: 1em;
-  margin-left: 0.5em;
-  margin-right: 0.5em;
+  margin: 1.5em;
 `;
 
 const ToolTipText = styled.p`
