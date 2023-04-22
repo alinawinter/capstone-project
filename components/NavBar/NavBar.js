@@ -50,20 +50,19 @@ const NavBarList = styled.ul`
   align-items: center;
   list-style: none;
   text-decoration: none;
-  justify-content: space-around;
+  justify-content: space-evenly;
   width: 100%;
   height: 100%;
+  padding: 0;
 `;
 
 const StyledLink = styled(Link)`
   font-family: var(--font-family-heading);
-  z-index: 12;
   color: var(--color-beige);
   list-style: none;
   text-decoration: none;
-  height: 4em;
-  width: 4em;
   font-size: 0.9em;
+  width: auto;
   display: flex;
   flex-direction: column;
   align-items: center;

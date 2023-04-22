@@ -1,6 +1,6 @@
 import Layout from "../../components/layout";
 import ContentCard from "../../components/ContentCard/ContentCard";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleChevronDown } from "@fortawesome/free-solid-svg-icons";
@@ -12,20 +12,27 @@ export default function InfoPage() {
   const [showInfo3, setShowInfo3] = useState(false);
   const [showInfo4, setShowInfo4] = useState(false);
 
+  useEffect(() => {}, [showInfo1, showInfo2, showInfo3, showInfo4]);
+  /*useEffect(() => {}, [showInfo2]);
+  useEffect(() => {}, [showInfo3]);
+  useEffect(() => {}, [showInfo4]);*/
+
   return (
     <Layout>
       <h2>Weitere Informationen</h2>
       <ContentCard>
         <StyledSection>
           <HeadingContainer>
-            <StyledButtonShortHeading onClick={() => setShowInfo1(!showInfo1)}>
+            <StyledButton onClick={() => setShowInfo1(!showInfo1)}>
               {showInfo1 ? (
                 <StyledChevronUp icon={faCircleChevronUp} />
               ) : (
                 <StyledChevronDown icon={faCircleChevronDown} />
               )}
-            </StyledButtonShortHeading>
-            <h3>FuturePlate-App</h3>
+            </StyledButton>
+            <StyledHeading onClick={() => setShowInfo1(!showInfo1)}>
+              FuturePlate-App
+            </StyledHeading>
           </HeadingContainer>
           {showInfo1 && (
             <StyledParagraph>
@@ -40,10 +47,16 @@ export default function InfoPage() {
       <ContentCard>
         <StyledSection>
           <HeadingContainer>
-            <StyledButtonLongHeading onClick={() => setShowInfo2(!showInfo2)}>
-              <StyledChevronDown icon={faCircleChevronDown} />
-            </StyledButtonLongHeading>
-            <h3>Was ist die Planetary Health Diet?</h3>
+            <StyledButton onClick={() => setShowInfo2(!showInfo2)}>
+              {showInfo2 ? (
+                <StyledChevronUp icon={faCircleChevronUp} />
+              ) : (
+                <StyledChevronDown icon={faCircleChevronDown} />
+              )}
+            </StyledButton>
+            <StyledHeading onClick={() => setShowInfo2(!showInfo2)}>
+              Was ist die Planetary Health Diet?
+            </StyledHeading>
           </HeadingContainer>
           {showInfo2 && (
             <>
@@ -71,10 +84,16 @@ export default function InfoPage() {
       <ContentCard>
         <StyledSection>
           <HeadingContainer>
-            <StyledButtonLongHeading onClick={() => setShowInfo3(!showInfo3)}>
-              <StyledChevronDown icon={faCircleChevronDown} />
-            </StyledButtonLongHeading>
-            <h3>Was sind die Vorteile der Planetary Health Diet?</h3>
+            <StyledButton onClick={() => setShowInfo3(!showInfo3)}>
+              {showInfo3 ? (
+                <StyledChevronUp icon={faCircleChevronUp} />
+              ) : (
+                <StyledChevronDown icon={faCircleChevronDown} />
+              )}
+            </StyledButton>
+            <StyledHeading onClick={() => setShowInfo3(!showInfo3)}>
+              Was sind die Vorteile der Planetary Health Diet?
+            </StyledHeading>
           </HeadingContainer>
           {showInfo3 && (
             <>
@@ -98,10 +117,16 @@ export default function InfoPage() {
       <ContentCard>
         <StyledSection>
           <HeadingContainer>
-            <StyledButtonShortHeading onClick={() => setShowInfo4(!showInfo4)}>
-              <StyledChevronDown icon={faCircleChevronDown} />
-            </StyledButtonShortHeading>
-            <h3>Wie funktioniert die App?</h3>
+            <StyledButton onClick={() => setShowInfo4(!showInfo4)}>
+              {showInfo4 ? (
+                <StyledChevronUp icon={faCircleChevronUp} />
+              ) : (
+                <StyledChevronDown icon={faCircleChevronDown} />
+              )}
+            </StyledButton>
+            <StyledHeading onClick={() => setShowInfo4(!showInfo4)}>
+              Wie funktioniert die App?
+            </StyledHeading>
           </HeadingContainer>
           {showInfo4 && (
             <>
@@ -131,22 +156,21 @@ const StyledSection = styled.section`
 const HeadingContainer = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
 `;
 
-const StyledButtonLongHeading = styled.button`
-  background-color: transparent;
-  display: flex;
-  border: none;
+const StyledHeading = styled.h3`
+  margin-left: auto;
+  margin-right: auto;
+  align-self: center;
 `;
 
-const StyledButtonShortHeading = styled.button`
+const StyledButton = styled.button`
   background-color: transparent;
-  display: flex;
   border: none;
-  margin-right: 2.5em;
+  align-self: center;
 `;
 
 const StyledChevronDown = styled(FontAwesomeIcon)`
