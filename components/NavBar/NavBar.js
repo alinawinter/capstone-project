@@ -1,18 +1,31 @@
 import styled from "styled-components";
-import NavItem from "./NavItem";
+import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faInfo } from "@fortawesome/free-solid-svg-icons";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { faGenderless } from "@fortawesome/free-solid-svg-icons";
 
 export default function NavBar() {
   return (
     <NavBarBox>
       <NavBarList>
         <li>
-          <NavItem text="Info" href="/infopage" />
+          <StyledLink href="/infopage">
+            <StyledIcon icon={faInfo} />
+            Info
+          </StyledLink>
         </li>
         <li>
-          <NavItem text="Home" href="/" />
+          <StyledLink href="/">
+            <StyledIcon icon={faGenderless} />
+            Start
+          </StyledLink>
         </li>
         <li>
-          <NavItem text="Score" href="/weeklyscorepage" />
+          <StyledLink href="/weeklyscorepage">
+            <StyledIcon icon={faStar} />
+            Score
+          </StyledLink>
         </li>
       </NavBarList>
     </NavBarBox>
@@ -33,7 +46,6 @@ const NavBarBox = styled.nav`
 const NavBarList = styled.ul`
   font-family: var(--font-family-heading);
   color: var(--color-beige);
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
   list-style: none;
@@ -41,4 +53,23 @@ const NavBarList = styled.ul`
   justify-content: space-around;
   width: 100%;
   height: 100%;
+`;
+
+const StyledLink = styled(Link)`
+  font-family: var(--font-family-heading);
+  z-index: 12;
+  color: var(--color-beige);
+  list-style: none;
+  text-decoration: none;
+  height: 4em;
+  width: 4em;
+  font-size: 0.9em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+const StyledIcon = styled(FontAwesomeIcon)`
+  font-size: 2em;
 `;

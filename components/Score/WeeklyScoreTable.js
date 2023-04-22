@@ -78,9 +78,9 @@ export default function WeeklyScoreTable({
                 }}
               ></TableCell>
               <TableCell align="right">Dein Score</TableCell>
-              <TableCell align="right">Dein Konsum&nbsp;(g)</TableCell>
+              <TableCell align="right">Dein Verzehr&nbsp;(g)</TableCell>
               <TableCell align="right">
-                Empfohlener Konsum für Anzahl an Tagen&nbsp;(g)
+                Empfohlener Verzehr für Anzahl an Tagen&nbsp;(g)
               </TableCell>
               <TableCell align="right">Tagesempfehlung&nbsp;(g)</TableCell>
             </TableRow>

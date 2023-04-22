@@ -59,7 +59,7 @@ export default function InfoPage() {
                 Eine wichtige Grundlage der Planetary Health Diet ist die
                 Nährwerttabelle, die speziell entwickelt wurde, um Lebensmittel
                 anhand ihrer gesundheitlichen Aspekte und ihrer
-                Umweltbelastungen zu bewerten. Indem sie den Konsum von
+                Umweltbelastungen zu bewerten. Indem sie den Verzehr von
                 nährstoffreichen und umweltverträglichen Lebensmitteln fördert,
                 unterstützt die Nährwerttabelle die Umsetzung der Ziele der
                 Planetary Health Diet.
@@ -82,7 +82,7 @@ export default function InfoPage() {
                 Die Vorteile dieser Ernährungsweise liegen auf der Hand: Eine
                 pflanzenbasierte Ernährung hat nicht nur positive Auswirkungen
                 auf die Umwelt, sondern kann auch zur Vorbeugung von Krankheiten
-                beitragen. So kann beispielsweise ein erhöhter Konsum von Obst
+                beitragen. So kann beispielsweise ein erhöhter Verzehr von Obst
                 und Gemüse das Risiko von Herz-Kreislauf-Erkrankungen senken.
               </StyledParagraph>
               <StyledParagraph>
@@ -106,8 +106,8 @@ export default function InfoPage() {
           {showInfo4 && (
             <>
               <StyledParagraph>
-                Die App bewertet den Lebensmittelkonsum anhand eines Scores, der
-                auf der Übereinstimmung mit den Vorgaben der Nährwerttabelle
+                Die App bewertet den Lebensmittelverzehr anhand eines Scores,
+                der auf der Übereinstimmung mit den Vorgaben der Nährwerttabelle
                 basiert. Obwohl die Berechnungen für diesen Score nicht auf
                 einer wissenschaftlichen Grundlage beruhen, kann die App dennoch
                 dazu beitragen, die Ernährung im Sinne der Planetary Health Diet
@@ -146,7 +146,7 @@ const StyledButtonShortHeading = styled.button`
   background-color: transparent;
   display: flex;
   border: none;
-  margin-right: 4em;
+  margin-right: 2.5em;
 `;
 
 const StyledChevronDown = styled(FontAwesomeIcon)`

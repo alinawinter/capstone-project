@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { BasicForm } from "../formStyles";
 import SubmitButton from "../../Buttons/SubmitButton/SubmitButton";
 import { BasicButton } from "../../Buttons/buttonStyles";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
 
 export default function FormQuantitySpecification({
@@ -121,7 +123,10 @@ export default function FormQuantitySpecification({
         </StyledButtonWrapper>
         <ButtonBox>
           <BasicButton type="button" onClick={handlePreviousPage}>
-            {currentIndex === 0 ? "Quiz neustarten" : "Zurück"}
+            <StyledBackButtonWrapper>
+              <StyledChevronLeft icon={faChevronLeft} />
+              {currentIndex === 0 ? <p>Quiz neustarten</p> : <p>Zurück</p>}
+            </StyledBackButtonWrapper>
           </BasicButton>
           <SubmitButton text={buttonText} />
         </ButtonBox>
@@ -181,6 +186,13 @@ const TooltipBox = styled.div`
   font-style: italic;
 `;
 
+const StyledButtonWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
+
 const ButtonBox = styled.div`
   display: flex;
   flex-direction: row;
@@ -188,9 +200,15 @@ const ButtonBox = styled.div`
   flex-wrap: wrap;
 `;
 
-const StyledButtonWrapper = styled.div`
+const StyledBackButtonWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-evenly;
+  align-items: center;
+`;
+
+const StyledChevronLeft = styled(FontAwesomeIcon)`
+  color: var(--color-beige);
+  margin: 0.3em;
+  height: 1em;
 `;
