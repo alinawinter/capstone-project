@@ -1,5 +1,5 @@
 import Layout from "../../components/layout";
-import ContentCard from "../../components/ContentCard/ContentCard";
+import DailyQuizCard from "../../components/Card/DailyQuizCard/DailyQuizCard";
 import DayScore from "../../components/Score/DayScore";
 import { BasicButton } from "../../components/Buttons/buttonStyles";
 import { useRouter } from "next/router";
@@ -52,7 +52,7 @@ export default function DayScorePage({
 
   return (
     <Layout>
-      <ContentCard>
+      <DailyQuizCard>
         <h2>Tagesscore</h2>
         <DayScore
           selectedFoodCategories={selectedFoodCategories}
@@ -61,7 +61,7 @@ export default function DayScorePage({
         <BasicButton onClick={handleSaveAndStartPage} type="button">
           Speichern und zur Wochenübersicht
         </BasicButton>
-      </ContentCard>
+      </DailyQuizCard>
     </Layout>
   );
 }

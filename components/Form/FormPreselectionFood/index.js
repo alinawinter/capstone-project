@@ -112,12 +112,12 @@ const CheckBoxList = styled.ul`
   padding: 0;
   gap: 1.2em;
   flex-wrap: wrap;
+  font-weight: bold;
 `;
 const CheckBoxContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 100%;
   color: ${({ isChecked }) =>
     isChecked ? "rgba(244, 241, 222, 1)" : "rgba(224, 122, 95, 1)"};
   background-color: ${({ isChecked }) =>

@@ -1,5 +1,5 @@
 import Layout from "../../components/layout";
-import ContentCard from "../../components/ContentCard/ContentCard";
+import DailyQuizCard from "../../components/Card/DailyQuizCard/DailyQuizCard";
 import FormQuantitySpecification from "../../components/Form/FormQuantitySpecification";
 
 import { useRouter } from "next/router";
@@ -54,7 +54,7 @@ export default function FormDetailspage({
   return (
     selectedFoodCategories.length > 0 && (
       <Layout>
-        <ContentCard>
+        <DailyQuizCard>
           <FormQuantitySpecification
             handleNextPage={handleNextPage}
             currentIndex={currentIndex}
@@ -63,7 +63,7 @@ export default function FormDetailspage({
             handleQuantityPerCategory={handleQuantityPerCategory}
             handlePreviousPage={handlePreviousPage}
           />
-        </ContentCard>
+        </DailyQuizCard>
       </Layout>
     )
   );

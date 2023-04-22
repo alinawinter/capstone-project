@@ -35,7 +35,8 @@ export default createGlobalStyle`
     align-items: center;
     flex-wrap: wrap;
     width: 100%;
-    min-height: 90vh;
+    min-height: 83vh;
+    overflow: auto;
   }
   h2 {
     font-size: 1.2rem;

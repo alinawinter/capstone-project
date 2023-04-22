@@ -1,5 +1,5 @@
 import Layout from "../../components/layout";
-import ContentCard from "../../components/ContentCard/ContentCard";
+import DailyQuizCard from "../../components/Card/DailyQuizCard/DailyQuizCard";
 import FormPreselection from "../../components/Form/FormPreselectionFood";
 
 export default function SelectCategoriesFormPage({
@@ -9,13 +9,13 @@ export default function SelectCategoriesFormPage({
 }) {
   return (
     <Layout>
-      <ContentCard>
+      <DailyQuizCard>
         <FormPreselection
           setSelectedFoodCategories={setSelectedFoodCategories}
           selectedFoodCategories={selectedFoodCategories}
           handleSelectedFoodCategories={handleSelectedFoodCategories}
         />
-      </ContentCard>
+      </DailyQuizCard>
     </Layout>
   );
 }

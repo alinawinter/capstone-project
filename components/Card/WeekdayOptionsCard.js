@@ -24,7 +24,7 @@ const StyledContainer = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  gap: 0.1em;
+  gap: 0.3em;
   padding: 0.6em;
   flex-wrap: wrap;
   height: auto;

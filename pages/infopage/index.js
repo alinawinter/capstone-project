@@ -1,5 +1,5 @@
 import Layout from "../../components/layout";
-import ContentCard from "../../components/ContentCard/ContentCard";
+import ContentCard from "../../components/Card/ContentCard/ContentCard";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -18,7 +18,7 @@ export default function InfoPage() {
     <Layout>
       <h2>Weitere Informationen</h2>
       <InfoText>
-        Hier findest du Informationen zur App und der Planetary Health Diet.
+        Hier findest du Informationen zur App und zur Planetary Health Diet.
       </InfoText>
       <ContentCard>
         <StyledSection>
@@ -72,10 +72,7 @@ export default function InfoPage() {
                 Eine wichtige Grundlage der Planetary Health Diet ist die
                 Nährwerttabelle, die speziell entwickelt wurde, um Lebensmittel
                 anhand ihrer gesundheitlichen Aspekte und ihrer
-                Umweltbelastungen zu bewerten. Indem sie den Verzehr von
-                nährstoffreichen und umweltverträglichen Lebensmitteln fördert,
-                unterstützt die Nährwerttabelle die Umsetzung der Ziele der
-                Planetary Health Diet.
+                Umweltbelastungen zu bewerten.
               </StyledParagraph>
             </>
           )}
