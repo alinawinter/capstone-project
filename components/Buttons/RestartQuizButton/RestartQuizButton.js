@@ -32,6 +32,6 @@ export default function RestartQuizButton({
 }
 
 const StyledRestartQuizButtonWrapper = styled.div`
-  width: 11em;
+  width: 10em;
   height: 1em;
 `;

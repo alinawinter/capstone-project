@@ -13,9 +13,6 @@ export default function InfoPage() {
   const [showInfo4, setShowInfo4] = useState(false);
 
   useEffect(() => {}, [showInfo1, showInfo2, showInfo3, showInfo4]);
-  /*useEffect(() => {}, [showInfo2]);
-  useEffect(() => {}, [showInfo3]);
-  useEffect(() => {}, [showInfo4]);*/
 
   return (
     <Layout>

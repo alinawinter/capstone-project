@@ -30,7 +30,7 @@ export default function WeekdayOptions({
       isQuizTaken={isQuizTaken}
     >
       <DayAndButtonWrapper>
-        <h3>{weekDay}</h3>
+        <StyledHeading>{weekDay}</StyledHeading>
         <RestartQuizButton
           setSelectedFoodCategories={setSelectedFoodCategories}
           weekDay={weekDay}
@@ -66,9 +66,15 @@ export default function WeekdayOptions({
 const DayAndButtonWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: baseline;
   justify-content: space-around;
+  align-items: baseline;
   width: 100%;
+  gap: 1.5em;
+`;
+
+const StyledHeading = styled.h3`
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 const ScoreWrapper = styled.div`
