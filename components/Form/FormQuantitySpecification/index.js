@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { faLightbulb } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
+import Lottie from "lottie-react";
 
 export default function FormQuantitySpecification({
   selectedFoodCategory,
@@ -105,7 +106,17 @@ export default function FormQuantitySpecification({
               </ToolTipSection>
             </TooltipBox>
           ) : (
-            <TooltipBox></TooltipBox>
+            <EmptyTooltipBox>
+              <LightBulbAnimation
+                animationData={require("../../../public/lottie/lightbulb.json")}
+                autoplay={true}
+                loop={true}
+              />
+              <ExplanationToolTip>
+                Hier erhältst du Beispiele für Essensportionen, die dir bei der
+                Einschätzung helfen.
+              </ExplanationToolTip>
+            </EmptyTooltipBox>
           )}
         </OutputAndToolTipBox>
         <InputSection>
@@ -207,6 +218,31 @@ const ToolTipSection = styled.section`
 
 const ToolTipText = styled.p`
   margin: 0;
+`;
+
+const EmptyTooltipBox = styled.div`
+  width: 15em;
+  height: 11em;
+  font-size: 0.9em;
+  border-radius: 1.5em;
+  background-color: rgba(242, 204, 143, 1);
+  display: flex;
+  flex-direction: column;
+  opacity: 0.7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+`;
+
+const LightBulbAnimation = styled(Lottie)`
+  width: 6em;
+  height: 6em;
+`;
+
+const ExplanationToolTip = styled.p`
+  margin: 0;
+  font-size: 0.9em;
 `;
 
 const Input = styled.input.attrs({ type: "range" })`
