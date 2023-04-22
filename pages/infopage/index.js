@@ -17,6 +17,9 @@ export default function InfoPage() {
   return (
     <Layout>
       <h2>Weitere Informationen</h2>
+      <InfoText>
+        Hier findest du Informationen zur App und der Planetary Health Diet.
+      </InfoText>
       <ContentCard>
         <StyledSection>
           <HeadingContainer>
@@ -136,7 +139,7 @@ export default function InfoPage() {
                 verständlicher und zugänglicher zu machen.
               </StyledParagraph>
               <StyledParagraph>
-                Wir wünschen viel Spaß beim Ausprobieren!
+                Ich wünsche viel Spaß beim Ausprobieren!
               </StyledParagraph>
             </>
           )}
@@ -145,6 +148,11 @@ export default function InfoPage() {
     </Layout>
   );
 }
+
+const InfoText = styled.p`
+  flex-wrap: wrap;
+  text-align: center;
+`;
 
 const StyledSection = styled.section`
   width: 100%;
