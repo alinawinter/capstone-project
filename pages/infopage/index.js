@@ -148,8 +148,8 @@ export default function InfoPage() {
 }
 
 const InfoText = styled.p`
-  flex-wrap: wrap;
   text-align: center;
+  margin: 1rem;
 `;
 
 const StyledSection = styled.section`

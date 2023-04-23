@@ -29,8 +29,8 @@ const StyledContainer = styled.div`
   flex-wrap: wrap;
   height: auto;
   width: 90vw;
-  margin: 1em;
-  margin-bottom: 0;
+  margin-top: 1em;
+  margin-bottom: 1em;
   border-radius: 1.5em;
   color: var(--color-blue);
   text-align: center;
