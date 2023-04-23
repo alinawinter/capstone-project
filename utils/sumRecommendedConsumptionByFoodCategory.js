@@ -4,9 +4,10 @@ export default function calculateRecommendedConsumptionByFoodCategoryBasedOnNumb
 ) {
   const recommendedConsumptionByFoodCategoryBasedOnNumberQuizzes =
     foodCategories.reduce((result, foodCategory) => {
-      result[foodCategory.name] =
+      result[foodCategory.name] = Math.floor(
         foodCategory.recommendedConsumption *
-        dailyQuizzesResultCollection.length;
+          dailyQuizzesResultCollection.length
+      );
       return result;
     }, {});
   return recommendedConsumptionByFoodCategoryBasedOnNumberQuizzes;
