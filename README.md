@@ -5,9 +5,9 @@ Welcome to the FuturePlate app! The FuturePlate app facilitates nutrition in the
 The Planetary Health Diet is a scientifically developed concept that aims to promote the health of the planet and people. It aims to reduce the environmental impact of food production while ensuring a balanced diet. An important foundation of the Planetary Health Diet is the nutritional tab
 le, which was developed specifically to evaluate food consumption based on health aspects and environmental impact.
 
-<img width="282" alt="food selection" src="https://user-images.githubusercontent.com/123627153/234046908-ae7d18ac-1114-44e4-a476-65678ccdb1f7.png"> <img width="282" alt="food quantity" src="https://user-images.githubusercontent.com/123627153/234046979-97d957b3-6a9f-412e-a981-36a44cd674df.png"> <img width="282" alt="weekly overview filled" src="https://user-images.githubusercontent.com/123627153/234047167-bef7544a-9bca-4c32-b3b7-993b4f70d629.png">
+<img width="270" alt="food selection" src="https://user-images.githubusercontent.com/123627153/234046908-ae7d18ac-1114-44e4-a476-65678ccdb1f7.png"> <img width="270" alt="food quantity" src="https://user-images.githubusercontent.com/123627153/234046979-97d957b3-6a9f-412e-a981-36a44cd674df.png"> <img width="270" alt="weekly overview filled" src="https://user-images.githubusercontent.com/123627153/234047167-bef7544a-9bca-4c32-b3b7-993b4f70d629.png">
 
-<img width="282" alt="Wochenscore" src="https://user-images.githubusercontent.com/123627153/234047266-d3e74b5f-9716-4f57-95cc-9b2b300049b0.png"> <img width="282" alt="wochenscore tabelle" src="https://user-images.githubusercontent.com/123627153/234047276-4548b914-41fe-4afe-aca6-6996f57beb68.png"> <img width="282" alt="infopage" src="https://user-images.githubusercontent.com/123627153/234048496-ac29403d-996c-42a4-8842-10d630a25dc7.png">
+<img width="270" alt="Wochenscore" src="https://user-images.githubusercontent.com/123627153/234047266-d3e74b5f-9716-4f57-95cc-9b2b300049b0.png"> <img width="270" alt="wochenscore tabelle" src="https://user-images.githubusercontent.com/123627153/234047276-4548b914-41fe-4afe-aca6-6996f57beb68.png"> <img width="270" alt="infopage" src="https://user-images.githubusercontent.com/123627153/234048496-ac29403d-996c-42a4-8842-10d630a25dc7.png">
 
 
 ## Features
