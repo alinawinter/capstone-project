@@ -1,12 +1,12 @@
 import Layout from "../../components/layout";
-import ContentCard from "../../components/ContentCard/ContentCard";
+import DailyQuizCard from "../../components/Card/DailyQuizCard/DailyQuizCard";
 import DayScore from "../../components/Score/DayScore";
 import { BasicButton } from "../../components/Buttons/buttonStyles";
 import { useRouter } from "next/router";
 import { mergeArrayAllFoodAndSelectedFood } from "../../utils/mergeSelectedAndOtherFoodUtils";
 import { useState } from "react";
 
-export default function ScorePage({
+export default function DayScorePage({
   selectedFoodCategories,
   handleDailyQuizzesResultCollection,
   dailyQuizzesResultCollection,
@@ -52,7 +52,7 @@ export default function ScorePage({
 
   return (
     <Layout>
-      <ContentCard>
+      <DailyQuizCard>
         <h2>Tagesscore</h2>
         <DayScore
           selectedFoodCategories={selectedFoodCategories}
@@ -61,7 +61,7 @@ export default function ScorePage({
         <BasicButton onClick={handleSaveAndStartPage} type="button">
           Speichern und zur Wochenübersicht
         </BasicButton>
-      </ContentCard>
+      </DailyQuizCard>
     </Layout>
   );
 }

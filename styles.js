@@ -29,12 +29,14 @@ export default createGlobalStyle`
   main {
     display: flex;
     flex-direction: column;
-    margin: 1rem auto;
+    margin-top: 1em auto;
+    margin-bottom: 5em;
     justify-content: start;
     align-items: center;
     flex-wrap: wrap;
     width: 100%;
-    min-height: 90vh;
+    min-height: 83vh;
+    overflow: auto;
   }
   h2 {
     font-size: 1.2rem;
@@ -42,4 +44,5 @@ export default createGlobalStyle`
   h3 {
     font-size: 1rem;
   }
+
 `;

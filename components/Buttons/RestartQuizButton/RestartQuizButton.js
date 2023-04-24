@@ -25,13 +25,13 @@ export default function RestartQuizButton({
   return (
     <StyledRestartQuizButtonWrapper>
       <BasicButton type="button" onClick={handleClick}>
-        {isQuizTaken ? "Quiz neustarten" : "Quiz starten"}
+        {isQuizTaken ? " Quiz neustarten" : "Tagesquiz starten"}
       </BasicButton>
     </StyledRestartQuizButtonWrapper>
   );
 }
 
 const StyledRestartQuizButtonWrapper = styled.div`
-  width: 11em;
+  width: 10em;
   height: 1em;
 `;

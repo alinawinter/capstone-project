@@ -1,3 +1,4 @@
+import "jest-canvas-mock";
 import FormQuantitySpecification from ".";
 import { render, screen, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
