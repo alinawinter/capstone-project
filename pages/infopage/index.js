@@ -1,18 +1,14 @@
 import Layout from "../../components/layout";
 import ContentCard from "../../components/Card/ContentCard/ContentCard";
-import { useState, useEffect } from "react";
+import ChevronButton from "../../components/Buttons/ChevronButton/ChevronButton";
+import { useState } from "react";
 import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleChevronDown } from "@fortawesome/free-solid-svg-icons";
-import { faCircleChevronUp } from "@fortawesome/free-solid-svg-icons";
 
 export default function InfoPage() {
   const [showInfo1, setShowInfo1] = useState(false);
   const [showInfo2, setShowInfo2] = useState(false);
   const [showInfo3, setShowInfo3] = useState(false);
   const [showInfo4, setShowInfo4] = useState(false);
-
-  useEffect(() => {}, [showInfo1, showInfo2, showInfo3, showInfo4]);
 
   return (
     <Layout>
@@ -23,13 +19,10 @@ export default function InfoPage() {
       <ContentCard>
         <StyledSection>
           <HeadingContainer>
-            <StyledButton onClick={() => setShowInfo1(!showInfo1)}>
-              {showInfo1 ? (
-                <StyledChevronUp icon={faCircleChevronUp} />
-              ) : (
-                <StyledChevronDown icon={faCircleChevronDown} />
-              )}
-            </StyledButton>
+            <ChevronButton
+              isInfoShown={showInfo1}
+              onHandleInfoShown={setShowInfo1}
+            />
             <StyledHeading onClick={() => setShowInfo1(!showInfo1)}>
               FuturePlate-App
             </StyledHeading>
@@ -47,13 +40,10 @@ export default function InfoPage() {
       <ContentCard>
         <StyledSection>
           <HeadingContainer>
-            <StyledButton onClick={() => setShowInfo2(!showInfo2)}>
-              {showInfo2 ? (
-                <StyledChevronUp icon={faCircleChevronUp} />
-              ) : (
-                <StyledChevronDown icon={faCircleChevronDown} />
-              )}
-            </StyledButton>
+            <ChevronButton
+              isInfoShown={showInfo2}
+              onHandleInfoShown={setShowInfo2}
+            />
             <StyledHeading onClick={() => setShowInfo2(!showInfo2)}>
               Was ist die Planetary Health Diet?
             </StyledHeading>
@@ -81,13 +71,10 @@ export default function InfoPage() {
       <ContentCard>
         <StyledSection>
           <HeadingContainer>
-            <StyledButton onClick={() => setShowInfo3(!showInfo3)}>
-              {showInfo3 ? (
-                <StyledChevronUp icon={faCircleChevronUp} />
-              ) : (
-                <StyledChevronDown icon={faCircleChevronDown} />
-              )}
-            </StyledButton>
+            <ChevronButton
+              isInfoShown={showInfo3}
+              onHandleInfoShown={setShowInfo3}
+            />
             <StyledHeading onClick={() => setShowInfo3(!showInfo3)}>
               Was sind die Vorteile der Planetary Health Diet?
             </StyledHeading>
@@ -115,13 +102,10 @@ export default function InfoPage() {
       <ContentCard>
         <StyledSection>
           <HeadingContainer>
-            <StyledButton onClick={() => setShowInfo4(!showInfo4)}>
-              {showInfo4 ? (
-                <StyledChevronUp icon={faCircleChevronUp} />
-              ) : (
-                <StyledChevronDown icon={faCircleChevronDown} />
-              )}
-            </StyledButton>
+            <ChevronButton
+              isInfoShown={showInfo1}
+              onHandleInfoShown={setShowInfo4}
+            />
             <StyledHeading onClick={() => setShowInfo4(!showInfo4)}>
               Wie funktioniert die App?
             </StyledHeading>
@@ -168,22 +152,6 @@ const StyledHeading = styled.h3`
   margin-left: auto;
   margin-right: auto;
   align-self: center;
-`;
-
-const StyledButton = styled.button`
-  background-color: transparent;
-  border: none;
-  align-self: center;
-`;
-
-const StyledChevronDown = styled(FontAwesomeIcon)`
-  color: var(--color-green);
-  font-size: 24px;
-`;
-
-const StyledChevronUp = styled(FontAwesomeIcon)`
-  color: var(--color-green);
-  font-size: 24px;
 `;
 
 const StyledParagraph = styled.p`

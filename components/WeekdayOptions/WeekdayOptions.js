@@ -73,8 +73,7 @@ const DayAndButtonWrapper = styled.div`
 `;
 
 const StyledHeading = styled.h3`
-  margin-left: auto;
-  margin-right: auto;
+  margin-inline: auto;
 `;
 
 const ScoreWrapper = styled.div`

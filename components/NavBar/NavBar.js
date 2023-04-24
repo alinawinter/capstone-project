@@ -8,7 +8,7 @@ import { faGenderless } from "@fortawesome/free-solid-svg-icons";
 export default function NavBar() {
   return (
     <NavBarBox>
-      <NavBarList>
+      <NavBarList role="list">
         <li>
           <StyledLink href="/infopage">
             <StyledIcon icon={faInfo} />

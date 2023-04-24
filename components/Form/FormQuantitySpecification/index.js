@@ -109,10 +109,10 @@ export default function FormQuantitySpecification({
           ) : (
             <EmptyTooltipBox>
               <LightBulbAnimation animationData={lightbulb} />
-              <ExplanationToolTip>
+              <ToolTipText>
                 Hier erhältst du Beispiele für Essensportionen, die dir bei der
                 Einschätzung helfen.
-              </ExplanationToolTip>
+              </ToolTipText>
             </EmptyTooltipBox>
           )}
         </OutputAndToolTipBox>
@@ -215,6 +215,7 @@ const ToolTipSection = styled.section`
 
 const ToolTipText = styled.p`
   margin: 0;
+  font-size: 0.9em;
 `;
 
 const EmptyTooltipBox = styled.div`
@@ -235,11 +236,6 @@ const EmptyTooltipBox = styled.div`
 const LightBulbAnimation = styled(Lottie)`
   width: 6em;
   height: 6em;
-`;
-
-const ExplanationToolTip = styled.p`
-  margin: 0;
-  font-size: 0.9em;
 `;
 
 const Input = styled.input.attrs({ type: "range" })`
