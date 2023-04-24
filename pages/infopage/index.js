@@ -103,7 +103,7 @@ export default function InfoPage() {
         <StyledSection>
           <HeadingContainer>
             <ChevronButton
-              isInfoShown={showInfo1}
+              isInfoShown={showInfo4}
               onHandleInfoShown={setShowInfo4}
             />
             <StyledHeading onClick={() => setShowInfo4(!showInfo4)}>
