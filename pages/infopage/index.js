@@ -16,7 +16,7 @@ export default function InfoPage() {
       <InfoText>
         Hier findest du Informationen zur App und zur Planetary Health Diet.
       </InfoText>
-      <InfoCardsBox>
+      <div>
         <ContentCard>
           <StyledSection>
             <HeadingContainer>
@@ -130,7 +130,7 @@ export default function InfoPage() {
             )}
           </StyledSection>
         </ContentCard>
-      </InfoCardsBox>
+      </div>
     </Layout>
   );
 }
@@ -139,8 +139,6 @@ const InfoText = styled.p`
   text-align: center;
   margin: 1rem;
 `;
-
-const InfoCardsBox = styled.div``;
 
 const StyledSection = styled.section`
   width: 100%;
