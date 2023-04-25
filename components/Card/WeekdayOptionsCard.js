@@ -28,7 +28,6 @@ const StyledContainer = styled.div`
   padding: 0.6em;
   flex-wrap: wrap;
   height: auto;
-  width: 90vw;
   margin-top: 1em;
   margin-bottom: 1em;
   border-radius: 1.5em;

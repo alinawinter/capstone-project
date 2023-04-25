@@ -25,6 +25,7 @@ export default createGlobalStyle`
     font-family: ${montserrat.style.fontFamily}, sans-serif;
     background-color: var(--color-beige);
     color: var(--color-blue);
+    
   }
   main {
     display: flex;
@@ -34,9 +35,9 @@ export default createGlobalStyle`
     justify-content: start;
     align-items: center;
     flex-wrap: wrap;
-    width: 100%;
     min-height: 83vh;
     overflow: auto;
+    padding: 0;   
   }
   h2 {
     font-size: 1.2rem;
@@ -45,4 +46,11 @@ export default createGlobalStyle`
     font-size: 1rem;
   }
 
-`;
+@media only screen and (min-width: 800px) { main {
+  margin: 0 auto;
+  max-width: 700px;
+  width: 500px;
+  margin-bottom: 6em;
+  align-items: center;
+  justify-content: center;
+}`;

@@ -54,6 +54,10 @@ const NavBarList = styled.ul`
   width: 100%;
   height: 100%;
   padding: 0;
+  @media only screen and (min-width: 800px) {
+    justify-content: center;
+    gap: 5em;
+  }
 `;
 
 const StyledLink = styled(Link)`
