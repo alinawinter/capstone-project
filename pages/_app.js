@@ -19,6 +19,10 @@ export default function App({ Component, pageProps }) {
     return () => clearTimeout(timer);
   }, []);
 
+  function handleSetSelectedFoodCategories(selection) {
+    setSelectedFoodCategories(selection);
+  }
+
   function handleCurrentWeekDay(weekday) {
     setCurrentWeekDay(weekday);
   }
@@ -81,7 +85,7 @@ export default function App({ Component, pageProps }) {
         <Component
           {...pageProps}
           selectedFoodCategories={selectedFoodCategories}
-          setSelectedFoodCategories={setSelectedFoodCategories}
+          handleSetSelectedFoodCategories={handleSetSelectedFoodCategories}
           handleSelectedFoodCategories={handleSelectedFoodCategories}
           handleQuantityPerCategory={handleQuantityPerCategory}
           dailyQuizzesResultCollection={dailyQuizzesResultCollection}

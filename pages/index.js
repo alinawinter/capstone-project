@@ -4,7 +4,7 @@ import { BasicButton } from "../components/Buttons/buttonStyles";
 import styled from "styled-components";
 
 export default function Home({
-  setSelectedFoodCategories,
+  handleSetSelectedFoodCategories,
   handleDailyQuizzesResultCollection,
   dailyQuizzesResultCollection,
   handleCurrentWeekDay,
@@ -38,7 +38,7 @@ export default function Home({
           <li key={weekDay}>
             <WeekdayOptions
               key={weekDay}
-              setSelectedFoodCategories={setSelectedFoodCategories}
+              handleSetSelectedFoodCategories={handleSetSelectedFoodCategories}
               dailyQuizzesResultCollection={dailyQuizzesResultCollection}
               handleDailyQuizzesResultCollection={
                 handleDailyQuizzesResultCollection

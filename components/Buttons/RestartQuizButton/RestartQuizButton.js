@@ -3,7 +3,7 @@ import { BasicButton } from "../buttonStyles";
 import { useRouter } from "next/router";
 
 export default function RestartQuizButton({
-  setSelectedFoodCategories,
+  handleSetSelectedFoodCategories,
   weekDay,
   handleCurrentWeekDay,
   handleDailyQuizzesResultCollection,
@@ -14,7 +14,7 @@ export default function RestartQuizButton({
 
   function handleClick() {
     handleCurrentWeekDay(weekDay);
-    setSelectedFoodCategories([]);
+    handleSetSelectedFoodCategories([]);
     const updatedQuizCollection = dailyQuizzesResultCollection.filter(
       ({ weekday }) => weekday !== weekDay
     );

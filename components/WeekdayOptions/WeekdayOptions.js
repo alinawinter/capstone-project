@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { BasicButton } from "../Buttons/buttonStyles";
 
 export default function WeekdayOptions({
-  setSelectedFoodCategories,
+  handleSetSelectedFoodCategories,
   dailyQuizzesResultCollection,
   handleDailyQuizzesResultCollection,
   weekDay,
@@ -32,7 +32,7 @@ export default function WeekdayOptions({
       <DayAndButtonWrapper>
         <StyledHeading>{weekDay}</StyledHeading>
         <RestartQuizButton
-          setSelectedFoodCategories={setSelectedFoodCategories}
+          handleSetSelectedFoodCategories={handleSetSelectedFoodCategories}
           weekDay={weekDay}
           handleCurrentWeekDay={handleCurrentWeekDay}
           handleDailyQuizzesResultCollection={
