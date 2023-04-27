@@ -16,5 +16,5 @@ const StyledContainer = styled.div`
   height: auto;
   width: 100%;
   margin-bottom: 1em;
-  padding: 0.6em;
+  padding: 1em;
 `;

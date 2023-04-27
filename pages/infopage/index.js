@@ -133,7 +133,6 @@ export default function InfoPage() {
 
 const InfoText = styled.p`
   text-align: center;
-  hyphens: auto;
 `;
 
 const StyledSection = styled.section`

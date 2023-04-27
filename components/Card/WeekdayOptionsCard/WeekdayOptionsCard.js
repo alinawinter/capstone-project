@@ -30,13 +30,3 @@ const StyledContainer = styled.div`
   margin-bottom: 1em;
   padding: 1.5em;
 `;
-
-/*
-display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  gap: 0.3em;
-  flex-wrap: wrap;
-
-*/
