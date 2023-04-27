@@ -9,7 +9,7 @@ import { useState } from "react";
 export default function FormPreselection({
   handleSelectedFoodCategories,
   selectedFoodCategories,
-  setSelectedFoodCategories,
+  handleSetSelectedFoodCategories,
 }) {
   const router = useRouter();
   const [isEverythingSelected, setIsEverythingSelected] = useState(false);
@@ -26,7 +26,7 @@ export default function FormPreselection({
       alert("Bitte wählen Sie mindestens eine Kategorie aus");
     } else {
       const orderedArray = selectedFoodCategories.sort((a, b) => a.id - b.id);
-      setSelectedFoodCategories(orderedArray);
+      handleSetSelectedFoodCategories(orderedArray);
       router.push(`/detailsformpage/${selectedFoodCategories[0].slug}`);
     }
   }
@@ -34,7 +34,7 @@ export default function FormPreselection({
   function handleSelectAll(event) {
     event.preventDefault();
     if (isEverythingSelected === true) {
-      setSelectedFoodCategories([]);
+      handleSetSelectedFoodCategories([]);
       setIsEverythingSelected(false);
       setButtonText("Alle Auswählen");
     }
@@ -44,7 +44,7 @@ export default function FormPreselection({
         consumedQuantity: 0,
         isChecked: true,
       }));
-      setSelectedFoodCategories([...checkedFoodCategories]);
+      handleSetSelectedFoodCategories([...checkedFoodCategories]);
       setIsEverythingSelected(true);
       setButtonText("Zurücksetzen");
     }

@@ -4,14 +4,14 @@ import FormPreselection from "../../components/Form/FormPreselectionFood";
 
 export default function SelectCategoriesFormPage({
   handleSelectedFoodCategories,
-  setSelectedFoodCategories,
+  handleSetSelectedFoodCategories,
   selectedFoodCategories,
 }) {
   return (
     <Layout>
       <DailyQuizCard>
         <FormPreselection
-          setSelectedFoodCategories={setSelectedFoodCategories}
+          handleSetSelectedFoodCategories={handleSetSelectedFoodCategories}
           selectedFoodCategories={selectedFoodCategories}
           handleSelectedFoodCategories={handleSelectedFoodCategories}
         />

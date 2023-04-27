@@ -61,8 +61,8 @@ export default function InfoPage() {
               <StyledParagraph>
                 Eine wichtige Grundlage der Planetary Health Diet ist die
                 Nährwerttabelle, die speziell entwickelt wurde, um Lebensmittel
-                anhand ihrer gesundheitlichen Aspekte und ihrer
-                Umweltbelastungen zu bewerten.
+                anhand gesundheitlicher Aspekte und Umweltbelastungen zu
+                bewerten.
               </StyledParagraph>
             </>
           )}
@@ -133,7 +133,7 @@ export default function InfoPage() {
 
 const InfoText = styled.p`
   text-align: center;
-  margin: 1rem;
+  hyphens: auto;
 `;
 
 const StyledSection = styled.section`

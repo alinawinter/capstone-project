@@ -4,7 +4,7 @@ import { BasicButton } from "../components/Buttons/buttonStyles";
 import styled from "styled-components";
 
 export default function Home({
-  setSelectedFoodCategories,
+  handleSetSelectedFoodCategories,
   handleDailyQuizzesResultCollection,
   dailyQuizzesResultCollection,
   handleCurrentWeekDay,
@@ -38,7 +38,7 @@ export default function Home({
           <li key={weekDay}>
             <WeekdayOptions
               key={weekDay}
-              setSelectedFoodCategories={setSelectedFoodCategories}
+              handleSetSelectedFoodCategories={handleSetSelectedFoodCategories}
               dailyQuizzesResultCollection={dailyQuizzesResultCollection}
               handleDailyQuizzesResultCollection={
                 handleDailyQuizzesResultCollection
@@ -62,14 +62,14 @@ export default function Home({
   );
 }
 
+const Description = styled.p`
+  flex-wrap: wrap;
+  text-align: center;
+`;
+
 const List = styled.ul`
   list-style: none;
   padding 0;
   margin-top: 0;
   margin-bottom: 1em;
-`;
-
-const Description = styled.p`
-  flex-wrap: wrap;
-  text-align: center;
 `;

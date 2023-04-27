@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUtensils } from "@fortawesome/free-solid-svg-icons";
+
 export default function Header() {
   return (
     <HeadingContainer>
@@ -22,6 +23,7 @@ const HeadingContainer = styled.div`
   align-items: center;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   gap: 0.5em;
+  width: 100vw;
 `;
 
 const Heading = styled.h1`
@@ -33,5 +35,5 @@ const Heading = styled.h1`
 
 const StyledUtensilsIcon = styled(FontAwesomeIcon)`
   color: var(--color-beige);
-  font-size: 30px;
+  font-size: 2em;
 `;

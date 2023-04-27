@@ -75,7 +75,6 @@ const Hint = styled.p`
   font-style: italic;
   padding: 0.6em;
   flex-wrap: wrap;
-  width: 90vw;
   margin: 1em;
   text-align: center;
 `;

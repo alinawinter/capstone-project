@@ -22,21 +22,26 @@ export default createGlobalStyle`
   }
   body {
     margin: 0;
+    overflow-x: hidden;
+    width: 100%:
+    height: 100%;
     font-family: ${montserrat.style.fontFamily}, sans-serif;
     background-color: var(--color-beige);
     color: var(--color-blue);
+    
   }
   main {
     display: flex;
     flex-direction: column;
     margin-top: 1em auto;
-    margin-bottom: 5em;
-    justify-content: start;
+    margin-bottom: 4em;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    width: 100%;
     min-height: 83vh;
     overflow: auto;
+    padding: 1em;
+    gap: 1em;
   }
   h2 {
     font-size: 1.2rem;
@@ -44,5 +49,10 @@ export default createGlobalStyle`
   h3 {
     font-size: 1rem;
   }
-
+  @media only screen and (max-width: 799px) { main {
+    width: 100vw;
+  }}
+  @media only screen and (min-width: 800px) { main {
+  width: 550px;
+  }}
 `;

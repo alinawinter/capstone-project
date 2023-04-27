@@ -1,14 +1,27 @@
 import GlobalStyle from "../styles";
 import Head from "next/head";
-import { useState } from "react";
+import SplashScreen from "../components/SplashScreen/SplashScreen";
+import { useState, useEffect } from "react";
 import { foodCategories } from "../lib/db";
 import useLocalStorageState from "use-local-storage-state";
 
 export default function App({ Component, pageProps }) {
+  const [showSplashScreen, setShowSplashScreen] = useState(true);
   const [selectedFoodCategories, setSelectedFoodCategories] = useState([]);
   const [dailyQuizzesResultCollection, setDailyQuizzesResultCollection] =
     useLocalStorageState("dailyQuizzesResultCollection", { defaultValue: [] });
   const [currentWeekDay, setCurrentWeekDay] = useState("");
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowSplashScreen(false);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  function handleSetSelectedFoodCategories(selection) {
+    setSelectedFoodCategories(selection);
+  }
 
   function handleCurrentWeekDay(weekday) {
     setCurrentWeekDay(weekday);
@@ -66,18 +79,24 @@ export default function App({ Component, pageProps }) {
       <Head>
         <title>FuturePlate</title>
       </Head>
-      <Component
-        {...pageProps}
-        selectedFoodCategories={selectedFoodCategories}
-        setSelectedFoodCategories={setSelectedFoodCategories}
-        handleSelectedFoodCategories={handleSelectedFoodCategories}
-        handleQuantityPerCategory={handleQuantityPerCategory}
-        dailyQuizzesResultCollection={dailyQuizzesResultCollection}
-        handleDailyQuizzesResultCollection={handleDailyQuizzesResultCollection}
-        currentWeekDay={currentWeekDay}
-        handleCurrentWeekDay={handleCurrentWeekDay}
-        foodCategories={foodCategories}
-      />
+      {showSplashScreen ? (
+        <SplashScreen />
+      ) : (
+        <Component
+          {...pageProps}
+          selectedFoodCategories={selectedFoodCategories}
+          handleSetSelectedFoodCategories={handleSetSelectedFoodCategories}
+          handleSelectedFoodCategories={handleSelectedFoodCategories}
+          handleQuantityPerCategory={handleQuantityPerCategory}
+          dailyQuizzesResultCollection={dailyQuizzesResultCollection}
+          handleDailyQuizzesResultCollection={
+            handleDailyQuizzesResultCollection
+          }
+          currentWeekDay={currentWeekDay}
+          handleCurrentWeekDay={handleCurrentWeekDay}
+          foodCategories={foodCategories}
+        />
+      )}
     </>
   );
 }

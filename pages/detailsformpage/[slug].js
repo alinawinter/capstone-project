@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 
 export default function FormDetailspage({
   selectedFoodCategories,
-  setSelectedFoodCategories,
+  handleSetSelectedFoodCategories,
   handleQuantityPerCategory,
   currentWeekDay,
 }) {
@@ -42,7 +42,7 @@ export default function FormDetailspage({
   function handlePreviousPage() {
     if (currentIndex === 0) {
       router.push("/selectcategoriesformpage");
-      setSelectedFoodCategories([]);
+      handleSetSelectedFoodCategories([]);
     } else {
       setCurrentIndex(currentIndex - 1);
       router.push(

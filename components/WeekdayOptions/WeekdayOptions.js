@@ -1,11 +1,11 @@
-import WeekdayOptionsCard from "../Card/WeekdayOptionsCard";
+import WeekdayOptionsCard from "../Card/WeekdayOptionsCard/WeekdayOptionsCard";
 import RestartQuizButton from "../Buttons/RestartQuizButton/RestartQuizButton";
 import MiniDayScore from "../Score/MiniDayScore";
 import styled from "styled-components";
 import { BasicButton } from "../Buttons/buttonStyles";
 
 export default function WeekdayOptions({
-  setSelectedFoodCategories,
+  handleSetSelectedFoodCategories,
   dailyQuizzesResultCollection,
   handleDailyQuizzesResultCollection,
   weekDay,
@@ -32,7 +32,7 @@ export default function WeekdayOptions({
       <DayAndButtonWrapper>
         <StyledHeading>{weekDay}</StyledHeading>
         <RestartQuizButton
-          setSelectedFoodCategories={setSelectedFoodCategories}
+          handleSetSelectedFoodCategories={handleSetSelectedFoodCategories}
           weekDay={weekDay}
           handleCurrentWeekDay={handleCurrentWeekDay}
           handleDailyQuizzesResultCollection={
@@ -46,7 +46,7 @@ export default function WeekdayOptions({
         (dailyQuiz) => dailyQuiz.weekday === weekDay
       ) && (
         <ScoreWrapper>
-          <p>Letzter Tagesscore:</p>
+          <p>Letzter Tagesscore</p>
           <MiniDayScore
             dailyQuizzesResultCollection={dailyQuizzesResultCollection}
             weekDay={weekDay}
@@ -82,10 +82,10 @@ const ScoreWrapper = styled.div`
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  width: 100%;
+  flex-wrap: wrap;
+  gap: 1em;
 `;
 
 const ResetButtonWrapper = styled.div`
   width: 11em;
-  margin-left: 1em;
 `;
