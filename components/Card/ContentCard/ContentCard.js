@@ -6,16 +6,15 @@ export default function ContentCard({ children }) {
 
 const StyledContainer = styled.div`
   background-color: white;
+  border-radius: 1.5em;
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1em;
-  padding: 1em;
+  gap: 0.3em;
   flex-wrap: wrap;
   height: auto;
-  border-radius: 1.5em;
-  color: var(--color-blue);
-  text-align: center;
   width: 100%;
   margin-bottom: 1em;
+  padding: 1em;
 `;

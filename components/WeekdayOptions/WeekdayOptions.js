@@ -30,7 +30,7 @@ export default function WeekdayOptions({
       isQuizTaken={isQuizTaken}
     >
       <DayAndButtonWrapper>
-        <StyledHeading>{weekDay}</StyledHeading>
+        <h3>{weekDay}</h3>
         <RestartQuizButton
           handleSetSelectedFoodCategories={handleSetSelectedFoodCategories}
           weekDay={weekDay}
@@ -46,17 +46,15 @@ export default function WeekdayOptions({
         (dailyQuiz) => dailyQuiz.weekday === weekDay
       ) && (
         <ScoreWrapper>
-          <p>Letzter Tagesscore</p>
+          <p>Letzter Tagesscore:</p>
           <MiniDayScore
             dailyQuizzesResultCollection={dailyQuizzesResultCollection}
             weekDay={weekDay}
             foodCategories={foodCategories}
           />
-          <ResetButtonWrapper>
-            <BasicButton type="reset" onClick={handleReset}>
-              Zurücksetzen
-            </BasicButton>
-          </ResetButtonWrapper>
+          <BasicButton type="reset" onClick={handleReset}>
+            Zurücksetzen
+          </BasicButton>
         </ScoreWrapper>
       )}
     </WeekdayOptionsCard>
@@ -65,27 +63,18 @@ export default function WeekdayOptions({
 
 const DayAndButtonWrapper = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: baseline;
   width: 100%;
   gap: 1.5em;
-`;
-
-const StyledHeading = styled.h3`
-  margin-inline: auto;
+  justify-content: space-between;
+  align-items: baseline;
 `;
 
 const ScoreWrapper = styled.div`
   font-size: 0.8em;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 1em;
-`;
-
-const ResetButtonWrapper = styled.div`
-  width: 11em;
+  width: 100%;
 `;
