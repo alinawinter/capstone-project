@@ -12,13 +12,13 @@ le, which was developed specifically to evaluate food consumption based on healt
 
 ## Features
 
-•	 Daily quizzes for each week to track your food consumption
+•	 Daily quizzes for a week to track your food consumption
 
 •	Quiz-Tooltip to help you estimate your food consumption using everyday quantities - hence, no need to dive into micro management of counting calories or having to weigh your food
 
 •	Daily and weekly overall scores, which are based on compliance with the specifications of the nutritional table of the Planetary Health Diet that give you a general idea of, in how far your eating habits correspond to the Planetary Health Diet
 
-•	Data overview with individual scores for each food category, allowing you to identify potentials to adapt your eating habits and 
+•	Data overview with individual scores for each food category, allowing you to identify potentials to adapt your eating habits 
   
   
 ## Getting Started
