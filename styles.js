@@ -53,6 +53,6 @@ export default createGlobalStyle`
     width: 100vw;
   }}
   @media only screen and (min-width: 800px) { main {
-  width: 640px;
+  width: 550px;
   }}
 `;
