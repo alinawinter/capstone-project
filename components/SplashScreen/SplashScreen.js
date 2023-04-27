@@ -41,18 +41,3 @@ const PlateAnimation = styled(Lottie)`
   width: 15em;
   height: 15em;
 `;
-
-/*       
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUtensils } from "@fortawesome/free-solid-svg-icons";
-
-<StyledUtensilsIcon icon={faUtensils} />
-
-const StyledUtensilsIcon = styled(FontAwesomeIcon)`
-  color: var(--color-beige);
-  font-size: 2em;
-`;
-
-
-*/
