@@ -23,6 +23,7 @@ const HeadingContainer = styled.div`
   align-items: center;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   gap: 0.5em;
+  width: 100vw;
 `;
 
 const Heading = styled.h1`

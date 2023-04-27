@@ -13,7 +13,6 @@ const StyledContainer = styled.div`
   padding: 1em;
   flex-wrap: wrap;
   height: auto;
-  margin: 1em;
   border-radius: 1.5em;
   color: var(--color-blue);
   text-align: center;

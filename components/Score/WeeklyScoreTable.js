@@ -54,7 +54,7 @@ export default function WeeklyScoreTable({
 
   return (
     <>
-      <TableContainer style={{ width: 350 }} component={Paper}>
+      <TableContainer style={{ width: 340 }} component={Paper}>
         <Table size="small" aria-label="simple table">
           <TableHead
             sx={{

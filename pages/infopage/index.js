@@ -16,128 +16,124 @@ export default function InfoPage() {
       <InfoText>
         Hier findest du Informationen zur App und zur Planetary Health Diet.
       </InfoText>
-      <div>
-        <ContentCard>
-          <StyledSection>
-            <HeadingContainer>
-              <ChevronButton
-                isInfoShown={showInfo1}
-                onHandleInfoShown={setShowInfo1}
-              />
-              <StyledHeading onClick={() => setShowInfo1(!showInfo1)}>
-                FuturePlate-App
-              </StyledHeading>
-            </HeadingContainer>
-            {showInfo1 && (
+      <ContentCard>
+        <StyledSection>
+          <HeadingContainer>
+            <ChevronButton
+              isInfoShown={showInfo1}
+              onHandleInfoShown={setShowInfo1}
+            />
+            <StyledHeading onClick={() => setShowInfo1(!showInfo1)}>
+              FuturePlate-App
+            </StyledHeading>
+          </HeadingContainer>
+          {showInfo1 && (
+            <StyledParagraph>
+              Die FuturePlate-App erleichtert die Umstellung auf die Planetary
+              Health Diet und bietet eine einfache Möglichkeit, diese
+              Ernährungsweise in den Alltag zu integrieren und die eigene
+              Ernährung nachhaltig zu optimieren.
+            </StyledParagraph>
+          )}
+        </StyledSection>
+      </ContentCard>
+      <ContentCard>
+        <StyledSection>
+          <HeadingContainer>
+            <ChevronButton
+              isInfoShown={showInfo2}
+              onHandleInfoShown={setShowInfo2}
+            />
+            <StyledHeading onClick={() => setShowInfo2(!showInfo2)}>
+              Was ist die Planetary Health Diet?
+            </StyledHeading>
+          </HeadingContainer>
+          {showInfo2 && (
+            <>
               <StyledParagraph>
-                Die FuturePlate-App erleichtert die Umstellung auf die Planetary
-                Health Diet und bietet eine einfache Möglichkeit, diese
-                Ernährungsweise in den Alltag zu integrieren und die eigene
-                Ernährung nachhaltig zu optimieren.
+                Die Planetary Health Diet ist ein Konzept, das darauf abzielt,
+                die Gesundheit des Planeten und der Menschen zu fördern. Dabei
+                sollen die Umweltbelastungen der Nahrungsmittelproduktion
+                reduziert werden und gleichzeitig eine ausgewogene Ernährung
+                gewährleistet werden. Die Ziele der Planetary Health Diet sind
+                also sowohl ökologischer als auch gesundheitlicher Natur.
               </StyledParagraph>
-            )}
-          </StyledSection>
-        </ContentCard>
-        <ContentCard>
-          <StyledSection>
-            <HeadingContainer>
-              <ChevronButton
-                isInfoShown={showInfo2}
-                onHandleInfoShown={setShowInfo2}
-              />
-              <StyledHeading onClick={() => setShowInfo2(!showInfo2)}>
-                Was ist die Planetary Health Diet?
-              </StyledHeading>
-            </HeadingContainer>
-            {showInfo2 && (
-              <>
-                <StyledParagraph>
-                  Die Planetary Health Diet ist ein Konzept, das darauf abzielt,
-                  die Gesundheit des Planeten und der Menschen zu fördern. Dabei
-                  sollen die Umweltbelastungen der Nahrungsmittelproduktion
-                  reduziert werden und gleichzeitig eine ausgewogene Ernährung
-                  gewährleistet werden. Die Ziele der Planetary Health Diet sind
-                  also sowohl ökologischer als auch gesundheitlicher Natur.
-                </StyledParagraph>
-                <StyledParagraph>
-                  Eine wichtige Grundlage der Planetary Health Diet ist die
-                  Nährwerttabelle, die speziell entwickelt wurde, um
-                  Lebensmittel anhand gesundheitlicher Aspekte und
-                  Umweltbelastungen zu bewerten.
-                </StyledParagraph>
-              </>
-            )}
-          </StyledSection>
-        </ContentCard>
-        <ContentCard>
-          <StyledSection>
-            <HeadingContainer>
-              <ChevronButton
-                isInfoShown={showInfo3}
-                onHandleInfoShown={setShowInfo3}
-              />
-              <StyledHeading onClick={() => setShowInfo3(!showInfo3)}>
-                Was sind die Vorteile der Planetary Health Diet?
-              </StyledHeading>
-            </HeadingContainer>
-            {showInfo3 && (
-              <>
-                <StyledParagraph>
-                  Die Vorteile dieser Ernährungsweise liegen auf der Hand: Eine
-                  pflanzenbasierte Ernährung hat nicht nur positive Auswirkungen
-                  auf die Umwelt, sondern kann auch zur Vorbeugung von
-                  Krankheiten beitragen. So kann beispielsweise ein erhöhter
-                  Verzehr von Obst und Gemüse das Risiko von
-                  Herz-Kreislauf-Erkrankungen senken.
-                </StyledParagraph>
-                <StyledParagraph>
-                  Auf den Websites der EAT-Lancet-Kommission und des
-                  Bundeszentrums für Ernährung finden Sie weitere Informationen
-                  und Ressourcen zur Planetary Health Diet und einer
-                  nachhaltigen Ernährung.
-                </StyledParagraph>
-              </>
-            )}
-          </StyledSection>
-        </ContentCard>
+              <StyledParagraph>
+                Eine wichtige Grundlage der Planetary Health Diet ist die
+                Nährwerttabelle, die speziell entwickelt wurde, um Lebensmittel
+                anhand gesundheitlicher Aspekte und Umweltbelastungen zu
+                bewerten.
+              </StyledParagraph>
+            </>
+          )}
+        </StyledSection>
+      </ContentCard>
+      <ContentCard>
+        <StyledSection>
+          <HeadingContainer>
+            <ChevronButton
+              isInfoShown={showInfo3}
+              onHandleInfoShown={setShowInfo3}
+            />
+            <StyledHeading onClick={() => setShowInfo3(!showInfo3)}>
+              Was sind die Vorteile der Planetary Health Diet?
+            </StyledHeading>
+          </HeadingContainer>
+          {showInfo3 && (
+            <>
+              <StyledParagraph>
+                Die Vorteile dieser Ernährungsweise liegen auf der Hand: Eine
+                pflanzenbasierte Ernährung hat nicht nur positive Auswirkungen
+                auf die Umwelt, sondern kann auch zur Vorbeugung von Krankheiten
+                beitragen. So kann beispielsweise ein erhöhter Verzehr von Obst
+                und Gemüse das Risiko von Herz-Kreislauf-Erkrankungen senken.
+              </StyledParagraph>
+              <StyledParagraph>
+                Auf den Websites der EAT-Lancet-Kommission und des
+                Bundeszentrums für Ernährung finden Sie weitere Informationen
+                und Ressourcen zur Planetary Health Diet und einer nachhaltigen
+                Ernährung.
+              </StyledParagraph>
+            </>
+          )}
+        </StyledSection>
+      </ContentCard>
 
-        <ContentCard>
-          <StyledSection>
-            <HeadingContainer>
-              <ChevronButton
-                isInfoShown={showInfo4}
-                onHandleInfoShown={setShowInfo4}
-              />
-              <StyledHeading onClick={() => setShowInfo4(!showInfo4)}>
-                Wie funktioniert die App?
-              </StyledHeading>
-            </HeadingContainer>
-            {showInfo4 && (
-              <>
-                <StyledParagraph>
-                  Die App bewertet den Lebensmittelverzehr anhand eines Scores,
-                  der auf der Übereinstimmung mit den Vorgaben der
-                  Nährwerttabelle basiert. Obwohl die Berechnungen für diesen
-                  Score nicht auf einer wissenschaftlichen Grundlage beruhen,
-                  kann die App dennoch dazu beitragen, die Ernährung im Sinne
-                  der Planetary Health Diet verständlicher und zugänglicher zu
-                  machen.
-                </StyledParagraph>
-                <StyledParagraph>
-                  Ich wünsche viel Spaß beim Ausprobieren!
-                </StyledParagraph>
-              </>
-            )}
-          </StyledSection>
-        </ContentCard>
-      </div>
+      <ContentCard>
+        <StyledSection>
+          <HeadingContainer>
+            <ChevronButton
+              isInfoShown={showInfo4}
+              onHandleInfoShown={setShowInfo4}
+            />
+            <StyledHeading onClick={() => setShowInfo4(!showInfo4)}>
+              Wie funktioniert die App?
+            </StyledHeading>
+          </HeadingContainer>
+          {showInfo4 && (
+            <>
+              <StyledParagraph>
+                Die App bewertet den Lebensmittelverzehr anhand eines Scores,
+                der auf der Übereinstimmung mit den Vorgaben der Nährwerttabelle
+                basiert. Obwohl die Berechnungen für diesen Score nicht auf
+                einer wissenschaftlichen Grundlage beruhen, kann die App dennoch
+                dazu beitragen, die Ernährung im Sinne der Planetary Health Diet
+                verständlicher und zugänglicher zu machen.
+              </StyledParagraph>
+              <StyledParagraph>
+                Ich wünsche viel Spaß beim Ausprobieren!
+              </StyledParagraph>
+            </>
+          )}
+        </StyledSection>
+      </ContentCard>
     </Layout>
   );
 }
 
 const InfoText = styled.p`
   text-align: center;
-  margin: 1rem;
+  hyphens: auto;
 `;
 
 const StyledSection = styled.section`

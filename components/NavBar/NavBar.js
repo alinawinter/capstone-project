@@ -54,6 +54,8 @@ const NavBarList = styled.ul`
   width: 100%;
   height: 100%;
   padding: 0;
+  width: 100vw;
+  margin: 0;
   @media only screen and (min-width: 800px) {
     justify-content: center;
     gap: 5em;
